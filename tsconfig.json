@@ -22,6 +22,7 @@
   },
   "include": [
     "src",
-    ".eslintrc.json"
+    ".eslintrc.json",
+    "config-overrides.js"
   ]
 }

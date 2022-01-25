@@ -8,12 +8,12 @@ export const Header = (): JSX.Element => {
     return (
         <header>
             <Container className="header_container">
-                <h1 className="header_container__title">Wexler Calculate</h1>
+                <h1 className="header_container__title">{t('common.title')}</h1>
                 <div className="header_container__actions">
                     <DateComponent></DateComponent>
                     <ButtonGroup>
-                        <Button>{t('buttons.export')}</Button>
-                        <Button>{t('buttons.import')}</Button>
+                        <Button>{t('common.buttons.export')}</Button>
+                        <Button>{t('common.buttons.import')}</Button>
                     </ButtonGroup>
                 </div>
             </Container>

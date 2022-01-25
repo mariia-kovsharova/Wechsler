@@ -1,8 +1,9 @@
+import './i18n';
 import React from 'react';
 import { Container } from '@mui/material';
 import { Header } from './ui/Header';
 import { StudentSection } from './ui/Student';
-import './i18n';
+import { TabsSection } from './ui/Tabs';
 
 function App() {
     return (
@@ -12,7 +13,9 @@ function App() {
                 <Container className="student_container">
                     <StudentSection></StudentSection>
                 </Container>
-                <Container className="tabs_container"></Container>
+                <Container className="tabs_container">
+                    <TabsSection></TabsSection>
+                </Container>
             </main>
         </React.Fragment>
     );
