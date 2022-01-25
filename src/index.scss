@@ -1,0 +1,24 @@
+$margin: 4px;
+$margin-md: 8px;
+
+@mixin group($parent, $children, $margin: $margin) {
+    .#{$parent} {
+        margin-left: -$margin;
+        margin-right: -$margin;
+
+        @each $child in $children {
+            .#{$child} {
+                margin-left: $margin;
+                margin-right: $margin;
+            }
+        }
+    }
+}
+
+.student_container {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+}
+
+@include group("student_container", "student_container__field");

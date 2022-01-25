@@ -1,6 +1,6 @@
-export const isNil = (value: any): value is null => {
+export const isNil = (value: unknown): value is null => {
     return value === null || typeof value === 'undefined';
-}
+};
 
 export const formatClassNames = (names: { [key: string]: boolean }): string => Object.entries(names)
     .filter(([, value]) => !!value)

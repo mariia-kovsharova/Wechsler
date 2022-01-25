@@ -1,9 +1,10 @@
+/* eslint-disable max-len */
 import {
     ArithmeticSubtest, AwarenessSubtest, ComprehensibilitySubtest,
     CubesSubtest, DetailsSubtest, DigitsRepeatSubtest,
     EncryptionSubtest, FiguresSubtest, ImagesSubtest,
     LabyrinthsSubtest, LexicalSubtest, SimilaritySubtest,
-    Subtest
+    Subtest,
 } from '../../subtests';
 import { Period } from '../period';
 

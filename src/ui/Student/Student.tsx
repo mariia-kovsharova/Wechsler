@@ -1,5 +1,5 @@
 import {
-    Container, FormControl, FormControlLabel, FormLabel,
+    FormControl, FormControlLabel, FormLabel,
     Radio, RadioGroup, TextField,
 } from '@mui/material';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -12,6 +12,8 @@ import { useUpdateStudent, useUpdateStudentBirthdate } from '../../services/useU
 import { useStudentStorage } from '../../repository/storageAdapter';
 import { StudentKey } from '../../domain/use-cases';
 import { Student } from '../../domain/entities/student/student';
+
+const FIELD_CSS_CLASS = 'student_container__field';
 
 export const StudentSection = (): JSX.Element => {
     const { t } = useTranslation();
@@ -31,53 +33,51 @@ export const StudentSection = (): JSX.Element => {
 
     return (
         <React.Fragment>
-            <Container className="wexler-student-container">
-                <FormControl component="fieldset">
-                    <TextField
-                        id="name"
-                        type="text"
-                        label={t('student.fio')}
-                        onChange={propertyHandler}
-                        value={student.name}
+            <FormControl component="fieldset" className={FIELD_CSS_CLASS}>
+                <TextField
+                    id="name"
+                    type="text"
+                    label={t('student.fio')}
+                    onChange={propertyHandler}
+                    value={student.name}
+                />
+            </FormControl>
+
+            <FormControl component="fieldset" className={FIELD_CSS_CLASS}>
+                <LocalizationProvider dateAdapter={AdapterDateFns}
+                    locale={ru}>
+                    <DatePicker
+                        label={t('student.birthdate')}
+                        value={student.birthDate}
+                        onChange={updateStudentBirthdate}
+                        renderInput={(params) => <TextField {...params} />}
                     />
-                </FormControl>
+                </LocalizationProvider>
+            </FormControl>
 
-                <FormControl component="fieldset">
-                    <LocalizationProvider dateAdapter={AdapterDateFns}
-                        locale={ru}>
-                        <DatePicker
-                            label={t('student.birthdate')}
-                            value={student.birthDate}
-                            onChange={updateStudentBirthdate}
-                            renderInput={(params) => <TextField {...params} />}
-                        />
-                    </LocalizationProvider>
-                </FormControl>
-
-                <FormControl component="fieldset">
-                    <FormLabel component="legend">{t('student.gender.title')}</FormLabel>
-                    <RadioGroup
-                        id="gender"
-                        aria-label="gender"
+            <FormControl component="fieldset" className={FIELD_CSS_CLASS}>
+                <FormLabel component="legend">{t('student.gender.title')}</FormLabel>
+                <RadioGroup
+                    id="gender"
+                    aria-label="gender"
+                    name="gender"
+                    value={student.gender}
+                    onChange={propertyHandler}
+                >
+                    <FormControlLabel
                         name="gender"
-                        value={student.gender}
-                        onChange={propertyHandler}
-                    >
-                        <FormControlLabel
-                            name="gender"
-                            value="male"
-                            control={<Radio />}
-                            label={maleLabel}
-                        />
-                        <FormControlLabel
-                            name="gender"
-                            value="female"
-                            control={<Radio />}
-                            label={femaleLabel}
-                        />
-                    </RadioGroup>
-                </FormControl>
-            </Container>
+                        value="male"
+                        control={<Radio />}
+                        label={maleLabel}
+                    />
+                    <FormControlLabel
+                        name="gender"
+                        value="female"
+                        control={<Radio />}
+                        label={femaleLabel}
+                    />
+                </RadioGroup>
+            </FormControl>
         </React.Fragment>
     );
 };

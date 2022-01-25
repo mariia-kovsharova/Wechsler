@@ -6,7 +6,9 @@ export type StudentGender = 'male' | 'female';
 
 export class Student {
     private _name: StudentName | null;
+
     private _birthDate: StudentDate | null;
+
     private _gender: StudentGender | null;
 
     constructor() {

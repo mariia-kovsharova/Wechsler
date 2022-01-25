@@ -28,5 +28,5 @@ export const DateComponent = (): JSX.Element => {
                 />
             </LocalizationProvider>
         </FormControl>
-    )
-}
+    );
+};

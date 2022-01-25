@@ -1,10 +1,9 @@
 import { isSameDay } from 'date-fns';
 import { periodFactory } from '../../lib/periodFactory';
-import { isNil } from '../../lib/utils';
 import { StudentDate } from '../entities/student/student';
 import { IMetadataStorageService, IPeriodStorageService, IStudentStorageService } from '../ports';
 
-export interface UpdateStudentBirhtdateUseCaseDependencies {
+export interface IUpdateStudentBirhtdateUseCaseDependencies {
     studentStorage: IStudentStorageService;
     metadataStorage: IMetadataStorageService;
     periodStorage: IPeriodStorageService;
@@ -18,7 +17,7 @@ export interface UpdateStudentBirhtdateUseCaseDependencies {
  * 
  */
 
-export const updateStudentBirthdateUseCase = (birthdate: Date | null, deps: UpdateStudentBirhtdateUseCaseDependencies): void => {
+export const updateStudentBirthdateUseCase = (birthdate: Date | null, deps: IUpdateStudentBirhtdateUseCaseDependencies): void => {
     const { student, updateStudent } = deps.studentStorage;
     const { date } = deps.metadataStorage;
 
@@ -35,4 +34,4 @@ export const updateStudentBirthdateUseCase = (birthdate: Date | null, deps: Upda
     if (birthdate && date) {
         const period = periodFactory(date, birthdate as StudentDate);
     }
-}
+};

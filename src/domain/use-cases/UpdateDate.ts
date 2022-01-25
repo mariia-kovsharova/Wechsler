@@ -1,7 +1,7 @@
 import { IMetadataStorageService } from '../ports';
 import { TestDate } from '../types';
 
-export interface UpdateDateUseCaseDependencies {
+export interface IUpdateDateUseCaseDependencies {
     metadataStorage: IMetadataStorageService;
 }
 
@@ -11,8 +11,8 @@ export interface UpdateDateUseCaseDependencies {
  * 
  */
 
-export const updateDateUseCase = (date: TestDate | null, deps: UpdateDateUseCaseDependencies): void => {
+export const updateDateUseCase = (date: TestDate | null, deps: IUpdateDateUseCaseDependencies): void => {
     console.log('here');
     const { updateDate } = deps.metadataStorage;
     updateDate(date);
-}
+};

@@ -5,7 +5,9 @@ const MAXIMUM_COUNT_OF_TESTS_IN_GROUP = 6;
 
 export abstract class Period {
     public readonly description: string;
+
     private verbalSubtests: ReadonlyArray<Subtest>;
+
     private inverbalSubtests: ReadonlyArray<Subtest>;
 
     constructor(description: string) {

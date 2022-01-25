@@ -6,6 +6,7 @@ export type SubtestName = Brand<string, 'subtest'>;
 
 export abstract class Subtest {
     private readonly values: ReadonlyArray<number>;
+
     private _rawPoints: number | null;
 
     // protected readonly type!: SubtestType;

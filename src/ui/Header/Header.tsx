@@ -1,4 +1,4 @@
-import { Button, ButtonGroup } from '@mui/material';
+import { Button, ButtonGroup, Container } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { DateComponent } from '../Date';
 
@@ -7,7 +7,7 @@ export const Header = (): JSX.Element => {
 
     return (
         <header>
-            <section className="header_container">
+            <Container className="header_container">
                 <h1 className="header_container__title">Wexler Calculate</h1>
                 <div className="header_container__actions">
                     <DateComponent></DateComponent>
@@ -16,7 +16,7 @@ export const Header = (): JSX.Element => {
                         <Button>{t('buttons.import')}</Button>
                     </ButtonGroup>
                 </div>
-            </section>
+            </Container>
         </header>
     );
 };

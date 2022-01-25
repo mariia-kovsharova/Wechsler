@@ -1,7 +1,7 @@
 import React from 'react';
+import { Container } from '@mui/material';
 import { Header } from './ui/Header';
-import { StudentSection } from './ui/Student/Student';
-import './main.scss';
+import { StudentSection } from './ui/Student';
 import './i18n';
 
 function App() {
@@ -9,10 +9,10 @@ function App() {
         <React.Fragment>
             <Header/>
             <main>
-                <section className="student_container">
+                <Container className="student_container">
                     <StudentSection></StudentSection>
-                </section>
-                <section className="tabs_container"></section>
+                </Container>
+                <Container className="tabs_container"></Container>
             </main>
         </React.Fragment>
     );

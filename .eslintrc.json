@@ -2,13 +2,14 @@
     "root": true,
     "parser": "@typescript-eslint/parser",
     "plugins": [
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "import"
     ],
     "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
-        "airbnb-base",
+        "airbnb-typescript",
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
         "plugin:react-hooks/recommended"
     ],
@@ -17,17 +18,10 @@
     },
     "rules": {
         "import/prefer-default-export": 0,
-        "import/extensions": [
-            2,
-            "ignorePackages",
-            {
-                "jsx": "never",
-                "tsx": "never"
-            }
-        ],
         "indent": "off",
         "@typescript-eslint/indent": [
-            "error"
+            "error",
+            4
         ],
         "max-len": [
             "error",
@@ -53,6 +47,7 @@
         ],
         "no-eval": "error",
         "no-debugger": "error",
-        "no-console": "error"
+        "no-console": "error",
+        "react/jsx-filename-extension": 0
     }
 }

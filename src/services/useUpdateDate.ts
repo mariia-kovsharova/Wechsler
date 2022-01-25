@@ -4,5 +4,5 @@ import { useMetadataStorage } from '../repository/storageAdapter';
 
 export function useUpdateDate() {
     const metadataStorage = useMetadataStorage();
-    return (date: Date | null) => updateDateUseCase(date as TestDate | null, { metadataStorage })
+    return (date: Date | null) => updateDateUseCase(date as TestDate | null, { metadataStorage });
 }

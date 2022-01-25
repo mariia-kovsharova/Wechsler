@@ -5,7 +5,8 @@ import { useMetadataStorage, usePeriodStorage, useStudentStorage } from '../repo
 
 export function useUpdateStudent() {
     const studentStorage = useStudentStorage();
-    return <T extends StudentKey>(property: T, value: Student[T]) => updateStudentUseCase(property, value, { studentStorage })
+    return <T extends StudentKey>(property: T, value: Student[T]) =>
+        updateStudentUseCase(property, value, { studentStorage });
 }
 
 export function useUpdateStudentBirthdate() {
@@ -16,6 +17,6 @@ export function useUpdateStudentBirthdate() {
     return (date: Date | null) => updateStudentBirthdateUseCase(date, {
         studentStorage,
         metadataStorage,
-        periodStorage
-    })
+        periodStorage,
+    });
 }

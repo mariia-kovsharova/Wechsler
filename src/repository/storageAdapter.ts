@@ -3,13 +3,13 @@ import { IMetadataStorageService, IPeriodStorageService, IStudentStorageService 
 import { useStore } from './store';
 
 export function useStudentStorage(): IStudentStorageService {
-    return useStore();
+    return useStore() as IStudentStorageService;
 }
 
 export function useMetadataStorage(): IMetadataStorageService {
-    return useStore();
+    return useStore() as IMetadataStorageService;
 }
 
 export function usePeriodStorage(): IPeriodStorageService {
-    return useStore();
+    return useStore() as IPeriodStorageService;
 }
