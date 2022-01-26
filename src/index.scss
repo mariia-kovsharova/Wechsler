@@ -1,6 +1,10 @@
 @import "styles/mixins";
 @import "styles/typography.scss";
 
+body {
+    font-family: "Roboto";
+}
+
 .student_container {
     display: flex !important;
     flex-direction: row;

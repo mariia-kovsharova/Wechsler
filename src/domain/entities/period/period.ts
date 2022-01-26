@@ -1,23 +1,116 @@
+import { Getter } from '../../../lib/getter';
+import { isNil } from '../../../lib/utils';
+import {
+    ArithmeticSubtest, AwarenessSubtest, ComprehensibilitySubtest,
+    CubesSubtest, DetailsSubtest, DigitsRepeatSubtest,
+    EncryptionSubtest, FiguresSubtest, ImagesSubtest,
+    LabyrinthsSubtest, LexicalSubtest, SimilaritySubtest,
+} from '../subtests';
 import { Subtest } from '../subtests/subtest';
 
 const MINIMAL_COUNT_OF_TESTS_IN_GROUP = 4;
 const MAXIMUM_COUNT_OF_TESTS_IN_GROUP = 6;
 
-export abstract class Period {
+export interface IPeriod {
+    awareness: AwarenessSubtest;
+    // comprehensibility: ComprehensibilitySubtest;
+    // arithmetic: ArithmeticSubtest;
+    // similarity: SimilaritySubtest;
+    // lexical: LexicalSubtest;
+    // digitsRepeat: DigitsRepeatSubtest;
+    // details: DetailsSubtest;
+    // images: ImagesSubtest;
+    // cubes: CubesSubtest;
+    // figures: FiguresSubtest;
+    // encription: EncryptionSubtest;
+    // labyrinth: LabyrinthsSubtest;
+}
+
+export type TestName = keyof IPeriod;
+
+export abstract class Period implements Readonly<IPeriod> {
     public readonly description: string;
 
-    private verbalSubtests: ReadonlyArray<Subtest>;
+    private _awareness!: AwarenessSubtest;
 
-    private inverbalSubtests: ReadonlyArray<Subtest>;
+    public get awareness(): AwarenessSubtest {
+        return this._awareness;
+    }
+
+    protected set awareness(value: AwarenessSubtest) {
+        this._awareness = value;
+    }
+
+    protected comprehensibility!: ComprehensibilitySubtest;
+
+    // public get comprehensibility(): ComprehensibilitySubtest {
+    //     return this._comprehensibility;
+    // }
+
+    protected arithmetic!: ArithmeticSubtest;
+
+    // public get arithmetic(): ArithmeticSubtest {
+    //     return this._arithmetic;
+    // }
+
+    protected similarity!: SimilaritySubtest;
+
+    // public get similarity(): SimilaritySubtest {
+    //     return this._similarity;
+    // }
+
+    protected lexical!: LexicalSubtest;
+
+    // public get lexical(): LexicalSubtest {
+    //     return this._lexical;
+    // }
+
+    protected digitsRepeat!: DigitsRepeatSubtest;
+
+    protected details!: DetailsSubtest;
+
+    protected images!: ImagesSubtest;
+
+    protected cubes!: CubesSubtest;
+
+    protected figures!: FiguresSubtest;
+
+    protected encription!: EncryptionSubtest;
+
+    protected labyrinth!: LabyrinthsSubtest;
 
     constructor(description: string) {
         this.description = description;
-        this.verbalSubtests = this.getVerbalSubtests();
-        this.inverbalSubtests = this.getInverbalSubtests();
+        this.initVerbalSubtests();
+        this.initInverbalSubtests();
+        this.validateSubtests();
     }
 
-    protected abstract getVerbalSubtests(): ReadonlyArray<Subtest>;
-    protected abstract getInverbalSubtests(): ReadonlyArray<Subtest>;
+    protected abstract initVerbalSubtests(): void;
+
+    protected abstract initInverbalSubtests(): void;
+
+    public get verbalSubtests(): ReadonlyArray<Subtest> {
+        return [
+            this.awareness,
+            this.comprehensibility,
+            this.arithmetic,
+            this.similarity,
+            this.lexical,
+            this.digitsRepeat,
+        ];
+    }
+
+    public get inverbalSubtests(): ReadonlyArray<Subtest> {
+        return [
+            this.details,
+            this.images,
+            this.cubes,
+            this.figures,
+            this.encription,
+            this.labyrinth,
+        ];
+    }
 
     // public getInvalidTests(): TestError[] {
     //     const mapper = (test: AbstractTest) => test.validate();
@@ -30,16 +123,9 @@ export abstract class Period {
     //     return verbal.concat(inverbal);
     // }
 
-    // public updateTestValue(name: string, newValue: number | null): void {
-    //     // TODO: в ФП стиле будет не мутация, а создание нового теста. Только как определить?
-    //     const unchangedTests = this.tests.filter((test: AbstractTest) => test.getName() !== name);
-    //     const changedTest = this.tests.find((test: AbstractTest) => test.getName() === name);
-
-    //     if (changedTest) {
-    //         changedTest.rawPoints = newValue;
-    //         this.tests = [...unchangedTests, changedTest];
-    //     }
-    // }
+    public updateTestValue(name: keyof IPeriod, value: number | null): void {
+        this[name].rawPoints = value;
+    }
 
     // public isTestCountValid(): boolean {
     //     const filledVerbalTests = this.verbalTests.filter((test: AbstractTest) => !test.isEmpty());
@@ -61,14 +147,6 @@ export abstract class Period {
     //     return this.calculateResult(this.inverbalTests);
     // }
 
-    // public get verbalTests(): ReadonlyArray<AbstractTest> {
-    //     return this.tests.filter((test: AbstractTest): boolean => test.isVerbal());
-    // }
-
-    // public get inverbalTests(): ReadonlyArray<AbstractTest> {
-    //     return this.tests.filter((test: AbstractTest): boolean => test.isInverbal());
-    // }
-
     // private calculateResult(values: ReadonlyArray<AbstractTest>): ReadonlyMap<string, IResult> {
     //     return values.reduce((map, test) => {
     //         const name = test.getName();
@@ -83,5 +161,16 @@ export abstract class Period {
     //     }, new Map());
     // }
 
+    private validateSubtests(): void | never {
+        const areVerbalSubtestsInitialized = this.verbalSubtests.every(x => !isNil(x));
+        const areInverbalSubtestsInitialized = this.inverbalSubtests.every(x => !isNil(x));
 
+        if (!areVerbalSubtestsInitialized) {
+            throw new Error('One of verbal test is not initialized!');
+        }
+
+        if (!areInverbalSubtestsInitialized) {
+            throw new Error('One of inverbal test is not initialized!');
+        }
+    }
 }
