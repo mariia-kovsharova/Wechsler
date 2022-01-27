@@ -12,8 +12,9 @@ import { useUpdateStudent, useUpdateStudentBirthdate } from '../../services/useU
 import { useStudentStorage } from '../../repository/storageAdapter';
 import { StudentKey } from '../../domain/use-cases';
 import { Student } from '../../domain/entities/student/student';
+import { Masks } from '../constants';
 
-const FIELD_CSS_CLASS = 'student_container__field';
+const FIELD_CSS_CLASS = 'student-container__field';
 
 export const StudentSection = (): JSX.Element => {
     const { t } = useTranslation();
@@ -49,6 +50,7 @@ export const StudentSection = (): JSX.Element => {
                     <DatePicker
                         label={t('student.birthdate')}
                         value={student.birthDate}
+                        mask={Masks.Date}
                         onChange={updateStudentBirthdate}
                         renderInput={(params) => <TextField {...params} />}
                     />

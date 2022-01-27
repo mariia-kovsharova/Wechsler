@@ -1,4 +1,3 @@
-import { Getter } from '../../../lib/getter';
 import { isNil } from '../../../lib/utils';
 import {
     ArithmeticSubtest, AwarenessSubtest, ComprehensibilitySubtest,
@@ -13,8 +12,8 @@ const MAXIMUM_COUNT_OF_TESTS_IN_GROUP = 6;
 
 export interface IPeriod {
     awareness: AwarenessSubtest;
-    // comprehensibility: ComprehensibilitySubtest;
-    // arithmetic: ArithmeticSubtest;
+    comprehensibility: ComprehensibilitySubtest;
+    arithmetic: ArithmeticSubtest;
     // similarity: SimilaritySubtest;
     // lexical: LexicalSubtest;
     // digitsRepeat: DigitsRepeatSubtest;
@@ -41,17 +40,25 @@ export abstract class Period implements Readonly<IPeriod> {
         this._awareness = value;
     }
 
-    protected comprehensibility!: ComprehensibilitySubtest;
+    private _comprehensibility!: ComprehensibilitySubtest;
 
-    // public get comprehensibility(): ComprehensibilitySubtest {
-    //     return this._comprehensibility;
-    // }
+    public get comprehensibility(): ComprehensibilitySubtest {
+        return this._comprehensibility;
+    }
 
-    protected arithmetic!: ArithmeticSubtest;
+    protected set comprehensibility(value: ComprehensibilitySubtest) {
+        this._comprehensibility = value;
+    }
 
-    // public get arithmetic(): ArithmeticSubtest {
-    //     return this._arithmetic;
-    // }
+    private _arithmetic!: ArithmeticSubtest;
+
+    public get arithmetic(): ArithmeticSubtest {
+        return this._arithmetic;
+    }
+
+    protected set arithmetic(value: ArithmeticSubtest) {
+        this._arithmetic = value;
+    }
 
     protected similarity!: SimilaritySubtest;
 
@@ -65,7 +72,7 @@ export abstract class Period implements Readonly<IPeriod> {
     //     return this._lexical;
     // }
 
-    protected digitsRepeat!: DigitsRepeatSubtest;
+    protected digits!: DigitsRepeatSubtest;
 
     protected details!: DetailsSubtest;
 
@@ -97,7 +104,7 @@ export abstract class Period implements Readonly<IPeriod> {
             this.arithmetic,
             this.similarity,
             this.lexical,
-            this.digitsRepeat,
+            this.digits,
         ];
     }
 

@@ -5,6 +5,7 @@ import { ru } from 'date-fns/locale';
 import { useTranslation } from 'react-i18next';
 import { useMetadataStorage } from '../../repository/storageAdapter';
 import { useUpdateDate } from '../../services/useUpdateDate';
+import { Masks } from '../constants';
 /**
  * Структура такая - UI является управляющим адаптером (взаимодействие с пользователем)
  * UI не должен знать, каким образом изменить домен, он должен только
@@ -23,6 +24,7 @@ export const DateComponent = (): JSX.Element => {
                     label={t('common.date')}
                     value={date}
                     onChange={update}
+                    mask={Masks.Date}
                     clearable={false}
                     renderInput={(params) => <TextField {...params} />}
                 />

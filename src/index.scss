@@ -5,10 +5,10 @@ body {
     font-family: "Roboto";
 }
 
-.student_container {
+.student-container {
     display: flex !important;
     flex-direction: row;
     align-items: center;
 }
 
-@include group("student_container", "student_container__field");
+@include group("student-container", "student-container__field");

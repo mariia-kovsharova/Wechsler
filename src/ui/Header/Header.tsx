@@ -7,9 +7,9 @@ export const Header = (): JSX.Element => {
 
     return (
         <header>
-            <Container className="header_container">
-                <h1 className="header_container__title">{t('common.title')}</h1>
-                <div className="header_container__actions">
+            <Container className="header-container">
+                <h1 className="header-container__title">{t('common.title')}</h1>
+                <div className="header-container__actions">
                     <DateComponent></DateComponent>
                     <ButtonGroup>
                         <Button>{t('common.buttons.export')}</Button>

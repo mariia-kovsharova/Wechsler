@@ -4,8 +4,6 @@ import { StudentDate } from '../domain/entities/student/student';
 import { TestDate } from '../domain/types';
 
 export const periodFactory = (testDate: TestDate, studentBirthDate: StudentDate): Period | null => {
-    console.log('inside period factory');
-
     const daysCount = differenceInDays(testDate, studentBirthDate);
 
     switch (true) {

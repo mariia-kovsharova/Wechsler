@@ -11,7 +11,7 @@ export const isNumber = (value: unknown): value is number => typeof value === 'n
 
 export const isString = (value: unknown): value is string => typeof value === 'string';
 
-export const isNumericString = (value: unknown): value is string => isString(value) && /^\d*$/.test(value);
+export const isNumericString = (value: unknown): value is string => isString(value) && /^\d+$/.test(value);
 
 export const getCurrentDate = (): Date => new Date(Date.now());
 

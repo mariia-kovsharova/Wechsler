@@ -3,7 +3,7 @@ import { TabContext } from '@mui/lab';
 import { Box, Tab } from '@mui/material';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { RawTestsTable } from '../Test';
+import { RawTestTable } from '../Test';
 
 enum TabId {
     RawTest = 'raw-test',
@@ -36,7 +36,7 @@ export const TabsSection = (): JSX.Element => {
                     </TabList>
                 </Box>
                 <TabPanel id="points" value={TabId.RawTest}>
-                    <RawTestsTable></RawTestsTable>
+                    <RawTestTable></RawTestTable>
                 </TabPanel>
                 <TabPanel id="results" value={TabId.Result}>Item Two</TabPanel>
             </TabContext>
