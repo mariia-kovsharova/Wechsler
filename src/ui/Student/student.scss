@@ -1,0 +1,11 @@
+@import "./../../styles/mixins";
+
+.student-container {
+    @include flex-column();
+
+    &__row {
+        @include flex-row();
+    }
+}
+
+@include vertical-group("student-container", "student-container__row", $unit-md);

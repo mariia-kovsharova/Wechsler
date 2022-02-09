@@ -1,0 +1,12 @@
+@import "./../../styles/mixins";
+
+.header-container {
+    @include flex-column();
+    margin-bottom: $unit-lg;
+
+    &__actions {
+        @include flex-row();
+        @include justify-content-space-between();
+        @include align-items-center();
+    }
+}

@@ -33,53 +33,55 @@ export const StudentSection = (): JSX.Element => {
     };
 
     return (
-        <React.Fragment>
-            <FormControl component="fieldset" className={FIELD_CSS_CLASS}>
-                <TextField
-                    id="name"
-                    type="text"
-                    label={t('student.fio')}
-                    onChange={propertyHandler}
-                    value={student.name}
-                />
-            </FormControl>
-
-            <FormControl component="fieldset" className={FIELD_CSS_CLASS}>
-                <LocalizationProvider dateAdapter={AdapterDateFns}
-                    locale={ru}>
-                    <DatePicker
-                        label={t('student.birthdate')}
-                        value={student.birthDate}
-                        mask={Masks.Date}
-                        onChange={updateStudentBirthdate}
-                        renderInput={(params) => <TextField {...params} />}
+        <section className="student-container">
+            <div className="student-container__row flex-grow">
+                <FormControl component="fieldset" className={FIELD_CSS_CLASS}>
+                    <TextField
+                        id="name"
+                        type="text"
+                        label={t('student.fio')}
+                        onChange={propertyHandler}
+                        value={student.name}
                     />
-                </LocalizationProvider>
-            </FormControl>
-
-            <FormControl component="fieldset" className={FIELD_CSS_CLASS}>
-                <FormLabel component="legend">{t('student.gender.title')}</FormLabel>
-                <RadioGroup
-                    id="gender"
-                    aria-label="gender"
-                    name="gender"
-                    value={student.gender}
-                    onChange={propertyHandler}
-                >
-                    <FormControlLabel
+                </FormControl>
+                <FormControl component="fieldset" className={FIELD_CSS_CLASS}>
+                    <LocalizationProvider dateAdapter={AdapterDateFns}
+                        locale={ru}>
+                        <DatePicker
+                            label={t('student.birthdate')}
+                            value={student.birthDate}
+                            mask={Masks.Date}
+                            onChange={updateStudentBirthdate}
+                            renderInput={(params) => <TextField {...params} />}
+                        />
+                    </LocalizationProvider>
+                </FormControl>
+            </div>
+            <div className="student-container__row">
+                <FormControl component="fieldset" className={FIELD_CSS_CLASS}>
+                    <FormLabel component="legend">{t('student.gender.title')}</FormLabel>
+                    <RadioGroup
+                        id="gender"
+                        aria-label="gender"
                         name="gender"
-                        value="male"
-                        control={<Radio />}
-                        label={maleLabel}
-                    />
-                    <FormControlLabel
-                        name="gender"
-                        value="female"
-                        control={<Radio />}
-                        label={femaleLabel}
-                    />
-                </RadioGroup>
-            </FormControl>
-        </React.Fragment>
+                        value={student.gender}
+                        onChange={propertyHandler}
+                    >
+                        <FormControlLabel
+                            name="gender"
+                            value="male"
+                            control={<Radio />}
+                            label={maleLabel}
+                        />
+                        <FormControlLabel
+                            name="gender"
+                            value="female"
+                            control={<Radio />}
+                            label={femaleLabel}
+                        />
+                    </RadioGroup>
+                </FormControl>
+            </div>        
+        </section>
     );
 };

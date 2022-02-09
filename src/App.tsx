@@ -10,10 +10,10 @@ function App() {
         <React.Fragment>
             <Header/>
             <main>
-                <Container className="student_container">
+                <Container>
                     <StudentSection></StudentSection>
                 </Container>
-                <Container className="tabs_container">
+                <Container>
                     <TabsSection></TabsSection>
                 </Container>
             </main>

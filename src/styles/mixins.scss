@@ -1,6 +1,6 @@
 @import "variables";
 
-@mixin group($parent, $children, $margin: $margin) {
+@mixin group($parent, $children, $margin: $unit) {
     .#{$parent} {
         margin-left: -$margin;
         margin-right: -$margin;
@@ -12,4 +12,53 @@
             }
         }
     }
+}
+
+@mixin vertical-group($parent, $children, $margin: $unit) {
+    .#{$parent} {
+        margin-top: -$margin;
+        margin-bottom: -$margin;
+
+        @each $child in $children {
+            .#{$child} {
+                margin-top: $margin;
+                margin-bottom: $margin;
+            }
+        }
+    }
+}
+
+// Flex
+@mixin flex-row() {
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin flex-column() {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin justify-content-space-between() {
+    justify-content: space-between;
+}
+
+@mixin justify-content-center() {
+    justify-content: center;
+}
+
+@mixin align-items-start() {
+    align-items: flex-start;
+}
+
+@mixin align-items-center() {
+    align-items: center;
+}
+
+@mixin align-items-end() {
+    align-items: flex-end;
+}
+
+@mixin flex-grow() {
+    flex-grow: 1;
 }

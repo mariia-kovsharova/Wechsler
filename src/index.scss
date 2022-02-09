@@ -1,14 +1,14 @@
 @import "styles/mixins";
 @import "styles/typography.scss";
 
+@import "ui/index.scss";
+
 body {
     font-family: "Roboto";
 }
 
-.student-container {
-    display: flex !important;
-    flex-direction: row;
-    align-items: center;
+.flex-grow {
+    @include flex-grow();
 }
 
 @include group("student-container", "student-container__field");

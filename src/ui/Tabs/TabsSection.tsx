@@ -31,8 +31,8 @@ export const TabsSection = (): JSX.Element => {
             <TabContext value={state.selectedTab}>
                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                     <TabList onChange={handleTabChange} aria-label="tabs">
-                        <Tab label={t('tabs.points.title')} value={TabId.RawTest} />
-                        <Tab label={t('tabs.results.title')} value={TabId.Result} />
+                        <Tab label={t('common.tabs.points.title')} value={TabId.RawTest} />
+                        <Tab label={t('common.tabs.results.title')} value={TabId.Result} />
                     </TabList>
                 </Box>
                 <TabPanel id="points" value={TabId.RawTest}>
