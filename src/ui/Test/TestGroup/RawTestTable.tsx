@@ -25,6 +25,7 @@ export const RawTestTable = (): JSX.Element => {
                         <TableRow>
                             <TableCell>{t('subtest.table.header.name')}</TableCell>
                             <TableCell align="right">{t('subtest.table.header.points')}</TableCell>
+                            <TableCell width="20px" align="right"></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>

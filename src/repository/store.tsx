@@ -11,14 +11,17 @@ export const Provider: React.FC = ({ children }) => {
     const [student, setStudent] = useState(new Student());
     const [date, setDate] = useState(getCurrentDate());
     const [period, setPeriod] = useState(null);
+    const [conclusion, setConclusion] = useState('');
 
     const value = {
         student,
         date,
         period,
+        conclusion,
         updateStudent: setStudent,
         updateDate: setDate,
         updatePeriod: setPeriod,
+        updateConclusion: setConclusion,
     };
 
     return (

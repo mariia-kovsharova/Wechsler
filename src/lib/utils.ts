@@ -26,3 +26,7 @@ export const coerceToNumber = (value: unknown): number | null => {
 
     return null;
 };
+
+export const nameOf = <T>(prop: Extract<keyof T, string>): string => prop;
+
+export const buildSubtestTranslateKey = (name: string): string => `subtest.${name}`;

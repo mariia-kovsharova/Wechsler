@@ -4,6 +4,7 @@ import common from './locales/ru/common.json';
 import student from './locales/ru/student.json';
 import subtest from './locales/ru/subtest.json';
 import range from './locales/ru/range.json';
+import chart from './locales/ru/chart.json';
 
 // eslint-disable-next-line @typescript-eslint/no-floating-promises
 i18n.use(initReactI18next).init({
@@ -14,6 +15,7 @@ i18n.use(initReactI18next).init({
                 student,
                 subtest,
                 range,
+                chart,
             },
         },
     },

@@ -2,19 +2,17 @@ import { IconButton, TableCell, TableRow, Tooltip } from '@mui/material';
 import WarningIcon from '@mui/icons-material/WarningRounded';
 import { useTranslation } from 'react-i18next';
 import { Subtest } from '../../../domain/entities/subtests';
-import { formatClassNames } from '../../../lib/utils';
+import { buildSubtestTranslateKey, formatClassNames } from '../../../lib/utils';
 import { useUpdatePeriod } from '../../../services/useUpdatePeriod';
 
 export interface IRawTestItemProps {
     subtest: Subtest;
 }
 
-const buildTranslateKey = (name: string): string => `subtest.${name}`;
-
 const getTooltip = (title: string): JSX.Element => {
     return (
-        <Tooltip title={title}>
-            <IconButton>
+        <Tooltip className="tooltip-container" title={title}>
+            <IconButton className="tooltip-container__content">
                 <WarningIcon />
             </IconButton>
         </Tooltip>
@@ -27,7 +25,8 @@ export const RawTestItem = (props: IRawTestItemProps): JSX.Element => {
 
     const { subtest } = props;
 
-    const name = buildTranslateKey(subtest.name);
+    const name = buildSubtestTranslateKey(subtest.name);
+
     const classNames = formatClassNames({
         'field': true,
         'field__invalid': subtest.isInvalid,
@@ -38,13 +37,13 @@ export const RawTestItem = (props: IRawTestItemProps): JSX.Element => {
         updatePeriod(subtest.name, value);
     };
 
-    // console.log(subtest);
-
     return (
         <TableRow key={subtest.name}>
             <TableCell key={`${name}-label`} component="th" scope="row">{t(name)}</TableCell>
             <TableCell key={name} align="right" className={classNames}>
                 <input type="text" onChange={handlePointChange} value={subtest.rawPoints ?? ''} />
+            </TableCell>
+            <TableCell width="20px">
                 { subtest.isInvalid
                     ? getTooltip(t('subtest.maxPointsOverflow', { value: subtest.maxAvaiableValue }))
                     : <div className="tooltip-container__empty"></div>

@@ -1,4 +1,3 @@
-import { TestName } from '../domain/entities/period';
 import { SubtestName } from '../domain/entities/subtests';
 import { updatePeriodSubtestUseCase } from '../domain/use-cases/UpdatePeriodSubtest';
 import { usePeriodStorage } from '../repository/storageAdapter';
@@ -8,5 +7,5 @@ export function useUpdatePeriod() {
 
     return (name: SubtestName, value: string | number | null) =>
         // TODO: how to avoid casting?
-        updatePeriodSubtestUseCase(name as TestName, value, { periodStorage });
+        updatePeriodSubtestUseCase(name, value, { periodStorage });
 }

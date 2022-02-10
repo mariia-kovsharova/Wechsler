@@ -11,11 +11,11 @@ export const Header = (): JSX.Element => {
                 <section className="header-container">
                     <h1 className="header-container__title">{t('common.title')}</h1>
                     <div className="header-container__actions">
-                        <DateComponent></DateComponent>
                         <ButtonGroup>
                             <Button>{t('common.buttons.export')}</Button>
                             <Button>{t('common.buttons.import')}</Button>
                         </ButtonGroup>
+                        <DateComponent></DateComponent>
                     </div>
                 </section>
             </Container>

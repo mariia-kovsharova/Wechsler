@@ -1,6 +1,6 @@
 @import "variables";
 
-@mixin group($parent, $children, $margin: $unit) {
+@mixin group($parent, $children, $margin: $node) {
     .#{$parent} {
         margin-left: -$margin;
         margin-right: -$margin;
@@ -14,7 +14,7 @@
     }
 }
 
-@mixin vertical-group($parent, $children, $margin: $unit) {
+@mixin vertical-group($parent, $children, $margin: $node) {
     .#{$parent} {
         margin-top: -$margin;
         margin-bottom: -$margin;
@@ -37,26 +37,6 @@
 @mixin flex-column() {
     display: flex;
     flex-direction: column;
-}
-
-@mixin justify-content-space-between() {
-    justify-content: space-between;
-}
-
-@mixin justify-content-center() {
-    justify-content: center;
-}
-
-@mixin align-items-start() {
-    align-items: flex-start;
-}
-
-@mixin align-items-center() {
-    align-items: center;
-}
-
-@mixin align-items-end() {
-    align-items: flex-end;
 }
 
 @mixin flex-grow() {

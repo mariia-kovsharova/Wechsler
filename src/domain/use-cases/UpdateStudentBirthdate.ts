@@ -10,14 +10,6 @@ export interface IUpdateStudentBirhtdateUseCaseDependencies {
     periodStorage: IPeriodStorageService;
 }
 
-/**
- * Это use case - описывает действия, которые необходимо реализовать
- * для того, чтобы обновить данные по студенту
- *
- * Use Case служит определением, какие действия необходимо совершить, чтобы обновить данные по студенту
- * 
- */
-
 export const updateStudentBirthdateUseCase = (
     birthdate: Date | null,
     deps: IUpdateStudentBirhtdateUseCaseDependencies,

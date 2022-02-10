@@ -1,6 +1,6 @@
 import { Period } from './entities/period';
 import { Student } from './entities/student/student';
-import { TestDate } from './types';
+import { TestConclusion, TestDate } from './types';
 
 export interface IStudentStorageService {
     student: Student;
@@ -9,7 +9,9 @@ export interface IStudentStorageService {
 
 export interface IMetadataStorageService {
     date: TestDate;
+    conclusion: TestConclusion;
     updateDate: (date: TestDate | null) => void;
+    updateConclusion: (conclusion: TestConclusion) => void;
 }
 
 export interface IPeriodStorageService {

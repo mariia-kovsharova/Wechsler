@@ -6,6 +6,10 @@
     &__row {
         @include flex-row();
     }
+
+    &__field {
+        width: 100%;
+    }
 }
 
-@include vertical-group("student-container", "student-container__row", $unit-md);
+@include vertical-group("student-container", "student-container__row", $node-md);

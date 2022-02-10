@@ -1,20 +1,14 @@
 import { cloneDeep } from 'lodash-es';
 import { coerceToNumber, isNil } from '../../lib/utils';
-import { TestName } from '../entities/period';
 import { IPeriodStorageService } from '../ports';
+import { IPeriod } from '../types';
 
 export interface IUpdatePeriodUseCaseDependencies {
     periodStorage: IPeriodStorageService;
 }
 
-/**
- * Это use case - описывает действия, которые необходимо реализовать
- * для того, чтобы обновить данные по дате 
- * 
- */
-
 export const updatePeriodSubtestUseCase = (
-    name: TestName,
+    name: keyof IPeriod,
     value: number | string | null,
     deps: IUpdatePeriodUseCaseDependencies,
 ): void => {

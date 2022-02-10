@@ -1,7 +1,7 @@
 import { isNil } from '../../../lib/utils';
-import { Brand } from '../../types';
+import { Brand, IPeriod, TestName } from '../../types';
 
-export type SubtestName = Brand<string, 'subtest'>;
+export type SubtestName = Brand<TestName, 'subtest'>;
 
 export abstract class Subtest {
     private readonly values: ReadonlyArray<number>;
@@ -10,8 +10,8 @@ export abstract class Subtest {
 
     public name!: SubtestName;
 
-    constructor(name: SubtestName, values: ReadonlyArray<number>) {
-        this.name = name;
+    constructor(name: keyof IPeriod, values: ReadonlyArray<number>) {
+        this.name = name as SubtestName;
         this.values = values;
         this._rawPoints = null;
     }

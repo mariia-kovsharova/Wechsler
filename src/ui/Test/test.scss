@@ -1,0 +1,22 @@
+@import "./../../styles/mixins";
+
+.subtest-table {
+    @include flex-column();
+
+    caption {
+        display: flex;
+        order: 0;
+        font-style: bold;
+    }
+}
+
+.tooltip-container__empty {
+    width: 30px;
+    height: 30px;
+}
+
+.scaled-table {
+    &__marked {
+        background-color: $light-gray;
+    }
+}

@@ -8,12 +8,6 @@ export interface IUpdateDateUseCaseDependencies {
     periodStorage: IPeriodStorageService;
 }
 
-/**
- * Это use case - описывает действия, которые необходимо реализовать
- * для того, чтобы обновить данные по дате 
- * 
- */
-
 export const updateDateUseCase = (date: TestDate | null, deps: IUpdateDateUseCaseDependencies): void => {
     const { student } = deps.studentStorage;
     const { updatePeriod } = deps.periodStorage;

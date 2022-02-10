@@ -7,7 +7,7 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from '@mui/lab/DatePicker';
 import { useTranslation } from 'react-i18next';
 import { ru } from 'date-fns/locale';
-import React, { ChangeEvent } from 'react';
+import { ChangeEvent } from 'react';
 import { useUpdateStudent, useUpdateStudentBirthdate } from '../../services/useUpdateStudent';
 import { useStudentStorage } from '../../repository/storageAdapter';
 import { StudentKey } from '../../domain/use-cases';
@@ -44,6 +44,8 @@ export const StudentSection = (): JSX.Element => {
                         value={student.name}
                     />
                 </FormControl>
+            </div>
+            <div className="student-container__row">
                 <FormControl component="fieldset" className={FIELD_CSS_CLASS}>
                     <LocalizationProvider dateAdapter={AdapterDateFns}
                         locale={ru}>
@@ -56,8 +58,6 @@ export const StudentSection = (): JSX.Element => {
                         />
                     </LocalizationProvider>
                 </FormControl>
-            </div>
-            <div className="student-container__row">
                 <FormControl component="fieldset" className={FIELD_CSS_CLASS}>
                     <FormLabel component="legend">{t('student.gender.title')}</FormLabel>
                     <RadioGroup

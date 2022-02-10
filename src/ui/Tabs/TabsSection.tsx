@@ -4,6 +4,8 @@ import { Box, Tab } from '@mui/material';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RawTestTable } from '../Test';
+import { ResultSection } from '.';
+import { usePeriodStorage } from '../../repository/storageAdapter';
 
 enum TabId {
     RawTest = 'raw-test',
@@ -20,6 +22,8 @@ const INITIAL_STATE: TabUiState = {
 
 export const TabsSection = (): JSX.Element => {
     const { t } = useTranslation();
+    const { period } = usePeriodStorage();
+
     const [state, setState] = useState<TabUiState>(INITIAL_STATE);
 
     const handleTabChange = (_event: React.ChangeEvent<unknown>, selectedTab: TabId): void => {
@@ -32,13 +36,17 @@ export const TabsSection = (): JSX.Element => {
                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                     <TabList onChange={handleTabChange} aria-label="tabs">
                         <Tab label={t('common.tabs.points.title')} value={TabId.RawTest} />
-                        <Tab label={t('common.tabs.results.title')} value={TabId.Result} />
+                        <Tab label={t('common.tabs.results.title')} 
+                            value={TabId.Result} 
+                            disabled={!period?.isTestCountValid()}/>
                     </TabList>
                 </Box>
                 <TabPanel id="points" value={TabId.RawTest}>
                     <RawTestTable></RawTestTable>
                 </TabPanel>
-                <TabPanel id="results" value={TabId.Result}>Item Two</TabPanel>
+                <TabPanel id="results" value={TabId.Result} >
+                    <ResultSection></ResultSection>
+                </TabPanel>
             </TabContext>
         </React.Fragment>
     );
