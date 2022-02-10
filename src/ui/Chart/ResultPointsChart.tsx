@@ -19,12 +19,12 @@ export const ResultPointsChart = (props: ResultPointsChartProps): JSX.Element =>
 
     return (
         <React.Fragment>
-            <LineChart width={600} height={600} data={data} margin={{
-                top: 50, right: 20, bottom: 280, left: 20,
+            <LineChart width={600} height={800} data={data} margin={{
+                top: 50, right: 20, bottom: 0, left: 20,
             }}>
                 <Line type="monotone" dataKey="value" stroke="#8884d8" connectNulls={true} />
                 <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-                <XAxis dataKey="name" interval={0} angle={-90} textAnchor="end" />
+                <XAxis dataKey="name" interval={0} angle={-90} textAnchor="end" height={300} />
                 <YAxis interval={0} tickCount={MAX_Y_AXIS_VALUE} domain={domain}>
                     <Label angle={-90} value={pointsLabel} position='insideLeft' style={{ textAnchor: 'middle' }} />
                 </YAxis>
