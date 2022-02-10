@@ -7,15 +7,17 @@ export const Header = (): JSX.Element => {
 
     return (
         <header>
-            <Container className="header_container">
-                <h1 className="header_container__title">Wexler Calculate</h1>
-                <div className="header_container__actions">
-                    <DateComponent></DateComponent>
-                    <ButtonGroup>
-                        <Button>{t('buttons.export')}</Button>
-                        <Button>{t('buttons.import')}</Button>
-                    </ButtonGroup>
-                </div>
+            <Container>
+                <section className="header-container">
+                    <h1 className="header-container__title">{t('common.title')}</h1>
+                    <div className="header-container__actions">
+                        <ButtonGroup>
+                            <Button>{t('common.buttons.export')}</Button>
+                            <Button>{t('common.buttons.import')}</Button>
+                        </ButtonGroup>
+                        <DateComponent></DateComponent>
+                    </div>
+                </section>
             </Container>
         </header>
     );

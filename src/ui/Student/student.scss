@@ -1,0 +1,15 @@
+@import "./../../styles/mixins";
+
+.student-container {
+    @include flex-column();
+
+    &__row {
+        @include flex-row();
+    }
+
+    &__field {
+        width: 100%;
+    }
+}
+
+@include vertical-group("student-container", "student-container__row", $node-md);

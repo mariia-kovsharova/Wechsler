@@ -1,0 +1,44 @@
+@import "variables";
+
+@mixin group($parent, $children, $margin: $node) {
+    .#{$parent} {
+        margin-left: -$margin;
+        margin-right: -$margin;
+
+        @each $child in $children {
+            .#{$child} {
+                margin-left: $margin;
+                margin-right: $margin;
+            }
+        }
+    }
+}
+
+@mixin vertical-group($parent, $children, $margin: $node) {
+    .#{$parent} {
+        margin-top: -$margin;
+        margin-bottom: -$margin;
+
+        @each $child in $children {
+            .#{$child} {
+                margin-top: $margin;
+                margin-bottom: $margin;
+            }
+        }
+    }
+}
+
+// Flex
+@mixin flex-row() {
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin flex-column() {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-grow() {
+    flex-grow: 1;
+}

@@ -1,7 +1,7 @@
-import { Subtest, SubtestName } from '../subtest';
+import { Subtest } from '../subtest';
 
 export class DetailsSubtest extends Subtest {
     constructor(values: ReadonlyArray<number>) {
-        super('details' as SubtestName, values);
+        super('details', values);
     }
 }

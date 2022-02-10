@@ -1,20 +1,17 @@
 import { isNil } from '../../../lib/utils';
-import { Brand } from '../../types';
+import { Brand, IPeriod, TestName } from '../../types';
 
-export type SubtestName = Brand<string, 'subtest'>;
-// export type SubtestType = 'verbal' | 'inverbal';
+export type SubtestName = Brand<TestName, 'subtest'>;
 
 export abstract class Subtest {
     private readonly values: ReadonlyArray<number>;
 
     private _rawPoints: number | null;
 
-    // protected readonly type!: SubtestType;
-
     public name!: SubtestName;
 
-    constructor(name: SubtestName, values: ReadonlyArray<number>) {
-        this.name = name;
+    constructor(name: keyof IPeriod, values: ReadonlyArray<number>) {
+        this.name = name as SubtestName;
         this.values = values;
         this._rawPoints = null;
     }
@@ -31,22 +28,22 @@ export abstract class Subtest {
         return this._rawPoints;
     }
 
-    public getScalePoints(): number | null {
+    public get scalePoints(): number | null {
         if (isNil(this.rawPoints)) {
             return null;
         }
         return this.values[this.rawPoints] ?? null;
     }
 
-    // public isVerbal(): boolean {
-    //     return this.type === 'verbal';
-    // }
+    public get isInvalid(): boolean {
+        return !isNil(this.rawPoints) && isNil(this.values[this.rawPoints]);
+    }
 
-    // public isInverbal(): boolean {
-    //     return this.type === 'inverbal';
-    // }
-
-    public isEmpty(): boolean {
+    public get isEmpty(): boolean {
         return this.rawPoints === null;
+    }
+
+    public get maxAvaiableValue(): number {
+        return this.values[-1];
     }
 }

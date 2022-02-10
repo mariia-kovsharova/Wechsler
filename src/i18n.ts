@@ -1,12 +1,22 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import ruTranslation from './locales/ru/common.json';
+import common from './locales/ru/common.json';
+import student from './locales/ru/student.json';
+import subtest from './locales/ru/subtest.json';
+import range from './locales/ru/range.json';
+import chart from './locales/ru/chart.json';
 
 // eslint-disable-next-line @typescript-eslint/no-floating-promises
 i18n.use(initReactI18next).init({
     resources: {
         ru: {
-            translation: ruTranslation,
+            translation: {
+                common,
+                student,
+                subtest,
+                range,
+                chart,
+            },
         },
     },
     lng: 'ru',

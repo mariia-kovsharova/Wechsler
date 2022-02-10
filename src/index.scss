@@ -1,24 +1,14 @@
-$margin: 4px;
-$margin-md: 8px;
+@import "styles/mixins";
+@import "styles/typography.scss";
+@import "styles/variables.scss";
+@import "ui/index.scss";
 
-@mixin group($parent, $children, $margin: $margin) {
-    .#{$parent} {
-        margin-left: -$margin;
-        margin-right: -$margin;
-
-        @each $child in $children {
-            .#{$child} {
-                margin-left: $margin;
-                margin-right: $margin;
-            }
-        }
-    }
+body {
+    font-family: "Roboto";
 }
 
-.student_container {
-    display: flex !important;
-    flex-direction: row;
-    align-items: center;
+.flex-grow {
+    @include flex-grow();
 }
 
-@include group("student_container", "student_container__field");
+@include group("student-container", "student-container__field");

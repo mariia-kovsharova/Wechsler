@@ -18,10 +18,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "experimentalDecorators": true
   },
   "include": [
     "src",
-    ".eslintrc.json"
+    ".eslintrc.json",
+    "config-overrides.js"
   ]
 }
