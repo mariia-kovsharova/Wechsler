@@ -44,6 +44,6 @@ export abstract class Subtest {
     }
 
     public get maxAvaiableValue(): number {
-        return this.values[-1];
+        return this.values.length;
     }
 }

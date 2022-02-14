@@ -213,14 +213,15 @@ export abstract class Period implements Readonly<IPeriod> {
     protected abstract initInverbalSubtests(): void;
 
     public static getTruePoints(subtests: ReadonlyArray<Subtest>, sum: number): number | never {
+        // console.log('here');
         const count = subtests.filter(x => !x.isEmpty).length;
 
         if (count === MINIMAL_COUNT_OF_TESTS_IN_GROUP) {
-            return MIN_COUNT_POINTS[sum] ?? 0;
+            return MIN_COUNT_POINTS[sum - 1] ?? 0;
         }
 
         if (count === MAXIMUM_COUNT_OF_TESTS_IN_GROUP) {
-            return MAX_COUNT_POINTS[sum] ?? 0;
+            return MAX_COUNT_POINTS[sum - 1] ?? 0;
         }
 
         throw new Error('Unknown count of tests!');

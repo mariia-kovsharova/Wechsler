@@ -3,6 +3,15 @@
 .header-container {
     @include flex-row();
     margin-bottom: $node-lg;
+    align-items: flex-start;
+    align-content: flex-start;
+    padding-top: $node-lg;
+
+    &__title {
+        display: flex;
+        align-self: flex-start;
+        margin: 0;
+    }
 
     &__actions {
         @include flex-column();

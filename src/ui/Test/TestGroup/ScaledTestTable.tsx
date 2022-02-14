@@ -1,17 +1,16 @@
-import { TableContainer, Table, TableHead, TableRow, TableCell, TableBody, TableFooter } from '@mui/material';
+import { TableContainer, Table, TableHead, TableRow, TableCell, TableBody } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Period } from '../../../domain/entities/period';
-import { usePeriodStorage } from '../../../repository/storageAdapter';
 import { ScaledTestItem } from '../index';
 
-export const ScaledTestTable = (): JSX.Element => {
-    const { t } = useTranslation();
-    const { period } = usePeriodStorage();
+type ScaledTestTableProps = {
+    period: Period;
+};
 
-    if (!period) {
-        return <div className="tabs-container__period-title">{ t('common.period.empty') }</div>;
-    }
+export const ScaledTestTable = (props: ScaledTestTableProps): JSX.Element => {
+    const { t } = useTranslation();
+    const { period } = props;
 
     const verbals = period.verbalSubtests;
     const inverbals = period.inverbalSubtests;
@@ -31,7 +30,7 @@ export const ScaledTestTable = (): JSX.Element => {
                 {t('common.tabs.results.subtests.verbalSum')}
             </TableCell>
             <TableCell key="verbal-value" align="right">
-                <div>{ verbal }</div>
+                <div>{ verbalScaleSum}/{ verbal }</div>
             </TableCell>
         </TableRow>
     );
@@ -42,7 +41,7 @@ export const ScaledTestTable = (): JSX.Element => {
                 {t('common.tabs.results.subtests.inverbalSum')}
             </TableCell>
             <TableCell key="inverbal-value" align="right">
-                <div>{ inverbal }</div>
+                <div>{ inverbalScaleSum}/{ inverbal }</div>
             </TableCell>
         </TableRow>
     );

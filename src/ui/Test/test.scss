@@ -1,18 +1,32 @@
 @import "./../../styles/mixins";
 
-.subtest-table {
-    @include flex-column();
+.table-container {
+    @include flex-row();
 
-    caption {
-        display: flex;
-        order: 0;
+    &__table-header {
+        width: 100%;
         font-style: bold;
+    }
+
+    &__table-content {
+        @include flex-column();
+
+        .field {
+            padding: 0;
+        }
     }
 }
 
-.tooltip-container__empty {
-    width: 30px;
-    height: 30px;
+.tooltip-container {
+    &__empty {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+.tooltip-container.tooltip-container__content {
+    padding: 0;
+    color: $danger;
 }
 
 .scaled-table {
@@ -20,3 +34,5 @@
         background-color: $light-gray;
     }
 }
+
+@include group("table-container", "table-container__table", $node-lg);

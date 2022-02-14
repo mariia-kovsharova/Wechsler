@@ -10,6 +10,7 @@ export const ResultSection = (): JSX.Element => {
     const { t } = useTranslation();
     const { period } = usePeriodStorage();
 
+    // TODO: fix me
     if (isNil(period)) {
         return (<div></div>);
     }
@@ -31,7 +32,7 @@ export const ResultSection = (): JSX.Element => {
             <div className="result-container">
                 <div className="result-container__table">
                     <div className="result-container__title">{ pointsTitle }</div>
-                    <ScaledTestTable></ScaledTestTable>
+                    <ScaledTestTable period={period}></ScaledTestTable>
                 </div>
                 <div className="result-container__chart">
                     <div className="result-container__title">{ chartTitle }</div>
