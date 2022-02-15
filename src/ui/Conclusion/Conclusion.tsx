@@ -3,6 +3,8 @@ import { TestConclusion } from '../../domain/types';
 import { useMetadataStorage } from '../../repository/storageAdapter';
 import { useUpdateConclusion } from '../../services/useUpdateConclusion';
 
+const MIN_ROWS = 4;
+
 export const Conclusion = (): JSX.Element => {
     const { conclusion } = useMetadataStorage();
     const updateConclusion = useUpdateConclusion();
@@ -21,7 +23,7 @@ export const Conclusion = (): JSX.Element => {
                 fullWidth={true}
                 id="conclusion-multiline"
                 multiline
-                rows={4}
+                minRows={MIN_ROWS}
                 value={conclusion}
                 onChange={handleConclusionChange}
             />

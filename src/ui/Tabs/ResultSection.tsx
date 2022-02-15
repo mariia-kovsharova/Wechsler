@@ -19,13 +19,13 @@ export const ResultSection = (): JSX.Element => {
         .concat(period.inverbalSubtests)
         .map(subtest => {
             const name = buildSubtestTranslateKey(subtest.name);
-            return { name: t(name), value: subtest.scalePoints };
+            return { name: t(name), value: subtest.scalePoints, normal: subtest.normalPoints };
         });
     
     const pointsTitle = t('common.tabs.results.scalePoints');
     const chartTitle = t('common.tabs.results.profile');
     const conclusionTitle = t('common.tabs.results.conclusion');
-    const doctor = t('common.tabs.results.Anna');
+    const doctor = t('common.tabs.results.doc');
 
     return (
         <React.Fragment>

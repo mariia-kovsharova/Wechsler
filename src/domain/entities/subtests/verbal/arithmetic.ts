@@ -2,6 +2,6 @@ import { Subtest } from '../subtest';
 
 export class ArithmeticSubtest extends Subtest {
     constructor(values: ReadonlyArray<number>) {
-        super('arithmetic', values);
+        super('arithmetic', values, 9);
     }
 }
