@@ -1,0 +1,36 @@
+@media screen {
+    .printable:not(.printable-always-visible) {
+        display: none;
+    }
+}
+
+@media print {
+    #root {
+        > * {
+            font-size: 16px;
+        }
+
+        header,
+        main {
+            *:not(.printable) {
+                display: none;
+            }
+
+            .printable {
+                display: block;
+
+                .MuiOutlinedInput-notchedOutline {
+                    border-color: transparent;
+                }
+
+                *:not(fieldset) {
+                    display: flex;
+                }
+
+                h1 {
+                    font-size: 1.2em !important;
+                }
+            }
+        }
+    }
+}

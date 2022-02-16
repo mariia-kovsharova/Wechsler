@@ -1,17 +1,23 @@
 @import "./../../styles/mixins";
 
 .result-container {
-    @include flex-row;
+    @include flex-column();
+    max-width: 100%;
 
     &__table {
-        flex-basis: 50%;
-        flex-grow: 1;
+        @include flex-row;
+
+        &-item {
+            @include flex-column();
+            flex-basis: 50%;
+            flex-grow: 1;
+        }
     }
 
-    &__chart {
-        flex-basis: 50%;
-        flex-shrink: 0;
-        padding-left: $node-lg;
+    &__conclusion {
+        @include flex-column();
+        @include flex-grow();
+        margin-top: $node-lg * 2;
     }
 
     &__title {
@@ -31,8 +37,4 @@
     }
 }
 
-.conclusion-container {
-    @include flex-column();
-    @include flex-grow();
-    margin-top: $node-lg * 2;
-}
+@include group("result-container__table", "result-container__table-item", $node-lg);

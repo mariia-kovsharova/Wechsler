@@ -23,6 +23,7 @@ export const ResultPointsChart = (props: ResultPointsChartProps): JSX.Element =>
 
     const domain = [MIN_Y_AXIS_VALUE, MAX_Y_AXIS_VALUE];
 
+    // TODO: fix all magic numbers and chairs
     return (
         <React.Fragment>
             <LineChart width={600} height={800} data={data} margin={{

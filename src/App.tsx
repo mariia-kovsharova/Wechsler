@@ -1,23 +1,23 @@
 import './i18n';
-import React from 'react';
 import { Container } from '@mui/material';
-import { Header } from './ui/Header';
+import { HeaderDetails } from './ui/HeaderDetails';
 import { StudentSection } from './ui/Student';
 import { TabsSection } from './ui/Tabs';
+import { HeaderButtons } from './ui/HeaderButtons';
 
-function App() {
+function App(): JSX.Element {
+
     return (
-        <React.Fragment>
-            <Header/>
+        <Container>
+            <header>
+                <HeaderButtons/>
+                <HeaderDetails/>
+            </header>
             <main>
-                <Container>
-                    <StudentSection></StudentSection>
-                </Container>
-                <Container>
-                    <TabsSection></TabsSection>
-                </Container>
+                <StudentSection></StudentSection>
+                <TabsSection></TabsSection>
             </main>
-        </React.Fragment>
+        </Container>
     );
 }
 

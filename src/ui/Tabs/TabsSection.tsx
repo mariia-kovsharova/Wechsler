@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { RawTestTable } from '../Test';
 import { ResultSection } from '.';
 import { usePeriodStorage } from '../../repository/storageAdapter';
+import { PrintTemplate } from '../PrintTemplate';
 
 enum TabId {
     RawTest = 'raw-test',
@@ -52,9 +53,11 @@ export const TabsSection = (): JSX.Element => {
                     </div>
                     <RawTestTable period={period}></RawTestTable>
                 </TabPanel>
-                <TabPanel id="results" value={TabId.Result} >
-                    <ResultSection></ResultSection>
-                </TabPanel>
+                <PrintTemplate alwaysVisible={true}>
+                    <TabPanel id="results" value={TabId.Result} >
+                        <ResultSection></ResultSection>              
+                    </TabPanel>
+                </PrintTemplate>
             </TabContext>
         </React.Fragment>
     );

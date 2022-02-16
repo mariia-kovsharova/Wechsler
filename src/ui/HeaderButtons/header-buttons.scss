@@ -1,0 +1,15 @@
+@import "./../../styles/mixins";
+
+.header-buttons {
+    @include flex-row();
+    margin-bottom: $node-lg;
+    align-items: flex-start;
+    align-content: flex-start;
+    padding-top: $node-lg;
+
+    &__actions {
+        display: flex;
+        align-self: center;
+        margin-left: auto;
+    }
+}

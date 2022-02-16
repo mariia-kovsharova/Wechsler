@@ -4,7 +4,9 @@
     "gender": {
         "title": "Пол",
         "male": "Мужской",
-        "female": "Женский"
+        "female": "Женский",
+        "male-short": "м",
+        "female-short": "ж"
     },
     "period": "Возрастная категория"
 }

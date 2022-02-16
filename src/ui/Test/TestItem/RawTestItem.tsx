@@ -10,7 +10,6 @@ export interface IRawTestItemProps {
 }
 
 const getTooltip = (title: string): JSX.Element => {
-    console.log(title);
     return (
         <Tooltip className="tooltip-container" title={title}>
             <IconButton className="tooltip-container__content">

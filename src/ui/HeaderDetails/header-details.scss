@@ -13,10 +13,9 @@
         margin: 0;
     }
 
-    &__actions {
-        @include flex-column();
-        justify-content: space-between;
-        align-items: center;
+    &__date {
+        display: flex;
+        align-self: center;
         margin-left: auto;
     }
 }

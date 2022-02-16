@@ -13,4 +13,8 @@
     }
 }
 
+.printable_container {
+    display: none;
+}
+
 @include vertical-group("student-container", "student-container__row", $node-md);
