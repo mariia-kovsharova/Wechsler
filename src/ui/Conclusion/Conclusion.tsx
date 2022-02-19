@@ -18,6 +18,7 @@ export const Conclusion = (): JSX.Element => {
         <TextField
             fullWidth={true}
             id="conclusion-multiline"
+            className="conclusion-container"
             multiline
             minRows={MIN_ROWS}
             value={conclusion}

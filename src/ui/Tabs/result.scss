@@ -9,7 +9,7 @@
 
         &-item {
             @include flex-column();
-            flex-basis: 50%;
+            // flex-basis: 40%;
             flex-grow: 1;
             flex-shrink: 0;
         }
@@ -19,7 +19,12 @@
         @include flex-column();
         @include flex-grow();
         margin-top: $node-lg * 2;
-        margin-bottom: $node-lg;
+        width: 100%;
+
+        .conclusion-container {
+            margin-bottom: $node-lg;
+            width: 100%;
+        }
     }
 
     &__title {
