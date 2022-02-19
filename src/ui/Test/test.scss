@@ -11,8 +11,20 @@
     &__table-content {
         @include flex-column();
 
+        &-header {
+            padding: 0 !important;
+        }
+
         .field {
             padding: 0;
+
+            &-cell {
+                padding: 3px;
+
+                &__marked {
+                    background-color: $light-gray;
+                }
+            }
         }
     }
 }
@@ -27,12 +39,6 @@
 .tooltip-container.tooltip-container__content {
     padding: 0;
     color: $danger;
-}
-
-.scaled-table {
-    &__marked {
-        background-color: $light-gray;
-    }
 }
 
 @include group("table-container", "table-container__table", $node-lg);

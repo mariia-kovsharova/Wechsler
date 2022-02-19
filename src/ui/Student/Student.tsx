@@ -37,6 +37,8 @@ export const StudentSection = (): JSX.Element => {
         updateStudent(property, value);
     };
 
+    const { name, birthDate, gender } = student;
+
     return (
         <React.Fragment>
             <section className="student-container">
@@ -47,7 +49,7 @@ export const StudentSection = (): JSX.Element => {
                             type="text"
                             label={t('student.fio')}
                             onChange={propertyHandler}
-                            value={student.name}
+                            value={name}
                         />
                     </FormControl>
                 </div>
@@ -57,7 +59,7 @@ export const StudentSection = (): JSX.Element => {
                             locale={ru}>
                             <DatePicker
                                 label={t('student.birthdate')}
-                                value={student.birthDate}
+                                value={birthDate}
                                 mask={Masks.Date}
                                 onChange={updateStudentBirthdate}
                                 renderInput={(params) => <TextField {...params} />}
@@ -70,7 +72,7 @@ export const StudentSection = (): JSX.Element => {
                             id="gender"
                             aria-label="gender"
                             name="gender"
-                            value={student.gender}
+                            value={gender}
                             onChange={propertyHandler}
                         >
                             <FormControlLabel
@@ -91,13 +93,15 @@ export const StudentSection = (): JSX.Element => {
             </section>
 
             <PrintTemplate>
-                <div>{ student.name } ({ student.isMale ? maleLabelShort : femaleLabelShort })</div>
-                <React.Fragment>
-                    {
-                        student.birthDate 
-                        && <div>{ t('student.birthdate') }: { format(student.birthDate, Masks.FormatDate) }</div>
-                    }
-                </React.Fragment> 
+                <section className="student-container">
+                    <div>{ t('student.fio')}: { name } ({ student.isMale ? maleLabelShort : femaleLabelShort })</div>
+                    <React.Fragment>
+                        {
+                            birthDate 
+                        && <div>{ t('student.birthdate') }: { format(birthDate, Masks.FormatDate) }</div>
+                        }
+                    </React.Fragment> 
+                </section>
             </PrintTemplate>
         </React.Fragment>
     );

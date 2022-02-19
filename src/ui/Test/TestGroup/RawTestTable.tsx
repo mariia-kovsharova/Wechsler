@@ -42,7 +42,7 @@ export const RawTestTable = (props: RawTestTableProps): JSX.Element => {
                     <div className="table-container__table-header">
                         <h3>{t('subtest.table.header.inverbal')}</h3>
                     </div>
-                    <Table className="table-container__table-content" stickyHeader aria-label="sticky caption table">
+                    <Table className="table-container__table-content" stickyHeader aria-label="Inverbal subtest table">
                         <TableHead>
                             <TableRow>
                                 <TableCell>{t('subtest.table.header.name')}</TableCell>

@@ -1,4 +1,4 @@
-import { Box, TextField } from '@mui/material';
+import { TextField } from '@mui/material';
 import { TestConclusion } from '../../domain/types';
 import { useMetadataStorage } from '../../repository/storageAdapter';
 import { useUpdateConclusion } from '../../services/useUpdateConclusion';
@@ -15,18 +15,13 @@ export const Conclusion = (): JSX.Element => {
     };
 
     return (
-        <Box component="form"
-            noValidate
-            autoComplete="off"
-        >
-            <TextField
-                fullWidth={true}
-                id="conclusion-multiline"
-                multiline
-                minRows={MIN_ROWS}
-                value={conclusion}
-                onChange={handleConclusionChange}
-            />
-        </Box>
+        <TextField
+            fullWidth={true}
+            id="conclusion-multiline"
+            multiline
+            minRows={MIN_ROWS}
+            value={conclusion}
+            onChange={handleConclusionChange}
+        />
     );
 };

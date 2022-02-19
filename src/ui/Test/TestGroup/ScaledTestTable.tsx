@@ -2,7 +2,7 @@ import { TableContainer, Table, TableHead, TableRow, TableCell, TableBody } from
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Period } from '../../../domain/entities/period';
-import { isNil } from '../../../lib/utils';
+import { isNil, formatClassNames } from '../../../lib/utils';
 import { ScaledTestItem } from '../index';
 
 type ScaledTestTableProps = {
@@ -26,12 +26,18 @@ export const ScaledTestTable = (props: ScaledTestTableProps): JSX.Element => {
     const { verbalIQ, inverbalIQ, commonIQ } = Period.getIQPoints({ verbal, inverbal, common });
 
     const getResultRow = (key: string, value: number, secondValue?: number): JSX.Element => {
+        const classNames = formatClassNames({
+            'field': true,
+            'field-cell': true,
+            'field-cell__marked': true,
+        });
+
         return (
-            <TableRow key={`${key}-result`} className="scaled-table__marked">
-                <TableCell colSpan={2} key={`${key}-label`} component="th" scope="row">
+            <TableRow key={`${key}-result`}>
+                <TableCell colSpan={2} key={`${key}-label`} component="th" scope="row" className={classNames}>
                     {t(`common.tabs.results.subtests.${key}`)}
                 </TableCell>
-                <TableCell key="verbal-value" align="right">
+                <TableCell key="verbal-value" align="right" className={classNames}>
                     <span>{ value }</span>
                     {
                         isNil(secondValue)
@@ -54,42 +60,54 @@ export const ScaledTestTable = (props: ScaledTestTableProps): JSX.Element => {
    
     return (
         <React.Fragment>
-            <TableContainer>
-                <Table className="subtest-table" stickyHeader aria-label="sticky caption table">
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>{t('subtest.table.header.name')}</TableCell>
-                            <TableCell width="100px" align="right">{t('subtest.table.header.points')}</TableCell>
-                            <TableCell width="100px" align="right">{t('subtest.table.header.scaledPoints')}</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {
-                            verbals.map(subtest => <ScaledTestItem subtest={subtest}></ScaledTestItem>)
-                        }
-                        { verbalSumRow }
-                    </TableBody>
+            <div className="table-container">
+                <TableContainer className="table-container__table">
+                    <Table className="table-container__table-content" aria-label="Verbal subtest result table">
+                        <TableHead>
+                            <TableRow>
+                                <TableCell className="table-container__table-content-header">
+                                    {t('subtest.table.header.name')}
+                                </TableCell>
+                                <TableCell className="table-container__table-content-header"
+                                    width="100px" 
+                                    align="right">
+                                    {t('subtest.table.header.points')}
+                                </TableCell>
+                                <TableCell className="table-container__table-content-header"
+                                    width="100px"
+                                    align="right">
+                                    {t('subtest.table.header.scaledPoints')}
+                                </TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {
+                                verbals.map(subtest => <ScaledTestItem subtest={subtest}></ScaledTestItem>)
+                            }
+                            { verbalSumRow }
+                        </TableBody>
                     
-                </Table>
+                    </Table>
 
-                <Table className="subtest-table" stickyHeader aria-label="sticky caption table">
-                    <TableBody>
-                        {
-                            inverbals.map(subtest => <ScaledTestItem subtest={subtest}></ScaledTestItem>)
-                        }
-                        { inverbalSumRow }
-                    </TableBody>
-                </Table>
+                    <Table className="table-container__table-content" aria-label="Inverbal subtest result table">
+                        <TableBody>
+                            {
+                                inverbals.map(subtest => <ScaledTestItem subtest={subtest}></ScaledTestItem>)
+                            }
+                            { inverbalSumRow }
+                        </TableBody>
+                    </Table>
 
-                <Table className="subtest-table" stickyHeader aria-label="sticky caption table">
-                    <TableBody>
-                        { commonSumRow }
-                        { iqVerbalRow }
-                        { iqInverbalRow }
-                        { iqCommonRow }
-                    </TableBody>
-                </Table>
-            </TableContainer>
+                    <Table className="table-container__table-content" aria-label="Common subtest result table">
+                        <TableBody>
+                            { commonSumRow }
+                            { iqVerbalRow }
+                            { iqInverbalRow }
+                            { iqCommonRow }
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+            </div>
         </React.Fragment>
     );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { buildSubtestTranslateKey, isNil } from '../../lib/utils';
+import { isNil } from '../../lib/utils';
 import { usePeriodStorage } from '../../repository/storageAdapter';
 import { ResultPointsChart } from '../Chart';
 import { Conclusion } from '../Conclusion';
@@ -17,9 +17,9 @@ export const ResultSection = (): JSX.Element => {
 
     const chartData = period.verbalSubtests
         .concat(period.inverbalSubtests)
-        .map(subtest => {
-            const name = buildSubtestTranslateKey(subtest.name);
-            return { name: t(name), value: subtest.scalePoints, normal: subtest.normalPoints };
+        .map((subtest, index) => {
+            const name = index + 1;
+            return { name: `${name}`, value: subtest.scalePoints, normal: subtest.normalPoints };
         });
     
     const pointsTitle = t('common.tabs.results.scalePoints');
