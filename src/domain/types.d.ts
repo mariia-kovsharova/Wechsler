@@ -32,3 +32,9 @@ export interface IResultPoints {
 }
 
 export type TestName = keyof IPeriod;
+
+export type FileName = Brand<string, 'file_name'>;
+
+export type FileContent = Brand<string, 'file_content'>;
+
+export type FileType = 'application/json';
