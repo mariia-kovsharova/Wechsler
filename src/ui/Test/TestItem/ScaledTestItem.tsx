@@ -23,10 +23,10 @@ export const ScaledTestItem = (props: IScaledTestItemProps): JSX.Element => {
     return (
         <TableRow key={subtest.name}>
             <TableCell key={`${name}-label`} component="th" scope="row" className={classNames}>{t(name)}</TableCell>
-            <TableCell width="100px" key={`${name}-raw`} align="right" className={classNames}>
+            <TableCell width="20%" key={`${name}-raw`} align="right" className={classNames}>
                 <div>{ subtest.rawPoints }</div>
             </TableCell>
-            <TableCell width="100px" key={`${name}-scale`} align="right" className={classNames}>
+            <TableCell width="20%" key={`${name}-scale`} align="right" className={classNames}>
                 <div>{ subtest.scalePoints }</div>
             </TableCell>
         </TableRow>

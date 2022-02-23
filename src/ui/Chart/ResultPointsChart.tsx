@@ -27,7 +27,7 @@ export const ResultPointsChart = (props: ResultPointsChartProps): JSX.Element =>
     const domain = [MIN_Y_AXIS_VALUE, MAX_Y_AXIS_VALUE];
 
     return (     
-        <ResponsiveContainer width="92%" height="80%">
+        <ResponsiveContainer width="100%" height="100%">
             <LineChart data={data} margin={{
                 top: 50, right: 20, bottom: 0, left: 20,
             }}>

@@ -38,24 +38,6 @@
                     border-color: transparent;
                 }
 
-                h1 {
-                    font-size: 1.6rem !important;
-                }
-
-                #results {
-                    padding: 0;
-                }
-
-                .student-container {
-                    font-size: 1.2rem;
-                    margin-left: 0;
-                    margin-right: 0;
-                }
-
-                .result-container {
-                    margin-top: 30px;
-                }
-
                 #conclusion-multiline {
                     display: block !important;
                     word-wrap: break-word !important;
@@ -63,14 +45,6 @@
                     break-inside: auto !important;
                     page-break-inside: auto !important;
                     page-break-before: auto !important;
-                }
-
-                .table-container {
-                    &__table-content {
-                        &-header {
-                            padding: 0 !important;
-                        }
-                    }
                 }
             }
         }

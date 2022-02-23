@@ -1,3 +1,14 @@
 .recharts-legend-wrapper {
     top: 19px !important;
+
+    @media print {
+        display: inline;
+    }
+}
+
+.recharts-wrapper,
+.recharts-surface {
+    @media print {
+        width: calc(100%) !important;
+    }
 }

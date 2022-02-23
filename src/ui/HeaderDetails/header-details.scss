@@ -18,4 +18,8 @@
         align-self: center;
         margin-left: auto;
     }
+
+    @media print {
+        font-size: 1.6rem !important;
+    }
 }
