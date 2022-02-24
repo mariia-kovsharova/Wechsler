@@ -1,8 +1,8 @@
-import { IconButton, TableCell, TableRow, Tooltip } from '@mui/material';
+import { IconButton, TableCell, TableRow, TextField, Tooltip } from '@mui/material';
 import WarningIcon from '@mui/icons-material/WarningRounded';
 import { useTranslation } from 'react-i18next';
 import { Subtest } from '../../../domain/entities/subtests';
-import { buildSubtestTranslateKey, formatClassNames } from '../../../lib/utils';
+import { buildSubtestTranslateKey } from '../../../lib/utils';
 import { useUpdatePeriod } from '../../../services/useUpdatePeriod';
 
 export interface IRawTestItemProps {
@@ -27,11 +27,6 @@ export const RawTestItem = (props: IRawTestItemProps): JSX.Element => {
 
     const name = buildSubtestTranslateKey(subtest.name);
 
-    const classNames = formatClassNames({
-        'field': true,
-        'field__invalid': subtest.isInvalid,
-    });
-
     const handlePointChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
         const value = event.target.value ?? null;
         updatePeriod(subtest.name, value);
@@ -40,14 +35,18 @@ export const RawTestItem = (props: IRawTestItemProps): JSX.Element => {
     return (
         <TableRow key={subtest.name}>
             <TableCell key={`${name}-label`} component="th" scope="row">{t(name)}</TableCell>
-            <TableCell key={name} align="right" className={classNames}>
-                <input type="text" onChange={handlePointChange} value={subtest.rawPoints ?? ''} />
-            </TableCell>
             <TableCell width="20px">
                 { subtest.isInvalid
-                    ? getTooltip(t('subtest.maxPointsOverflow', { value: subtest.maxAvaiableValue }))
+                    ? getTooltip(t('subtest.maxPointsOverflow', { maxValue: subtest.maxAvaiableValue }))
                     : <div className="tooltip-container__empty"></div>
                 }
+            </TableCell>
+            <TableCell width="150px" key={name} align="right" className="field">
+                <TextField 
+                    error={subtest.isInvalid}
+                    value={subtest.rawPoints ?? ''}
+                    onChange={handlePointChange}
+                />
             </TableCell>
         </TableRow>
     );

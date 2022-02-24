@@ -19,5 +19,6 @@
     "cubes": "Кубики Коса",
     "figures": "Складывание фигур",
     "encryption": "Шифровка",
-    "labyrinths": "Лабиринты"
+    "labyrinths": "Лабиринты",
+    "maxPointsOverflow": "Максимальное значение по субтесту: {{maxValue}}"
 }

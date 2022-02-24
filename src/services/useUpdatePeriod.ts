@@ -6,6 +6,5 @@ export function useUpdatePeriod() {
     const periodStorage = usePeriodStorage();
 
     return (name: SubtestName, value: string | number | null) =>
-        // TODO: how to avoid casting?
         updatePeriodSubtestUseCase(name, value, { periodStorage });
 }

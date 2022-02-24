@@ -40,4 +40,8 @@ export class Student {
     set gender(value: StudentGender | null) {
         this._gender = value;
     }
+
+    get isMale(): boolean {
+        return this._gender === 'male';
+    }
 }

@@ -10,10 +10,13 @@ export abstract class Subtest {
 
     public name!: SubtestName;
 
-    constructor(name: keyof IPeriod, values: ReadonlyArray<number>) {
+    private normal: number;
+
+    constructor(name: keyof IPeriod, values: ReadonlyArray<number>, normalPointValue: number) {
         this.name = name as SubtestName;
         this.values = values;
         this._rawPoints = null;
+        this.normal = normalPointValue;
     }
 
     public set rawPoints(value: number | null) {
@@ -35,6 +38,13 @@ export abstract class Subtest {
         return this.values[this.rawPoints] ?? null;
     }
 
+    public get normalPoints(): number | null {
+        if (isNil(this.rawPoints)) {
+            return null;
+        }
+        return this.normal;
+    }
+
     public get isInvalid(): boolean {
         return !isNil(this.rawPoints) && isNil(this.values[this.rawPoints]);
     }
@@ -44,6 +54,6 @@ export abstract class Subtest {
     }
 
     public get maxAvaiableValue(): number {
-        return this.values[-1];
+        return this.values.length;
     }
 }

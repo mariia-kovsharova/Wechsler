@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { RawTestTable } from '../Test';
 import { ResultSection } from '.';
 import { usePeriodStorage } from '../../repository/storageAdapter';
+import { PrintTemplate } from '../PrintTemplate';
 
 enum TabId {
     RawTest = 'raw-test',
@@ -30,6 +31,10 @@ export const TabsSection = (): JSX.Element => {
         setState({ selectedTab });
     };
 
+    if (!period) {
+        return <div className="tabs-container__period-title">{ t('common.warning') }</div>;
+    }
+
     return (
         <React.Fragment>
             <TabContext value={state.selectedTab}>
@@ -42,11 +47,17 @@ export const TabsSection = (): JSX.Element => {
                     </TabList>
                 </Box>
                 <TabPanel id="points" value={TabId.RawTest}>
-                    <RawTestTable></RawTestTable>
+                    <div className="tabs-container__period-title">
+                        <span>{ t('student.period') + ': ' }</span>
+                        <span>{ t(period.description) }</span>
+                    </div>
+                    <RawTestTable period={period}></RawTestTable>
                 </TabPanel>
-                <TabPanel id="results" value={TabId.Result} >
-                    <ResultSection></ResultSection>
-                </TabPanel>
+                <PrintTemplate alwaysVisible={true}>
+                    <TabPanel id="results" value={TabId.Result} >
+                        <ResultSection></ResultSection>              
+                    </TabPanel>
+                </PrintTemplate>
             </TabContext>
         </React.Fragment>
     );

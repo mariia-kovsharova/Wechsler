@@ -1,22 +1,52 @@
 @import "./../../styles/mixins";
 
-.subtest-table {
-    @include flex-column();
+.table-container {
+    @include flex-row();
 
-    caption {
-        display: flex;
-        order: 0;
+    &__table-header {
+        width: 100%;
         font-style: bold;
     }
-}
 
-.tooltip-container__empty {
-    width: 30px;
-    height: 30px;
-}
+    &__table-content {
+        @include flex-column();
 
-.scaled-table {
-    &__marked {
-        background-color: $light-gray;
+        &-header {
+            padding: 0 !important;
+        }
+
+        .field {
+            padding: 0;
+
+            &-cell {
+                padding: 3px;
+
+                &__marked {
+                    background-color: $light-gray;
+                }
+            }
+        }
+    }
+
+    @media print {
+        &__table-content {
+            &-header {
+                padding: 0 !important;
+            }
+        }
     }
 }
+
+.tooltip-container {
+    &__empty {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.tooltip-container.tooltip-container__content {
+    padding: 0;
+    color: $danger;
+}
+
+@include group("table-container", "table-container__table", $node-lg);

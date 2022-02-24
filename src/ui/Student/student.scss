@@ -5,11 +5,22 @@
 
     &__row {
         @include flex-row();
+        align-items: center;
     }
 
     &__field {
         width: 100%;
     }
+
+    @media print {
+        font-size: 1.2rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+.printable_container {
+    display: none;
 }
 
 @include vertical-group("student-container", "student-container__row", $node-md);

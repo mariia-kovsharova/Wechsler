@@ -1,4 +1,6 @@
 {
     "points": "Баллы",
-    "subtests": "Субтесты"
+    "subtests": "Субтесты",
+    "scalePoints": "Шк.баллы",
+    "normalPoints": "Ниж.граница нормы"
 }

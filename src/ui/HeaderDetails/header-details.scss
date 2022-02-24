@@ -1,0 +1,25 @@
+@import "./../../styles/mixins";
+
+.header-container {
+    @include flex-row();
+    margin-bottom: $node-lg;
+    align-items: flex-start;
+    align-content: flex-start;
+    padding-top: $node-lg;
+
+    &__title {
+        display: flex;
+        align-self: flex-start;
+        margin: 0;
+    }
+
+    &__date {
+        display: flex;
+        align-self: center;
+        margin-left: auto;
+    }
+
+    @media print {
+        font-size: 1.6rem !important;
+    }
+}
