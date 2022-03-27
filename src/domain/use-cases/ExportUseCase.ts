@@ -4,7 +4,11 @@ import {
     ISerializationService, INotificationService, IDateTransformService,
     IDtoService,
 } from '../ports';
-import { FileContent, FileName } from '../types';
+import {
+    FileContent, FileName, IConclusionDto,
+    IDateDto, IPeriod, IPeriodDto, IStudent,
+    IStudentDto, TestConclusion, TestDate,
+} from '../types';
 
 export interface IExportUseCaseDependencies {
     studentStorage: IStudentStorageService;
@@ -14,19 +18,36 @@ export interface IExportUseCaseDependencies {
     fileService: IFileService;
     notificationService: INotificationService;
     dateTransformService: IDateTransformService;
-    dtoService: IDtoService<unknown, unknown>;
+    studentDtoService: IDtoService<IStudent, IStudentDto>,
+    periodDtoService: IDtoService<IPeriod, IPeriodDto>,
+    dateDtoService: IDtoService<TestDate, IDateDto>,
+    conclusionDtoService: IDtoService<TestConclusion, IConclusionDto>,
 }
 
 export const exportUseCase = ({
     studentStorage, metadataStorage,
     periodStorage, serializationService,
     fileService, notificationService,
-    dateTransformService,
+    dateTransformService, studentDtoService,
+    periodDtoService, dateDtoService,
+    conclusionDtoService,
 }: IExportUseCaseDependencies): void => {
     const { student } = studentStorage;
     const { date, conclusion } = metadataStorage;
     const { period } = periodStorage;
-    const serializedData = serializationService.serialize({ date, student, period, conclusion });
+
+    const studentDto = studentDtoService.toDto(student);
+    const periodDto = period ? periodDtoService.toDto(period) : null;
+    const dateDto = dateDtoService.toDto(date);
+    const conclusionDto = conclusionDtoService.toDto(conclusion);
+
+    const serializedData = serializationService.serialize({
+        student: studentDto,
+        period: periodDto,
+        date: dateDto,
+        conclusion: conclusionDto,
+    });
+
     try {
         const stringifiedDate = dateTransformService.toLocaleString(date);
         const fileName = `${stringifiedDate}_${student.name ?? ''}`;

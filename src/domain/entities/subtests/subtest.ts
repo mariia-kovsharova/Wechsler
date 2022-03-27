@@ -1,8 +1,8 @@
 import { isNil } from '../../../lib/utils';
-import { IPeriod, SubtestName } from '../../types';
+import { IPeriod, ISubtest, SubtestName } from '../../types';
 
-export abstract class Subtest {
-    private readonly values: ReadonlyArray<number>;
+export abstract class Subtest implements ISubtest {
+    protected readonly values: ReadonlyArray<number>;
 
     private _rawPoints: number | null;
 
@@ -10,12 +10,19 @@ export abstract class Subtest {
 
     private normal: number;
 
-    constructor(name: keyof IPeriod, values: ReadonlyArray<number>, normalPointValue: number) {
+    constructor(
+        name: keyof IPeriod,
+        values: ReadonlyArray<number>,
+        normalPointValue: number,
+        rawPoints: number | null,
+    ) {
         this.name = name as SubtestName;
         this.values = values;
-        this._rawPoints = null;
         this.normal = normalPointValue;
+        this._rawPoints = rawPoints;
     }
+
+    public abstract update(points: number | null): ISubtest;
 
     public set rawPoints(value: number | null) {
         if (!isNil(value)) {

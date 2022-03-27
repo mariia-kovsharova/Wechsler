@@ -1,12 +1,11 @@
 import { isNil } from '../../../lib/utils';
-import { IPeriod, IResultIQPoints, IResultPoints } from '../../types';
+import { IPeriod, IResultIQPoints, IResultPoints, ISubtest } from '../../types';
 import {
     ArithmeticSubtest, AwarenessSubtest, ComprehensibilitySubtest,
     CubesSubtest, DetailsSubtest, DigitsRepeatSubtest,
     EncryptionSubtest, FiguresSubtest, ImagesSubtest,
     LabyrinthsSubtest, LexicalSubtest, SimilaritySubtest,
 } from '../subtests';
-import { Subtest } from '../subtests/subtest';
 
 const MINIMAL_COUNT_OF_TESTS_IN_GROUP = 4;
 const MAXIMUM_COUNT_OF_TESTS_IN_GROUP = 6;
@@ -219,7 +218,7 @@ export abstract class Period implements Readonly<IPeriod> {
 
     protected abstract initInverbalSubtests(): void;
 
-    public static getTruePoints(subtests: ReadonlyArray<Subtest>, sum: number): number | never {
+    public static getTruePoints(subtests: ReadonlyArray<ISubtest>, sum: number): number | never {
         const count = subtests.filter(x => !x.isEmpty).length;
 
         if (count === MINIMAL_COUNT_OF_TESTS_IN_GROUP) {
@@ -241,7 +240,7 @@ export abstract class Period implements Readonly<IPeriod> {
         return { verbalIQ, inverbalIQ, commonIQ };
     }
 
-    public get verbalSubtests(): ReadonlyArray<Subtest> {
+    public get verbalSubtests(): ReadonlyArray<ISubtest> {
         return [
             this.awareness,
             this.comprehensibility,
@@ -252,7 +251,7 @@ export abstract class Period implements Readonly<IPeriod> {
         ];
     }
 
-    public get inverbalSubtests(): ReadonlyArray<Subtest> {
+    public get inverbalSubtests(): ReadonlyArray<ISubtest> {
         return [
             this.details,
             this.images,

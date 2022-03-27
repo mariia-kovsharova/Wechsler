@@ -1,8 +1,8 @@
 export type Brand<T, B extends string> = T & { readonly _brand: B };
 
-export type TestConclusion = Brand<string, 'wexler_test'>;
+export type TestConclusion = Brand<string, 'wexler_test_conclusion'>;
 
-export type TestDate = Brand<Date, 'wexler_test'>;
+export type TestDate = Brand<Date, 'wexler_test_date'>;
 
 export type StudentName = Brand<string, 'student_name'>;
 
@@ -34,6 +34,17 @@ export interface IPeriod {
     labyrinths: LabyrinthsSubtest;
 }
 
+export interface ISubtest {
+    readonly name: SubtestName;
+    rawPoints: number | null;
+    scalePoints: number | null;
+    normalPoints: number | null;
+    isInvalid: boolean;
+    isEmpty: boolean;
+    maxAvaiableValue: number;
+    update: (points: number | null) => ISubtest;
+}
+
 export interface IResultIQPoints {
     verbalIQ: number;
     inverbalIQ: number;
@@ -54,7 +65,7 @@ export type FileContent = Brand<string, 'file_content'>;
 
 export type FileType = 'application/json';
 
-export type StringifiedDateType = 'string';
+export type StringifiedDateType = string;
 
 export interface IConclusionDto {
     readonly conclusion: string;
@@ -72,7 +83,7 @@ export interface IStudentDto {
 
 export interface ISubtestDto {
     readonly name: string;
-    readonly rawPoints: number;
+    readonly rawPoints: number | null;
 }
 
 export interface IPeriodDto {
