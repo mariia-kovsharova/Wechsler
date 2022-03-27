@@ -1,4 +1,3 @@
-import { ISubtest } from '../../../types';
 import { Subtest } from '../subtest';
 
 const NORMAL_POINT_VALUE = 8;
@@ -8,7 +7,7 @@ export class CubesSubtest extends Subtest {
         super('cubes', values, NORMAL_POINT_VALUE, points);
     }
 
-    public update(points: number | null): ISubtest {
+    public update(points: number | null): CubesSubtest {
         return new CubesSubtest(this.values, points);
     }
 }

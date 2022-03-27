@@ -263,7 +263,8 @@ export abstract class Period implements Readonly<IPeriod> {
     }
 
     public updateTestValue(name: keyof IPeriod, value: number | null): void {
-        this[name].rawPoints = value;
+        const subtest = this[name];
+        this[name] = subtest.update(value);
     }
 
     public isTestCountValid(): boolean {
