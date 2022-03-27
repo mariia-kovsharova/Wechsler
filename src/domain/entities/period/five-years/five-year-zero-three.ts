@@ -7,11 +7,12 @@ import {
 } from '../../subtests';
 import { Period } from '../period';
 
-const TRANSLATE = 'range.five-years.from-zero-to-three';
+const TYPE = 'five-years-from-zero-to-three-months';
+const TRANSLATE_DESCRIPTION = 'range.five-years.from-zero-to-three';
 
 export class FiveYearsFromZeroToThreeMonths extends Period {
     constructor() {
-        super(TRANSLATE);
+        super(TYPE, TRANSLATE_DESCRIPTION);
     }
 
     protected initVerbalSubtests(): void {

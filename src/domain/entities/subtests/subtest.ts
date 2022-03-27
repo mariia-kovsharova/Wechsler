@@ -1,7 +1,5 @@
 import { isNil } from '../../../lib/utils';
-import { Brand, IPeriod, TestName } from '../../types';
-
-export type SubtestName = Brand<TestName, 'subtest'>;
+import { IPeriod, SubtestName } from '../../types';
 
 export abstract class Subtest {
     private readonly values: ReadonlyArray<number>;

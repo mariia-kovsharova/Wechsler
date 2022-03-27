@@ -4,6 +4,21 @@ export type TestConclusion = Brand<string, 'wexler_test'>;
 
 export type TestDate = Brand<Date, 'wexler_test'>;
 
+export type StudentName = Brand<string, 'student_name'>;
+
+export type StudentDate = Brand<Date, 'student_date'>;
+
+export type StudentGender = 'male' | 'female';
+
+export type SubtestName = Brand<TestName, 'subtest'>;
+
+export interface IStudent {
+    name: StudentName | null;
+    birthDate: StudentDate | null;
+    gender: StudentGender;
+    isMale: boolean;
+}
+
 export interface IPeriod {
     awareness: AwarenessSubtest;
     comprehensibility: ComprehensibilitySubtest;
@@ -38,3 +53,30 @@ export type FileName = Brand<string, 'file_name'>;
 export type FileContent = Brand<string, 'file_content'>;
 
 export type FileType = 'application/json';
+
+export type StringifiedDateType = 'string';
+
+export interface IConclusionDto {
+    readonly conclusion: string;
+}
+
+export interface IDateDto {
+    readonly date: StringifiedDateType;
+}
+
+export interface IStudentDto {
+    readonly name: string | null;
+    readonly birthDate: Date | null;
+    readonly gender: StudentGender;
+}
+
+export interface ISubtestDto {
+    readonly name: string;
+    readonly rawPoints: number;
+}
+
+export interface IPeriodDto {
+    readonly type: string;
+    readonly verbalSubtests: ReadonlyArray<ISubtestDto>;
+    readonly inverbalSubtests: ReadonlyArray<ISubtestDto>;
+}

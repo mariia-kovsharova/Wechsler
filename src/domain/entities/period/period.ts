@@ -201,7 +201,14 @@ export abstract class Period implements Readonly<IPeriod> {
         this._labyrinth = value;
     }
 
-    constructor(description: string) {
+    private readonly _type: string;
+
+    get type(): string {
+        return this._type;
+    }
+
+    constructor(type: string, description: string) {
+        this._type = type;
         this.description = description;
         this.initVerbalSubtests();
         this.initInverbalSubtests();
@@ -213,7 +220,6 @@ export abstract class Period implements Readonly<IPeriod> {
     protected abstract initInverbalSubtests(): void;
 
     public static getTruePoints(subtests: ReadonlyArray<Subtest>, sum: number): number | never {
-        // console.log('here');
         const count = subtests.filter(x => !x.isEmpty).length;
 
         if (count === MINIMAL_COUNT_OF_TESTS_IN_GROUP) {

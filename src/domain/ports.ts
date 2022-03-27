@@ -1,6 +1,10 @@
 import { Period } from './entities/period';
 import { Student } from './entities/student/student';
-import { FileContent, FileName, FileType, TestConclusion, TestDate } from './types';
+import {
+    FileContent, FileName, FileType,
+    IConclusionDto, IDateDto, IPeriodDto,
+    IStudentDto, StringifiedDateType, TestConclusion, TestDate,
+} from './types';
 
 export interface IStudentStorageService {
     student: Student;
@@ -20,10 +24,10 @@ export interface IPeriodStorageService {
 }
 
 export interface ISerializeParams {
-    date: TestDate;
-    student: Student;
-    period: Period | null;
-    conclusion: TestConclusion;
+    date: IDateDto;
+    student: IStudentDto;
+    period: IPeriodDto | null;
+    conclusion: IConclusionDto;
 }
 
 export interface ISerializationService {
@@ -44,4 +48,10 @@ export interface INotificationService {
 
 export interface IDateTransformService {
     toLocaleString: (date: Date) => string;
+    fromLocaleString: (from: StringifiedDateType) => Date;
+}
+
+export interface IDtoService<FromType, ToType> {
+    toDto: (from: FromType) => ToType;
+    toEntity: (from: ToType) => FromType;
 }

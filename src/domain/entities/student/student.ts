@@ -1,20 +1,20 @@
-import { Brand } from '../../types';
+import { StudentName, StudentDate, StudentGender, IStudent } from '../../types';
 
-export type StudentName = Brand<string, 'student_name'>;
-export type StudentDate = Brand<Date, 'student_date'>;
-export type StudentGender = 'male' | 'female';
-
-export class Student {
+export class Student implements IStudent {
     private _name: StudentName | null;
 
     private _birthDate: StudentDate | null;
 
-    private _gender: StudentGender | null;
+    private _gender: StudentGender;
 
-    constructor() {
-        this._name = null;
-        this._birthDate = null;
-        this._gender = 'male';
+    constructor(
+        name: string | null = null,
+        birthDate: Date | null = null,
+        gender: StudentGender = 'male',
+    ) {
+        this._name = name as StudentName;
+        this._birthDate = birthDate as StudentDate;
+        this._gender = gender;
     }
 
     get name(): StudentName | null {
@@ -33,11 +33,11 @@ export class Student {
         this._birthDate = value as StudentDate;
     }
 
-    get gender(): StudentGender | null {
+    get gender(): StudentGender {
         return this._gender;
     }
 
-    set gender(value: StudentGender | null) {
+    set gender(value: StudentGender) {
         this._gender = value;
     }
 

@@ -2,6 +2,7 @@ import {
     IStudentStorageService, IMetadataStorageService,
     IPeriodStorageService, IFileService,
     ISerializationService, INotificationService, IDateTransformService,
+    IDtoService,
 } from '../ports';
 import { FileContent, FileName } from '../types';
 
@@ -13,6 +14,7 @@ export interface IExportUseCaseDependencies {
     fileService: IFileService;
     notificationService: INotificationService;
     dateTransformService: IDateTransformService;
+    dtoService: IDtoService<unknown, unknown>;
 }
 
 export const exportUseCase = ({
