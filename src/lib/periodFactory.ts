@@ -1,7 +1,6 @@
 import differenceInDays from 'date-fns/differenceInDays';
 import { FiveYearsFromZeroToThreeMonths, Period } from '../domain/entities/period';
-import { StudentDate } from '../domain/entities/student/student';
-import { TestDate } from '../domain/types';
+import { StudentDate, TestDate } from '../domain/types';
 
 export const periodFactory = (testDate: TestDate, studentBirthDate: StudentDate): Period | null => {
     const daysCount = differenceInDays(testDate, studentBirthDate);

@@ -1,5 +1,5 @@
 import { isNil } from '../../../lib/utils';
-import { IPeriod, IResultIQPoints, IResultPoints, ISubtest } from '../../types';
+import { IPeriod, IPeriodSubtests, IResultIQPoints, IResultPoints, ISubtest } from '../../types';
 import {
     ArithmeticSubtest, AwarenessSubtest, ComprehensibilitySubtest,
     CubesSubtest, DetailsSubtest, DigitsRepeatSubtest,
@@ -77,7 +77,7 @@ const ALL_IQ_POINTS = [
     146, 147, 148, 149, 149, 150, 151, 152, 152, 153, 154, 154,
 ];
 
-export abstract class Period implements Readonly<IPeriod> {
+export abstract class Period implements Readonly<IPeriod>, IPeriodSubtests {
     public readonly description: string;
 
     private _awareness!: AwarenessSubtest;
@@ -262,7 +262,7 @@ export abstract class Period implements Readonly<IPeriod> {
         ];
     }
 
-    public updateTestValue(name: keyof IPeriod, value: number | null): void {
+    public updateTestValue(name: keyof IPeriodSubtests, value: number | null): void {
         const subtest = this[name];
         this[name] = subtest.update(value);
     }

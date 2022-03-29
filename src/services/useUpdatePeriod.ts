@@ -1,4 +1,4 @@
-import { SubtestName } from '../domain/entities/subtests';
+import { SubtestName } from '../domain/types';
 import { updatePeriodSubtestUseCase } from '../domain/use-cases/UpdatePeriodSubtest';
 import { usePeriodStorage } from '../repository/storageAdapter';
 

@@ -1,25 +1,21 @@
 import { IDtoService } from '../../domain/ports';
-import { IDateDto, IPeriod, IPeriodDto, TestDate } from '../../domain/types';
+import { IPeriod, IPeriodDto } from '../../domain/types';
+import { useSubtestDtoService } from './subtestDtoService';
 
 export const usePeriodDtoService = (): IDtoService<IPeriod, IPeriodDto> => {
+    const subtestDtoService = useSubtestDtoService();
+
     return {
-        toDto(from: TestDate): IDateDto {
-            return { date: dateTransformService.toLocaleString(from as Date) };
+        toDto(from: IPeriod): IPeriodDto {
+            return {
+                type: from.type,
+                verbalSubtests: from.verbalSubtests.map(x => subtestDtoService.toDto(x)),
+                inverbalSubtests: from.inverbalSubtests.map(x => subtestDtoService.toDto(x)),
+            };
         },
-        toEntity(from: IDateDto): TestDate {
-            return dateTransformService.fromLocaleString(from.date) as TestDate;
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        toEntity(from: IPeriodDto): IPeriod {
+            return null as unknown as IPeriod;
         },
     };
 };
-
-export class DateDtoService implements IDtoService<TestDate, IDateDto> {
-    constructor(private readonly dateTransformService: IDateTransformService) { }
-
-    toDto(from: TestDate): IDateDto {
-        return { date: this.dateTransformService.toLocaleString(from as Date) };
-    }
-
-    toEntity(from: IDateDto): TestDate {
-        return this.dateTransformService.fromLocaleString(from.date) as TestDate;
-    }
-}

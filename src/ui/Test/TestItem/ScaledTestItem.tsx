@@ -1,10 +1,10 @@
 import { TableCell, TableRow } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { Subtest } from '../../../domain/entities/subtests';
+import { ISubtest } from '../../../domain/types';
 import { formatClassNames } from '../../../lib/utils';
 
 export interface IScaledTestItemProps {
-    subtest: Subtest;
+    subtest: ISubtest;
 }
 
 const buildTranslateKey = (name: string): string => `subtest.${name}`;

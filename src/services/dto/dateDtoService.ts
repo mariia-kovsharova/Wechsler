@@ -7,10 +7,10 @@ export const useDateDtoService = (): IDtoService<TestDate, IDateDto> => {
 
     return {
         toDto(from: TestDate): IDateDto {
-            return { date: dateTransformService.toLocaleString(from as Date) };
+            return dateTransformService.toLocaleString(from as Date);
         },
         toEntity(from: IDateDto): TestDate {
-            return dateTransformService.fromLocaleString(from.date) as TestDate;
+            return dateTransformService.fromLocaleString(from) as TestDate;
         },
     };
 };

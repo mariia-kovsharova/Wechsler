@@ -20,6 +20,12 @@ export interface IStudent {
 }
 
 export interface IPeriod {
+    type: string;
+    verbalSubtests: ReadonlyArray<ISubtest>;
+    inverbalSubtests: ReadonlyArray<ISubtest>;
+}
+
+export interface IPeriodSubtests {
     awareness: AwarenessSubtest;
     comprehensibility: ComprehensibilitySubtest;
     arithmetic: ArithmeticSubtest;
@@ -57,7 +63,7 @@ export interface IResultPoints {
     common: number;
 }
 
-export type TestName = keyof IPeriod;
+export type TestName = keyof IPeriodSubtests;
 
 export type FileName = Brand<string, 'file_name'>;
 
@@ -67,17 +73,13 @@ export type FileType = 'application/json';
 
 export type StringifiedDateType = string;
 
-export interface IConclusionDto {
-    readonly conclusion: string;
-}
+export type IConclusionDto = string;
 
-export interface IDateDto {
-    readonly date: StringifiedDateType;
-}
+export type IDateDto = StringifiedDateType;
 
 export interface IStudentDto {
     readonly name: string | null;
-    readonly birthDate: Date | null;
+    readonly birthDate: string | null;
     readonly gender: StudentGender;
 }
 

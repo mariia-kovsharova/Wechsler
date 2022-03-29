@@ -1,5 +1,5 @@
 import { isNil } from '../../../lib/utils';
-import { IPeriod, ISubtest, SubtestName } from '../../types';
+import { IPeriodSubtests, ISubtest, SubtestName } from '../../types';
 
 export abstract class Subtest implements ISubtest {
     protected readonly values: ReadonlyArray<number>;
@@ -11,7 +11,7 @@ export abstract class Subtest implements ISubtest {
     private normal: number;
 
     constructor(
-        name: keyof IPeriod,
+        name: keyof IPeriodSubtests,
         values: ReadonlyArray<number>,
         normalPointValue: number,
         rawPoints: number | null,

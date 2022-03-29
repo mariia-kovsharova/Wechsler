@@ -9,9 +9,9 @@ export const useSubtestDtoService = (): IDtoService<ISubtest, ISubtestDto> => {
                 rawPoints: from.rawPoints,
             };
         },
-
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         toEntity(from: ISubtestDto): ISubtest {
-            // return new Student(from.name, from.birthDate, from.gender);
+            return null as unknown as ISubtest;
         },
     };
 };

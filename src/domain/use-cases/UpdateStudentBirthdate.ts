@@ -1,8 +1,8 @@
 import { isSameDay } from 'date-fns';
 import { cloneDeep } from 'lodash-es';
 import { periodFactory } from '../../lib/periodFactory';
-import { StudentDate } from '../entities/student/student';
 import { IMetadataStorageService, IPeriodStorageService, IStudentStorageService } from '../ports';
+import { StudentDate } from '../types';
 
 export interface IUpdateStudentBirhtdateUseCaseDependencies {
     studentStorage: IStudentStorageService;
