@@ -26,8 +26,8 @@ export const usePeriodDtoService = (): IDtoService<IPeriod, IPeriodDto> => {
         toEntity(from: IPeriodDto): IPeriod {
             return {
                 type: typeMapper(from.type),
-                verbalSubtests: [],
-                inverbalSubtests: [],
+                verbalSubtests: from.verbalSubtests.map(x => subtestDtoService.toEntity(x)),
+                inverbalSubtests: from.inverbalSubtests.map(x => subtestDtoService.toEntity(x)),
             };
         },
     };

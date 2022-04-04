@@ -53,6 +53,7 @@ export const importUseCase = (fileContent: string, {
         const mappedPeriod = periodDispatchingService.dispatch(period);
 
         period?.verbalSubtests.map(subtest => {
+            console.log(subtest);
             mappedPeriod?.updateTestValue(subtest.name, subtest.rawPoints);
         });
 
