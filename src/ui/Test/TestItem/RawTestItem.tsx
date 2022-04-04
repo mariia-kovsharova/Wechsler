@@ -3,10 +3,10 @@ import WarningIcon from '@mui/icons-material/WarningRounded';
 import { useTranslation } from 'react-i18next';
 import { buildSubtestTranslateKey } from '../../../lib/utils';
 import { useUpdatePeriod } from '../../../services/useUpdatePeriod';
-import { ISubtest } from '../../../domain/types';
+import { Subtest } from '../../../domain/entities/subtests';
 
 export interface IRawTestItemProps {
-    subtest: ISubtest;
+    subtest: Subtest;
 }
 
 const getTooltip = (title: string): JSX.Element => {

@@ -43,7 +43,7 @@ export const TabsSection = (): JSX.Element => {
                         <Tab label={t('common.tabs.points.title')} value={TabId.RawTest} />
                         <Tab label={t('common.tabs.results.title')} 
                             value={TabId.Result} 
-                            disabled={!period?.isTestCountValid()}/>
+                            disabled={!period.isTestCountValid()}/>
                     </TabList>
                 </Box>
                 <TabPanel id="points" value={TabId.RawTest}>

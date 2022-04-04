@@ -1,14 +1,18 @@
 import { Period } from './entities/period';
-import { Student } from './entities/student/student';
 import {
     FileContent, FileName, FileType,
     IConclusionDto, IDateDto, IPeriodDto,
-    IStudentDto, StringifiedDateType, TestConclusion, TestDate,
+    IStudent, IStudentDto, StringifiedDateType,
+    TestConclusion, TestDate,
 } from './types';
 
+export enum PeriodType {
+    FIVE_ZERO_THREE = 'five-years-from-zero-to-three-months',
+}
+
 export interface IStudentStorageService {
-    student: Student;
-    updateStudent: (student: Student) => void;
+    student: IStudent;
+    updateStudent: (student: IStudent) => void;
 }
 
 export interface IMetadataStorageService {
@@ -30,16 +34,22 @@ export interface ISerializeParams {
     conclusion: IConclusionDto;
 }
 
+export class SerializeParams implements ISerializeParams {
+    constructor(
+        public readonly date: IDateDto,
+        public readonly student: IStudentDto,
+        public readonly period: IPeriodDto | null,
+        public readonly conclusion: IConclusionDto,
+    ) { }
+}
+
 export interface ISerializationService {
-    // TODO: params and types?
     serialize: (params: ISerializeParams) => string;
-    deserialize: (data: string) => void;
+    deserialize: (json: string) => ISerializeParams;
 }
 
 export interface IFileService {
-    // TODO: types?
     exportFile: (name: FileName, content: FileContent, type?: FileType) => void;
-    importFile: () => Promise<void>;
 }
 
 export interface INotificationService {
@@ -54,4 +64,8 @@ export interface IDateTransformService {
 export interface IDtoService<FromType, ToType> {
     toDto: (from: FromType) => ToType;
     toEntity: (from: ToType) => FromType;
+}
+
+export interface IPeriodDispatchingService {
+    dispatch: (from: IPeriodDto | null) => Period | null;
 }

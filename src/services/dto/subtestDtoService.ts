@@ -1,5 +1,5 @@
 import { IDtoService } from '../../domain/ports';
-import { ISubtest, ISubtestDto } from '../../domain/types';
+import { ISubtest, ISubtestDto, SubtestName } from '../../domain/types';
 
 export const useSubtestDtoService = (): IDtoService<ISubtest, ISubtestDto> => {
     return {
@@ -7,11 +7,22 @@ export const useSubtestDtoService = (): IDtoService<ISubtest, ISubtestDto> => {
             return {
                 name: from.name,
                 rawPoints: from.rawPoints,
+                scalePoints: from.scalePoints,
+                normalPoints: from.normalPoints,
+                isInvalid: from.isInvalid,
+                isEmpty: from.isEmpty,
             };
         },
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
         toEntity(from: ISubtestDto): ISubtest {
-            return null as unknown as ISubtest;
+            return {
+                name: from.name as SubtestName,
+                rawPoints: from.rawPoints,
+                scalePoints: from.scalePoints,
+                normalPoints: from.normalPoints,
+                isInvalid: from.isInvalid,
+                isEmpty: from.isEmpty,
+            };
         },
     };
 };

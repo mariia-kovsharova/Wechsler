@@ -23,7 +23,7 @@ export const updateStudentBirthdateUseCase = (
     }
 
     const updatedStudent = cloneDeep(student);
-    updatedStudent.birthDate = birthdate;
+    updatedStudent.birthDate = birthdate ? birthdate as StudentDate : null;
 
     updateStudent(updatedStudent);
 

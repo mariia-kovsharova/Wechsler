@@ -1,10 +1,14 @@
 import { isNil } from '../../../lib/utils';
-import { IPeriod, IPeriodSubtests, IResultIQPoints, IResultPoints, ISubtest } from '../../types';
+import { PeriodType } from '../../ports';
+import {
+    IPeriod, IPeriodSubtests, IResultIQPoints,
+    IResultPoints, ISubtest,
+} from '../../types';
 import {
     ArithmeticSubtest, AwarenessSubtest, ComprehensibilitySubtest,
     CubesSubtest, DetailsSubtest, DigitsRepeatSubtest,
     EncryptionSubtest, FiguresSubtest, ImagesSubtest,
-    LabyrinthsSubtest, LexicalSubtest, SimilaritySubtest,
+    LabyrinthsSubtest, LexicalSubtest, SimilaritySubtest, Subtest,
 } from '../subtests';
 
 const MINIMAL_COUNT_OF_TESTS_IN_GROUP = 4;
@@ -200,13 +204,13 @@ export abstract class Period implements Readonly<IPeriod>, IPeriodSubtests {
         this._labyrinth = value;
     }
 
-    private readonly _type: string;
+    private readonly _type: PeriodType;
 
-    get type(): string {
+    get type(): PeriodType {
         return this._type;
     }
 
-    constructor(type: string, description: string) {
+    constructor(type: PeriodType, description: string) {
         this._type = type;
         this.description = description;
         this.initVerbalSubtests();
@@ -240,7 +244,7 @@ export abstract class Period implements Readonly<IPeriod>, IPeriodSubtests {
         return { verbalIQ, inverbalIQ, commonIQ };
     }
 
-    public get verbalSubtests(): ReadonlyArray<ISubtest> {
+    public get verbalSubtests(): ReadonlyArray<Subtest> {
         return [
             this.awareness,
             this.comprehensibility,
@@ -251,7 +255,7 @@ export abstract class Period implements Readonly<IPeriod>, IPeriodSubtests {
         ];
     }
 
-    public get inverbalSubtests(): ReadonlyArray<ISubtest> {
+    public get inverbalSubtests(): ReadonlyArray<Subtest> {
         return [
             this.details,
             this.images,

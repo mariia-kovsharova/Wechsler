@@ -20,7 +20,7 @@ export interface IStudent {
 }
 
 export interface IPeriod {
-    type: string;
+    type: PeriodType;
     verbalSubtests: ReadonlyArray<ISubtest>;
     inverbalSubtests: ReadonlyArray<ISubtest>;
 }
@@ -47,8 +47,6 @@ export interface ISubtest {
     normalPoints: number | null;
     isInvalid: boolean;
     isEmpty: boolean;
-    maxAvaiableValue: number;
-    update: (points: number | null) => ISubtest;
 }
 
 export interface IResultIQPoints {
@@ -86,6 +84,10 @@ export interface IStudentDto {
 export interface ISubtestDto {
     readonly name: string;
     readonly rawPoints: number | null;
+    readonly scalePoints: number | null;
+    readonly normalPoints: number | null;
+    readonly isInvalid: boolean;
+    readonly isEmpty: boolean;
 }
 
 export interface IPeriodDto {
