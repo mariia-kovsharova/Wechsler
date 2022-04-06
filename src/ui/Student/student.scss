@@ -11,12 +11,6 @@
     &__field {
         width: 100%;
     }
-
-    @media print {
-        font-size: 1.2rem;
-        margin-left: 0;
-        margin-right: 0;
-    }
 }
 
 .printable_container {

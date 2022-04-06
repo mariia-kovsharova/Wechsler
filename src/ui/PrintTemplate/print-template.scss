@@ -14,10 +14,10 @@
         font-size: 14px;
         overflow-x: hidden;
         overflow-y: visible;
-        border: 1px solid;
     }
 
     * {
+        -webkit-transition: none !important;
         transition: none !important;
     }
 

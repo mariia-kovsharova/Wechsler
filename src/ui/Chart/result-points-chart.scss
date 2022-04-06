@@ -1,14 +1,15 @@
 .recharts-legend-wrapper {
-    top: 19px !important;
-
     @media print {
-        display: inline;
+        // top: 40px !important;
+        // display: inline;
     }
 }
 
-.recharts-wrapper,
-.recharts-surface {
-    @media print {
+@media print {
+    //Recalculate width in print mode to fix the bug the graph isn't responsive when print.
+    .recharts-wrapper,
+    .recharts-surface,
+    .recharts-legend-wrapper {
         width: calc(100%) !important;
     }
 }

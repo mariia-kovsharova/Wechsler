@@ -27,11 +27,10 @@ export const ResultPointsChart = (props: ResultPointsChartProps): JSX.Element =>
     const domain = [MIN_Y_AXIS_VALUE, MAX_Y_AXIS_VALUE];
 
     return (     
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="99%" height="99%">
             <LineChart data={data} margin={{
-                top: 50, right: 20, bottom: 0, left: 20,
+                top: 10, right: 20, bottom: 0, left: 20,
             }}>
-                <Legend verticalAlign="top" height={19}/>
                 <CartesianGrid stroke="#ccc" strokeDasharray={STROKE_DASHES} />
                 <XAxis interval={INTERVAL} dataKey="name" textAnchor="end" angle={ANGLE} />
                 <YAxis interval={INTERVAL} tickCount={MAX_Y_AXIS_VALUE} domain={domain}>
@@ -50,6 +49,7 @@ export const ResultPointsChart = (props: ResultPointsChartProps): JSX.Element =>
                     connectNulls={true} 
                     strokeWidth={2} 
                     strokeDasharray={STROKE_DASHES} />
+                <Legend verticalAlign="bottom" height={19}/>
             </LineChart>
         </ResponsiveContainer>
     );
