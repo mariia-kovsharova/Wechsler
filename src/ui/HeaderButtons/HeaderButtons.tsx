@@ -50,6 +50,7 @@ export const HeaderButtons = (): JSX.Element => {
 
                 <Button startIcon={<Save />}
                     onClick={handleSaveButtonClick}
+                    className="header-buttons__button"
                     variant="contained"
                     color="primary">
                     {t('common.buttons.save')}
@@ -59,7 +60,8 @@ export const HeaderButtons = (): JSX.Element => {
                     <Button startIcon={<Upload />}
                         variant="contained"
                         color="primary" 
-                        component="span" >
+                        component="span"
+                        className="header-buttons__button" >
                         {t('common.buttons.upload')}
                     </Button>
                 </label>

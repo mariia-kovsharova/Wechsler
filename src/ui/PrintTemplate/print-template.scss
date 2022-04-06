@@ -38,6 +38,11 @@
                     border-color: transparent;
                 }
 
+                .MuiTabPanel-root {
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+
                 #conclusion-multiline {
                     display: block !important;
                     word-wrap: break-word !important;

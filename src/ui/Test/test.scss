@@ -12,7 +12,7 @@
         @include flex-column();
 
         &-header {
-            padding: 0 !important;
+            padding: 3px !important;
         }
 
         .field {
@@ -31,7 +31,7 @@
     @media print {
         &__table-content {
             &-header {
-                padding: 0 !important;
+                padding: 3px !important;
             }
         }
     }

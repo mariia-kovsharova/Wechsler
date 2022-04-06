@@ -30,8 +30,6 @@ export const importUseCase = (fileContent: string, {
     periodDtoService, dateDtoService,
     conclusionDtoService, periodDispatchingService,
 }: IImportUseCaseDependencies): void => {
-    debugger;
-
     const { updateStudent } = studentStorage;
     const { updateDate, updateConclusion } = metadataStorage;
     const { updatePeriod } = periodStorage;
@@ -53,7 +51,6 @@ export const importUseCase = (fileContent: string, {
         const mappedPeriod = periodDispatchingService.dispatch(period);
 
         period?.verbalSubtests.map(subtest => {
-            console.log(subtest);
             mappedPeriod?.updateTestValue(subtest.name, subtest.rawPoints);
         });
 
