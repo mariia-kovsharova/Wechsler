@@ -8,6 +8,7 @@ type ResultPointsChartProps = {
 
 const MIN_Y_AXIS_VALUE = 0;
 const MAX_Y_AXIS_VALUE = 20;
+const MAX_Y_TICKS_COUNT = 22;
 
 const POINTS_COLOR = '#8884d8';
 const NORMAL_POINTS_COLOR = '#82ca9d';
@@ -33,7 +34,7 @@ export const ResultPointsChart = (props: ResultPointsChartProps): JSX.Element =>
             }}>
                 <CartesianGrid stroke="#ccc" strokeDasharray={STROKE_DASHES} />
                 <XAxis interval={INTERVAL} dataKey="name" textAnchor="end" angle={ANGLE} />
-                <YAxis interval={INTERVAL} tickCount={MAX_Y_AXIS_VALUE} domain={domain}>
+                <YAxis interval={INTERVAL} tickCount={MAX_Y_TICKS_COUNT} domain={domain}>
                     <Label angle={ANGLE} value={pointsLabel} position='insideLeft' style={{ textAnchor: 'middle' }} />
                 </YAxis>
                 <Line name={scale} 
