@@ -6,6 +6,11 @@
     }
 }
 
+.tabs-container__content {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
 .result-container {
     @include flex-column();
     max-width: 100%;

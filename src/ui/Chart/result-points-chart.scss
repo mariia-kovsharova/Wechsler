@@ -1,15 +1,16 @@
-.recharts-legend-wrapper {
-    @media print {
-        // top: 40px !important;
-        // display: inline;
-    }
+ul.recharts-default-legend {
+    font-size: 16px;
 }
 
 @media print {
     //Recalculate width in print mode to fix the bug the graph isn't responsive when print.
-    .recharts-wrapper,
-    .recharts-surface,
-    .recharts-legend-wrapper {
-        width: calc(100%) !important;
+    .recharts-responsive-container {
+        max-height: 550px;
+
+        & > .recharts-wrapper,
+        & > .recharts-surface {
+            width: calc(100%) !important;
+            height: calc(100%) !important;
+        }
     }
 }
