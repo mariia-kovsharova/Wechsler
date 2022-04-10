@@ -5,12 +5,25 @@ ul.recharts-default-legend {
 @media print {
     //Recalculate width in print mode to fix the bug the graph isn't responsive when print.
     .recharts-responsive-container {
-        max-height: 550px;
+        max-height: 500px;
 
-        & > .recharts-wrapper,
-        & > .recharts-surface {
+        & > .recharts-wrapper {
             width: calc(100%) !important;
             height: calc(100%) !important;
+
+            & > .recharts-surface {
+                width: calc(100%) !important;
+                height: calc(100%) !important;
+            }
+        }
+
+        .recharts-legend-wrapper {
+            top: 15px !important;
+
+            > * {
+                text-align: left !important;
+                margin-left: 80px !important;
+            }
         }
     }
 }
