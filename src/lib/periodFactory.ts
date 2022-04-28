@@ -6,19 +6,19 @@ import {
 import {
     EightYearsFromEightToElevenMonths,
     EightYearsFromFourToSevenMonths, EightYearsFromZeroToThreeMonths,
-} from '../domain/entities/period/eight-years';
+} from '../domain/entities/period/8. eight-years';
 import {
     NineYearsFromEightToElevenMonths,
     NineYearsFromFourToSevenMonths, NineYearsFromZeroToThreeMonths,
-} from '../domain/entities/period/nine-years';
+} from '../domain/entities/period/9. nine-years';
 import {
     SevenYearsFromEightToElevenMonths,
     SevenYearsFromFourToSevenMonths, SevenYearsFromZeroToThreeMonths,
-} from '../domain/entities/period/seven-years';
+} from '../domain/entities/period/7. seven-years';
 import {
     SixYearsFromEightToElevenMonths,
     SixYearsFromFourToSevenMonths, SixYearsFromZeroToThreeMonths,
-} from '../domain/entities/period/six-years';
+} from '../domain/entities/period/6. six-years';
 import { StudentDate, TestDate } from '../domain/types';
 
 export const periodFactory = (testDate: TestDate, studentBirthDate: StudentDate): Period | null => {
