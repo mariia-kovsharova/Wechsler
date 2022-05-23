@@ -6,6 +6,11 @@
     }
 }
 
+.tabs-container__content {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
 .result-container {
     @include flex-column();
     max-width: 100%;
@@ -15,11 +20,17 @@
 
         &-item {
             @include flex-column();
-            flex-grow: 1;
             flex-shrink: 0;
+            flex-basis: 60%;
 
             &:first-child {
                 flex-basis: 40%;
+            }
+
+            @media print {
+                &:first-child {
+                    flex-basis: 35%;
+                }
             }
         }
     }
@@ -49,10 +60,6 @@
         display: flex;
         justify-content: end;
         width: 100%;
-    }
-
-    @media print {
-        margin-top: 30px;
     }
 }
 

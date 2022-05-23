@@ -69,12 +69,12 @@ export const ScaledTestTable = (props: ScaledTestTableProps): JSX.Element => {
                                     {t('subtest.table.header.name')}
                                 </TableCell>
                                 <TableCell className="table-container__table-content-header"
-                                    width="20%" 
+                                    width="23%" 
                                     align="right">
                                     {t('subtest.table.header.points')}
                                 </TableCell>
                                 <TableCell className="table-container__table-content-header"
-                                    width="20%"
+                                    width="23%"
                                     align="right">
                                     {t('subtest.table.header.scaledPoints')}
                                 </TableCell>

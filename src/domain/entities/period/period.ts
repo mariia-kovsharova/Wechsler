@@ -1,12 +1,15 @@
 import { isNil } from '../../../lib/utils';
-import { IPeriod, IResultIQPoints, IResultPoints } from '../../types';
+import { PeriodType } from '../../ports';
+import {
+    IPeriod, IPeriodSubtests, IResultIQPoints,
+    IResultPoints, ISubtest,
+} from '../../types';
 import {
     ArithmeticSubtest, AwarenessSubtest, ComprehensibilitySubtest,
     CubesSubtest, DetailsSubtest, DigitsRepeatSubtest,
     EncryptionSubtest, FiguresSubtest, ImagesSubtest,
-    LabyrinthsSubtest, LexicalSubtest, SimilaritySubtest,
+    LabyrinthsSubtest, LexicalSubtest, SimilaritySubtest, Subtest,
 } from '../subtests';
-import { Subtest } from '../subtests/subtest';
 
 const MINIMAL_COUNT_OF_TESTS_IN_GROUP = 4;
 const MAXIMUM_COUNT_OF_TESTS_IN_GROUP = 6;
@@ -78,7 +81,7 @@ const ALL_IQ_POINTS = [
     146, 147, 148, 149, 149, 150, 151, 152, 152, 153, 154, 154,
 ];
 
-export abstract class Period implements Readonly<IPeriod> {
+export abstract class Period implements Readonly<IPeriod>, IPeriodSubtests {
     public readonly description: string;
 
     private _awareness!: AwarenessSubtest;
@@ -201,7 +204,14 @@ export abstract class Period implements Readonly<IPeriod> {
         this._labyrinth = value;
     }
 
-    constructor(description: string) {
+    private readonly _type: PeriodType;
+
+    get type(): PeriodType {
+        return this._type;
+    }
+
+    constructor(type: PeriodType, description: string) {
+        this._type = type;
         this.description = description;
         this.initVerbalSubtests();
         this.initInverbalSubtests();
@@ -212,8 +222,7 @@ export abstract class Period implements Readonly<IPeriod> {
 
     protected abstract initInverbalSubtests(): void;
 
-    public static getTruePoints(subtests: ReadonlyArray<Subtest>, sum: number): number | never {
-        // console.log('here');
+    public static getTruePoints(subtests: ReadonlyArray<ISubtest>, sum: number): number | never {
         const count = subtests.filter(x => !x.isEmpty).length;
 
         if (count === MINIMAL_COUNT_OF_TESTS_IN_GROUP) {
@@ -257,8 +266,9 @@ export abstract class Period implements Readonly<IPeriod> {
         ];
     }
 
-    public updateTestValue(name: keyof IPeriod, value: number | null): void {
-        this[name].rawPoints = value;
+    public updateTestValue(name: keyof IPeriodSubtests, value: number | null): void {
+        const subtest = this[name];
+        this[name] = subtest.update(value);
     }
 
     public isTestCountValid(): boolean {

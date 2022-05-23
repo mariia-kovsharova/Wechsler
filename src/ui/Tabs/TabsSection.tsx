@@ -43,10 +43,10 @@ export const TabsSection = (): JSX.Element => {
                         <Tab label={t('common.tabs.points.title')} value={TabId.RawTest} />
                         <Tab label={t('common.tabs.results.title')} 
                             value={TabId.Result} 
-                            disabled={!period?.isTestCountValid()}/>
+                            disabled={!period.isTestCountValid()}/>
                     </TabList>
                 </Box>
-                <TabPanel id="points" value={TabId.RawTest}>
+                <TabPanel id="points" value={TabId.RawTest} className="tabs-container__content">
                     <div className="tabs-container__period-title">
                         <span>{ t('student.period') + ': ' }</span>
                         <span>{ t(period.description) }</span>
@@ -54,7 +54,7 @@ export const TabsSection = (): JSX.Element => {
                     <RawTestTable period={period}></RawTestTable>
                 </TabPanel>
                 <PrintTemplate alwaysVisible={true}>
-                    <TabPanel id="results" value={TabId.Result} >
+                    <TabPanel id="results" value={TabId.Result} className="tabs-container__content" >
                         <ResultSection></ResultSection>              
                     </TabPanel>
                 </PrintTemplate>

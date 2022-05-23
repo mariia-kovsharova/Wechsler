@@ -1,9 +1,9 @@
 import { IconButton, TableCell, TableRow, TextField, Tooltip } from '@mui/material';
 import WarningIcon from '@mui/icons-material/WarningRounded';
 import { useTranslation } from 'react-i18next';
-import { Subtest } from '../../../domain/entities/subtests';
 import { buildSubtestTranslateKey } from '../../../lib/utils';
 import { useUpdatePeriod } from '../../../services/useUpdatePeriod';
+import { Subtest } from '../../../domain/entities/subtests';
 
 export interface IRawTestItemProps {
     subtest: Subtest;

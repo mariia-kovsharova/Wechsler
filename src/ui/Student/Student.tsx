@@ -50,6 +50,7 @@ export const StudentSection = (): JSX.Element => {
                             label={t('student.fio')}
                             onChange={propertyHandler}
                             value={name}
+                            InputLabelProps={{ shrink: !!name }}
                         />
                     </FormControl>
                 </div>
@@ -93,15 +94,13 @@ export const StudentSection = (): JSX.Element => {
             </section>
 
             <PrintTemplate>
-                <section className="student-container">
-                    <div>{ t('student.fio')}: { name } ({ student.isMale ? maleLabelShort : femaleLabelShort })</div>
-                    <React.Fragment>
-                        {
-                            birthDate 
+                <div>{ t('student.fio')}: { name } ({ student.isMale ? maleLabelShort : femaleLabelShort })</div>
+                <React.Fragment>
+                    {
+                        birthDate 
                         && <div>{ t('student.birthdate') }: { format(birthDate, Masks.FormatDate) }</div>
-                        }
-                    </React.Fragment> 
-                </section>
+                    }
+                </React.Fragment> 
             </PrintTemplate>
         </React.Fragment>
     );

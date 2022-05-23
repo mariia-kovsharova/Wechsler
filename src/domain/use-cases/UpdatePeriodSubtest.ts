@@ -1,14 +1,14 @@
 import { cloneDeep } from 'lodash-es';
 import { coerceToNumber, isNil } from '../../lib/utils';
 import { IPeriodStorageService } from '../ports';
-import { IPeriod } from '../types';
+import { IPeriodSubtests } from '../types';
 
 export interface IUpdatePeriodUseCaseDependencies {
     periodStorage: IPeriodStorageService;
 }
 
 export const updatePeriodSubtestUseCase = (
-    name: keyof IPeriod,
+    name: keyof IPeriodSubtests,
     value: number | string | null,
     deps: IUpdatePeriodUseCaseDependencies,
 ): void => {

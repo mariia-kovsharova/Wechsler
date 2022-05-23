@@ -1,5 +1,27 @@
 {
     "five-years": {
-        "from-zero-to-three": "5 лет 0 месяцев - 5 лет 3 месяца"
+        "from-zero-to-three": "5 лет 0 месяцев - 5 лет 3 месяца",
+        "from-four-to-seven": "5 лет 4 месяца - 5 лет 7 месяцев",
+        "from-eight-to-eleven": "5 лет 8 месяцев - 5 лет 11 месяцев"
+    },
+    "six-years": {
+        "from-zero-to-three": "6 лет 0 месяцев - 6 лет 3 месяца",
+        "from-four-to-seven": "6 лет 4 месяца - 6 лет 7 месяцев",
+        "from-eight-to-eleven": "6 лет 8 месяцев - 6 лет 11 месяцев"
+    },
+    "seven-years": {
+        "from-zero-to-three": "7 лет 0 месяцев - 7 лет 3 месяца",
+        "from-four-to-seven": "7 лет 4 месяца - 7 лет 7 месяцев",
+        "from-eight-to-eleven": "7 лет 8 месяцев - 7 лет 11 месяцев"
+    },
+    "eight-years": {
+        "from-zero-to-three": "8 лет 0 месяцев - 8 лет 3 месяца",
+        "from-four-to-seven": "8 лет 4 месяца - 8 лет 7 месяцев",
+        "from-eight-to-eleven": "8 лет 8 месяцев - 8 лет 11 месяцев"
+    },
+    "nine-years": {
+        "from-zero-to-three": "9 лет 0 месяцев - 9 лет 3 месяца",
+        "from-four-to-seven": "9 лет 4 месяца - 9 лет 7 месяцев",
+        "from-eight-to-eleven": "9 лет 8 месяцев - 9 лет 11 месяцев"
     }
 }

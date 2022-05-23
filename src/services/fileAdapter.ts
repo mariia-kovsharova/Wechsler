@@ -16,9 +16,5 @@ export const useFileService = (): IFileService => {
         document.body.removeChild(link);
     };
 
-    const importFile = (): Promise<void> => {
-        return Promise.resolve();
-    };
-
-    return { exportFile, importFile };
+    return { exportFile };
 };

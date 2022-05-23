@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+import { PeriodType } from '../../../ports';
 import {
     ArithmeticSubtest, AwarenessSubtest, ComprehensibilitySubtest,
     CubesSubtest, DetailsSubtest, DigitsRepeatSubtest,
@@ -7,11 +8,11 @@ import {
 } from '../../subtests';
 import { Period } from '../period';
 
-const TRANSLATE = 'range.five-years.from-zero-to-three';
+const TRANSLATE_DESCRIPTION = 'range.five-years.from-zero-to-three';
 
 export class FiveYearsFromZeroToThreeMonths extends Period {
     constructor() {
-        super(TRANSLATE);
+        super(PeriodType.FIVE_ZERO_THREE, TRANSLATE_DESCRIPTION);
     }
 
     protected initVerbalSubtests(): void {
