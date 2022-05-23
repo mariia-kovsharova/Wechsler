@@ -23,5 +23,35 @@
         "from-zero-to-three": "9 лет 0 месяцев - 9 лет 3 месяца",
         "from-four-to-seven": "9 лет 4 месяца - 9 лет 7 месяцев",
         "from-eight-to-eleven": "9 лет 8 месяцев - 9 лет 11 месяцев"
+    },
+    "ten-years": {
+        "from-zero-to-three": "10 лет 0 месяцев - 10 лет 3 месяца",
+        "from-four-to-seven": "10 лет 4 месяца - 10 лет 7 месяцев",
+        "from-eight-to-eleven": "10 лет 8 месяцев - 10 лет 11 месяцев"
+    },
+    "eleven-years": {
+        "from-zero-to-three": "11 лет 0 месяцев - 11 лет 3 месяца",
+        "from-four-to-seven": "11 лет 4 месяца - 11 лет 7 месяцев",
+        "from-eight-to-eleven": "11 лет 8 месяцев - 11 лет 11 месяцев"
+    },
+    "twelve-years": {
+        "from-zero-to-three": "12 лет 0 месяцев - 12 лет 3 месяца",
+        "from-four-to-seven": "12 лет 4 месяца - 12 лет 7 месяцев",
+        "from-eight-to-eleven": "12 лет 8 месяцев - 12 лет 11 месяцев"
+    },
+    "thirteen-years": {
+        "from-zero-to-three": "13 лет 0 месяцев - 13 лет 3 месяца",
+        "from-four-to-seven": "13 лет 4 месяца - 13 лет 7 месяцев",
+        "from-eight-to-eleven": "13 лет 8 месяцев - 13 лет 11 месяцев"
+    },
+    "fourteen-years": {
+        "from-zero-to-three": "14 лет 0 месяцев - 14 лет 3 месяца",
+        "from-four-to-seven": "14 лет 4 месяца - 14 лет 7 месяцев",
+        "from-eight-to-eleven": "14 лет 8 месяцев - 14 лет 11 месяцев"
+    },
+    "fifteen-years": {
+        "from-zero-to-three": "15 лет 0 месяцев - 15 лет 3 месяца",
+        "from-four-to-seven": "15 лет 4 месяца - 15 лет 7 месяцев",
+        "from-eight-to-eleven": "15 лет 8 месяцев - 15 лет 11 месяцев"
     }
 }
