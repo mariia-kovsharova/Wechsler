@@ -2,6 +2,7 @@
   "name": "wexler",
   "version": "0.1.0",
   "private": false,
+  "homepage": "https://fiorsaoirse.github.io/wexler/",
   "dependencies": {
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
