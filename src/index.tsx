@@ -1,14 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { Provider } from './repository/store';
 import './index.scss';
+import { Provider } from './repository/store';
+
+// ReactDOM.render(
+//     <React.StrictMode>
+//         <HashRouter basename='/'>
+//             <div>
+//                 Welcome to Wexler Calculate!
+//                 <ul>
+//                     <a href='/#/'><li>Home</li></a>
+//                 </ul>
+//                 <Route path='/' element={<PlainApp/>} />
+//             </div>
+//         </HashRouter>
+//     </React.StrictMode>,
+//     document.getElementById('root'),
+// );
 
 ReactDOM.render(
-    <Provider>
-        <React.StrictMode>
-            <App />
-        </React.StrictMode>
-    </Provider>,
+    <React.StrictMode>
+        <Provider>
+            <App/>
+        </Provider>
+    </React.StrictMode>,
     document.getElementById('root'),
 );

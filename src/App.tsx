@@ -8,7 +8,7 @@ import { HeaderButtons } from './ui/HeaderButtons';
 function App(): JSX.Element {
 
     return (
-        <Container>
+        <Container maxWidth="md">
             <header>
                 <HeaderButtons/>
                 <HeaderDetails/>

@@ -12,7 +12,7 @@ const TRANSLATE_DESCRIPTION = 'range.thirteen-years.from-eight-to-eleven';
 
 export class ThirteenYearsFromEightToElevenMonths extends Period {
     constructor() {
-        super(PeriodType.THRITEEN_EIGHT_ELEVEN, TRANSLATE_DESCRIPTION);
+        super(PeriodType.THIRTEEN_EIGHT_ELEVEN, TRANSLATE_DESCRIPTION);
     }
 
     protected initVerbalSubtests(): void {

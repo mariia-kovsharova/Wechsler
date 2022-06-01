@@ -30,5 +30,7 @@ export const updateStudentBirthdateUseCase = (
     if (birthdate && date) {
         const period = periodFactory(date, birthdate as StudentDate);
         updatePeriod(period);
+    } else {
+        updatePeriod(null);
     }
 };

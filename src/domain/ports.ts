@@ -39,9 +39,9 @@ export enum PeriodType {
     TWELVE_FOUR_SEVEN = 'twelve-years-from-four-to-seven-months',
     TWELVE_EIGHT_ELEVEN = 'twelve-years-from-eight-to-eleven-months',
 
-    THRITEEN_ZERO_THREE = 'thirteen-years-from-zero-to-three-months',
-    THRITEEN_FOUR_SEVEN = 'thirteen-years-from-four-to-seven-months',
-    THRITEEN_EIGHT_ELEVEN = 'thirteen-years-from-eight-to-eleven-months',
+    THIRTEEN_ZERO_THREE = 'thirteen-years-from-zero-to-three-months',
+    THIRTEEN_FOUR_SEVEN = 'thirteen-years-from-four-to-seven-months',
+    THIRTEEN_EIGHT_ELEVEN = 'thirteen-years-from-eight-to-eleven-months',
 
     FOURTEEN_ZERO_THREE = 'fourteen-years-from-zero-to-three-months',
     FOURTEEN_FOUR_SEVEN = 'fourteen-years-from-four-to-seven-months',
