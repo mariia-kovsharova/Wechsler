@@ -49,7 +49,7 @@ export const StudentSection = (): JSX.Element => {
                             type="text"
                             label={t('student.fio')}
                             onChange={propertyHandler}
-                            value={name}
+                            value={name ?? ''}
                             InputLabelProps={{ shrink: !!name }}
                         />
                     </FormControl>

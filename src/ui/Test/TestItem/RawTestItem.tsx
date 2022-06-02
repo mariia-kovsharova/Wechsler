@@ -35,7 +35,8 @@ export const RawTestItem = (props: IRawTestItemProps): JSX.Element => {
     return (
         <TableRow key={subtest.name}>
             <TableCell key={`${name}-label`} component="th" scope="row">{t(name)}</TableCell>
-            <TableCell width="20px">
+            <TableCell key={`${name}-icon`}
+                width="20px">
                 { subtest.isInvalid
                     ? getTooltip(t('subtest.maxPointsOverflow', { maxValue: subtest.maxAvaiableValue }))
                     : <div className="tooltip-container__empty"></div>

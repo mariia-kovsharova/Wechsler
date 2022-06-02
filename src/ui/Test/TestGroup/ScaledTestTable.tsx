@@ -2,6 +2,7 @@ import { TableContainer, Table, TableHead, TableRow, TableCell, TableBody } from
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Period } from '../../../domain/entities/period';
+import { Subtest } from '../../../domain/entities/subtests';
 import { isNil, formatClassNames } from '../../../lib/utils';
 import { ScaledTestItem } from '../index';
 
@@ -82,7 +83,8 @@ export const ScaledTestTable = (props: ScaledTestTableProps): JSX.Element => {
                         </TableHead>
                         <TableBody>
                             {
-                                verbals.map(subtest => <ScaledTestItem subtest={subtest}></ScaledTestItem>)
+                                verbals.map((subtest: Subtest) => 
+                                    <ScaledTestItem key={subtest.name} subtest={subtest}/>)
                             }
                             { verbalSumRow }
                         </TableBody>
@@ -92,7 +94,8 @@ export const ScaledTestTable = (props: ScaledTestTableProps): JSX.Element => {
                     <Table className="table-container__table-content" aria-label="Inverbal subtest result table">
                         <TableBody>
                             {
-                                inverbals.map(subtest => <ScaledTestItem subtest={subtest}></ScaledTestItem>)
+                                inverbals.map((subtest: Subtest) => 
+                                    <ScaledTestItem key={subtest.name} subtest={subtest}/>)
                             }
                             { inverbalSumRow }
                         </TableBody>

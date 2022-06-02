@@ -2,6 +2,7 @@ import { TableContainer, Table, TableHead, TableRow, TableCell, TableBody } from
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Period } from '../../../domain/entities/period';
+import { Subtest } from '../../../domain/entities/subtests';
 import { RawTestItem } from '../index';
 
 type RawTestTableProps = {
@@ -32,7 +33,7 @@ export const RawTestTable = (props: RawTestTableProps): JSX.Element => {
                         </TableHead>
                         <TableBody>
                             {
-                                verbal.map(subtest => <RawTestItem subtest={subtest}></RawTestItem>)
+                                verbal.map((subtest: Subtest) => <RawTestItem key={subtest.name} subtest={subtest}/>)
                             }
                         </TableBody>
                     </Table>
