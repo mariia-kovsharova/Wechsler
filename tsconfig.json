@@ -20,14 +20,17 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "experimentalDecorators": true,
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
-      "@entities": [
-        "src/domain/entities/*"
-      ],
-      "@use-cases": [
-        "src/domain/use-cases/*"
-      ]
+        "@adapters": [
+            "services/index.ts"
+        ],
+        "@entities": [
+            "domain/entities/index.ts"
+        ],
+        "@utils": [
+            "lib/index.ts"
+        ]
     }
   },
   "include": [

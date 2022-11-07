@@ -53,7 +53,7 @@ const VERBAL_IQ_POINTS = [
     153, 154, 155,
 ];
 
-const INVERBAL_IQ_POINTS = [
+const NONVERBAL_IQ_POINTS = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 44, 46, 47, 48, 50, 51,
     53, 54, 55, 57, 58, 60, 61, 62, 64, 65, 67, 68, 69,
     71, 72, 74, 75, 76, 78, 79, 80, 82, 83, 85, 86, 87,
@@ -184,14 +184,14 @@ export abstract class Period implements Readonly<IPeriod>, IPeriodSubtests {
         this._figures = value;
     }
 
-    private _encription!: EncryptionSubtest;
+    private _encryption!: EncryptionSubtest;
 
     public get encryption(): EncryptionSubtest {
-        return this._encription;
+        return this._encryption;
     }
 
     protected set encryption(value: EncryptionSubtest) {
-        this._encription = value;
+        this._encryption = value;
     }
 
     private _labyrinth!: LabyrinthsSubtest;
@@ -214,13 +214,13 @@ export abstract class Period implements Readonly<IPeriod>, IPeriodSubtests {
         this._type = type;
         this.description = description;
         this.initVerbalSubtests();
-        this.initInverbalSubtests();
+        this.initNonverbalSubtests();
         this.validateSubtests();
     }
 
     protected abstract initVerbalSubtests(): void;
 
-    protected abstract initInverbalSubtests(): void;
+    protected abstract initNonverbalSubtests(): void;
 
     public static getTruePoints(subtests: ReadonlyArray<ISubtest>, sum: number): number | never {
         const count = subtests.filter(x => !x.isEmpty).length;
@@ -236,12 +236,12 @@ export abstract class Period implements Readonly<IPeriod>, IPeriodSubtests {
         throw new Error('Unknown count of tests!');
     }
 
-    public static getIQPoints({ verbal, inverbal, common }: IResultPoints): IResultIQPoints {
+    public static getIQPoints({ verbal, nonverbal, common }: IResultPoints): IResultIQPoints {
         const verbalIQ = VERBAL_IQ_POINTS[verbal] ?? null;
-        const inverbalIQ = INVERBAL_IQ_POINTS[inverbal] ?? null;
+        const nonverbalIQ = NONVERBAL_IQ_POINTS[nonverbal] ?? null;
         const commonIQ = ALL_IQ_POINTS[common] ?? null;
 
-        return { verbalIQ, inverbalIQ, commonIQ };
+        return { verbalIQ, nonverbalIQ, commonIQ };
     }
 
     public get verbalSubtests(): ReadonlyArray<Subtest> {
@@ -255,7 +255,7 @@ export abstract class Period implements Readonly<IPeriod>, IPeriodSubtests {
         ];
     }
 
-    public get inverbalSubtests(): ReadonlyArray<Subtest> {
+    public get nonverbalSubtests(): ReadonlyArray<Subtest> {
         return [
             this.details,
             this.images,
@@ -273,10 +273,10 @@ export abstract class Period implements Readonly<IPeriod>, IPeriodSubtests {
 
     public isTestCountValid(): boolean {
         const filledVerbalTests = this.verbalSubtests.filter(x => !(x.isEmpty || x.isInvalid));
-        const filledInverbalTests = this.inverbalSubtests.filter(x => !(x.isEmpty || x.isInvalid));
+        const filledNonverbalTests = this.nonverbalSubtests.filter(x => !(x.isEmpty || x.isInvalid));
 
         return (
-            filledVerbalTests.length === filledInverbalTests.length
+            filledVerbalTests.length === filledNonverbalTests.length
             && (filledVerbalTests.length === MINIMAL_COUNT_OF_TESTS_IN_GROUP
                 || filledVerbalTests.length === MAXIMUM_COUNT_OF_TESTS_IN_GROUP)
         );
@@ -284,14 +284,14 @@ export abstract class Period implements Readonly<IPeriod>, IPeriodSubtests {
 
     private validateSubtests(): void | never {
         const areVerbalSubtestsInitialized = this.verbalSubtests.every(x => !isNil(x));
-        const areInverbalSubtestsInitialized = this.inverbalSubtests.every(x => !isNil(x));
+        const areNonverbalSubtestsInitialized = this.nonverbalSubtests.every(x => !isNil(x));
 
         if (!areVerbalSubtestsInitialized) {
             throw new Error('One of verbal test is not initialized!');
         }
 
-        if (!areInverbalSubtestsInitialized) {
-            throw new Error('One of inverbal test is not initialized!');
+        if (!areNonverbalSubtestsInitialized) {
+            throw new Error('One of nonverbal test is not initialized!');
         }
     }
 }

@@ -1,0 +1,29 @@
+import { useMetadataStorage, useUpdateDate } from '@adapters';
+import { DatePicker, LocalizationProvider } from '@mui/lab';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import { FormControl, TextField } from '@mui/material';
+import { ru } from 'date-fns/locale';
+import { useTranslation } from 'react-i18next';
+import { Masks } from '../../constants';
+
+export const DateComponent = (): JSX.Element => {
+    const { date } = useMetadataStorage();
+    const { t } = useTranslation();
+    const update = useUpdateDate();
+
+    return (
+        <FormControl component="fieldset">
+            <LocalizationProvider dateAdapter={AdapterDateFns}
+                locale={ru}>
+                <DatePicker
+                    label={t('common.date')}
+                    value={date}
+                    onChange={update}
+                    mask={Masks.Date}
+                    clearable={false}
+                    renderInput={(params) => <TextField {...params} />}
+                />
+            </LocalizationProvider>
+        </FormControl>
+    );
+};

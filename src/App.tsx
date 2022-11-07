@@ -1,9 +1,9 @@
-import './i18n';
 import { Container } from '@mui/material';
-import { HeaderDetails } from './ui/HeaderDetails';
-import { StudentSection } from './ui/Student';
-import { TabsSection } from './ui/Tabs';
-import { HeaderButtons } from './ui/HeaderButtons';
+import './i18n';
+import { HeaderButtons } from './ui/components/HeaderButtons';
+import { HeaderDetails } from './ui/components/HeaderDetails';
+import { StudentSection } from './ui/components/Student';
+import { TabsSection } from './ui/components/Tabs';
 
 function App(): JSX.Element {
 

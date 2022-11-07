@@ -1,5 +1,4 @@
 import { exportUseCase } from '../domain/use-cases/ExportUseCase';
-import { useMetadataStorage, usePeriodStorage, useStudentStorage } from '../repository/storageAdapter';
 import { useDateTransformService } from './dateTransformAdapter';
 import { useConclusionDtoService } from './dto/conclusionDtoService';
 import { useDateDtoService } from './dto/dateDtoService';
@@ -8,6 +7,7 @@ import { useStudentDtoService } from './dto/studentDtoService';
 import { useFileService } from './fileAdapter';
 import { useNotificationService } from './notificationAdapter';
 import { useSerializationService } from './serializationAdapter';
+import { useMetadataStorage, usePeriodStorage, useStudentStorage } from './storageAdapter';
 
 export function useExportFile() {
     const metadataStorage = useMetadataStorage();

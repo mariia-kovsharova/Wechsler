@@ -2,13 +2,11 @@ import { cloneDeep } from 'lodash-es';
 import { Student } from '../entities/student/student';
 import { IStudentStorageService } from '../ports';
 
-export type StudentKey = Exclude<keyof Student, 'birthDate'>;
-
 export interface IUpdateStudentUseCaseDependencies {
     studentStorage: IStudentStorageService
 }
 
-export const updateStudentUseCase = <T extends StudentKey>(
+export const updateStudentUseCase = <T extends keyof Student>(
     property: T,
     value: Student[T],
     deps: IUpdateStudentUseCaseDependencies,

@@ -12,17 +12,28 @@ export type StudentGender = 'male' | 'female';
 
 export type SubtestName = Brand<TestName, 'subtest'>;
 
-export interface IStudent {
-    name: StudentName | null;
-    birthDate: StudentDate | null;
-    gender: StudentGender;
-    isMale: boolean;
-}
+export type VerbalSubtestGroup = [
+    AwarenessSubtest,
+    ComprehensibilitySubtest,
+    ArithmeticSubtest,
+    SimilaritySubtest,
+    LexicalSubtest,
+    DigitsRepeatSubtest,
+];
+
+export type NonverbalSubtestGroup = [
+    DetailsSubtest,
+    ImagesSubtest,
+    CubesSubtest,
+    FiguresSubtest,
+    EncryptionSubtest,
+    LabyrinthsSubtest,
+];
 
 export interface IPeriod {
     type: PeriodType;
-    verbalSubtests: ReadonlyArray<ISubtest>;
-    inverbalSubtests: ReadonlyArray<ISubtest>;
+    verbalSubtests: VerbalSubtestGroup;
+    nonverbalSubtests: NonverbalSubtestGroup;
 }
 
 export interface IPeriodSubtests {
@@ -32,6 +43,7 @@ export interface IPeriodSubtests {
     similarity: SimilaritySubtest;
     lexical: LexicalSubtest;
     digits: DigitsRepeatSubtest;
+
     details: DetailsSubtest;
     images: ImagesSubtest;
     cubes: CubesSubtest;
@@ -51,13 +63,13 @@ export interface ISubtest {
 
 export interface IResultIQPoints {
     verbalIQ: number;
-    inverbalIQ: number;
+    nonverbalIQ: number;
     commonIQ: number;
 }
 
 export interface IResultPoints {
     verbal: number;
-    inverbal: number;
+    nonverbal: number;
     common: number;
 }
 
@@ -93,5 +105,5 @@ export interface ISubtestDto {
 export interface IPeriodDto {
     readonly type: string;
     readonly verbalSubtests: ReadonlyArray<ISubtestDto>;
-    readonly inverbalSubtests: ReadonlyArray<ISubtestDto>;
+    readonly nonverbalSubtests: ReadonlyArray<ISubtestDto>;
 }

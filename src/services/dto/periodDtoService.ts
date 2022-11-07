@@ -25,7 +25,7 @@ export const usePeriodDtoService = (): IDtoService<IPeriod, IPeriodDto> => {
             return {
                 type: from.type as string,
                 verbalSubtests: from.verbalSubtests.map(x => subtestDtoService.toDto(x)),
-                inverbalSubtests: from.inverbalSubtests.map(x => subtestDtoService.toDto(x)),
+                nonverbalSubtests: from.nonverbalSubtests.map(x => subtestDtoService.toDto(x)),
             };
         },
 
@@ -33,7 +33,7 @@ export const usePeriodDtoService = (): IDtoService<IPeriod, IPeriodDto> => {
             return {
                 type: typeMapper(from.type),
                 verbalSubtests: from.verbalSubtests.map(x => subtestDtoService.toEntity(x)),
-                inverbalSubtests: from.inverbalSubtests.map(x => subtestDtoService.toEntity(x)),
+                nonverbalSubtests: from.nonverbalSubtests.map(x => subtestDtoService.toEntity(x)),
             };
         },
     };

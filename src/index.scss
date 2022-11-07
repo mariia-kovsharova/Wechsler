@@ -1,7 +1,7 @@
-@import "styles/mixins";
-@import "styles/typography.scss";
-@import "styles/variables.scss";
-@import "ui/index.scss";
+@import "ui/styles/mixins";
+@import "ui/styles/typography.scss";
+@import "ui/styles/variables.scss";
+@import "ui/components/index.scss";
 
 body {
     font-family: "Roboto";

@@ -1,8 +1,8 @@
 import {
-    IStudentStorageService, IMetadataStorageService,
+    IDtoService, IMetadataStorageService,
+    INotificationService, IPeriodDispatchingService,
     IPeriodStorageService, ISerializationService,
-    INotificationService, IDtoService,
-    IPeriodDispatchingService,
+    IStudentStorageService,
 } from '../ports';
 import {
     IConclusionDto,
@@ -54,7 +54,7 @@ export const importUseCase = (fileContent: string, {
             mappedPeriod?.updateTestValue(subtest.name, subtest.rawPoints);
         });
 
-        period?.inverbalSubtests.map(subtest => {
+        period?.nonverbalSubtests.map(subtest => {
             mappedPeriod?.updateTestValue(subtest.name, subtest.rawPoints);
         });
 

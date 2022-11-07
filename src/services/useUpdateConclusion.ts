@@ -1,6 +1,6 @@
 import { TestConclusion } from '../domain/types';
 import { updateConclusionUseCase } from '../domain/use-cases/UpdateConclusion';
-import { useMetadataStorage } from '../repository/storageAdapter';
+import { useMetadataStorage } from './storageAdapter';
 
 export function useUpdateConclusion() {
     const metadataStorage = useMetadataStorage();
