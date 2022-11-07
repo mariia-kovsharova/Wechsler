@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
-import { IMetadataStorageService, IPeriodStorageService, IStudentStorageService } from '../domain/ports';
+import { IMetadataStorageService, IPeriodStorageService, IStudentStorageService } from '@ports';
 import { useStore } from './store';
 
 export function useStudentStorage(): IStudentStorageService {

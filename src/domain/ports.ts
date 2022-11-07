@@ -3,7 +3,7 @@ import { Period } from './entities/period';
 import {
     FileContent, FileName, FileType,
     IConclusionDto, IDateDto, IPeriodDto, IStudentDto, StringifiedDateType,
-    TestConclusion, TestDate
+    TestConclusion, TestDate,
 } from './types';
 
 export enum PeriodType {

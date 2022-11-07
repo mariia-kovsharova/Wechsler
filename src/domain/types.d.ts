@@ -1,3 +1,12 @@
+import {
+    ArithmeticSubtest, AwarenessSubtest,
+    ComprehensibilitySubtest, CubesSubtest,
+    DetailsSubtest, DigitsRepeatSubtest,
+    EncryptionSubtest, FiguresSubtest,
+    ImagesSubtest, LabyrinthsSubtest,
+    LexicalSubtest, SimilaritySubtest,
+} from './entities/subtests/index';
+
 export type Brand<T, B extends string> = T & { readonly _brand: B };
 
 export type TestConclusion = Brand<string, 'wexler_test_conclusion'>;
@@ -12,6 +21,7 @@ export type StudentGender = 'male' | 'female';
 
 export type SubtestName = Brand<TestName, 'subtest'>;
 
+// TODO: how to map tuples?
 export type VerbalSubtestGroup = [
     AwarenessSubtest,
     ComprehensibilitySubtest,
@@ -32,8 +42,8 @@ export type NonverbalSubtestGroup = [
 
 export interface IPeriod {
     type: PeriodType;
-    verbalSubtests: VerbalSubtestGroup;
-    nonverbalSubtests: NonverbalSubtestGroup;
+    verbalSubtests: ReadonlyArray<ISubtest>;
+    nonverbalSubtests: ReadonlyArray<ISubtest>;
 }
 
 export interface IPeriodSubtests {

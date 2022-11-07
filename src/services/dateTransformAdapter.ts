@@ -1,4 +1,4 @@
-import { IDateTransformService } from '../domain/ports';
+import { IDateTransformService } from '@ports';
 import { format, parse } from 'date-fns';
 
 const DATE_FORMAT = 'dd.MM.yyyy';

@@ -1,5 +1,5 @@
-import { isNil } from '../../../lib/utils';
-import { IPeriodSubtests, ISubtest, SubtestName } from '../../types';
+import { IPeriodSubtests, ISubtest, SubtestName } from '@types';
+import { isNil } from '@utils';
 
 export abstract class Subtest implements ISubtest {
     protected readonly values: ReadonlyArray<number>;

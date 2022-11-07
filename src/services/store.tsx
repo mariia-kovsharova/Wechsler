@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { useContext } from 'react';
-import { Student } from '../domain/entities/student/student';
-import { getCurrentDate } from '../lib/utils';
+import { Student } from '@entities';
+import { getCurrentDate } from '@utils';
+import React, { useContext, useState } from 'react';
 
 const StoreContext = React.createContext<unknown>({});
 

@@ -1,5 +1,5 @@
-import { IDtoService } from '../../domain/ports';
-import { IDateDto, TestDate } from '../../domain/types';
+import { IDtoService } from '@ports';
+import { IDateDto, TestDate } from '@types';
 import { useDateTransformService } from '../dateTransformAdapter';
 
 export const useDateDtoService = (): IDtoService<TestDate, IDateDto> => {
@@ -14,6 +14,8 @@ export const useDateDtoService = (): IDtoService<TestDate, IDateDto> => {
         },
     };
 };
+
+// !!! an example of class service !!!
 
 // export class DateDtoService implements IDtoService<TestDate, IDateDto> {
 //     constructor(private readonly dateTransformService: IDateTransformService) { }

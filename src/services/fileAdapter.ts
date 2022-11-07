@@ -1,5 +1,5 @@
-import { IFileService } from '../domain/ports';
-import { FileContent, FileName, FileType } from '../domain/types';
+import { IFileService } from '@ports';
+import { FileContent, FileName, FileType } from '@types';
 
 const BLOB_TYPE = 'application/json';
 
@@ -9,7 +9,6 @@ export const useFileService = (): IFileService => {
         const href = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = href;
-        // TODO: to dispatcher
         link.download = `${name}.json`;
         document.body.appendChild(link);
         link.click();

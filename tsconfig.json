@@ -28,6 +28,12 @@
         "@entities": [
             "domain/entities/index.ts"
         ],
+        "@ports": [
+            "domain/ports"
+        ],
+        "@types": [
+            "domain/types"
+        ],
         "@utils": [
             "lib/index.ts"
         ]

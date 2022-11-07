@@ -1,4 +1,4 @@
-import { Student } from '../domain/entities/student/student';
+import { Student } from '@entities';
 import { updateStudentUseCase } from '../domain/use-cases';
 import { updateStudentBirthdateUseCase } from '../domain/use-cases/UpdateStudentBirthdate';
 import { useMetadataStorage, usePeriodStorage, useStudentStorage } from './storageAdapter';

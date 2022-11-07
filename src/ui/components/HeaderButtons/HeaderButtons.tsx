@@ -1,4 +1,4 @@
-import { useExportFile, useImportFile, usePeriodStorage } from '@adapters';
+import { useExportFile, useImportFile, useNotificationService, usePeriodStorage } from '@adapters';
 import { Print, Save, Upload } from '@mui/icons-material';
 import { Button, IconButton } from '@mui/material';
 import React, { ChangeEvent } from 'react';
@@ -9,6 +9,7 @@ export const HeaderButtons = (): JSX.Element => {
     const { period } = usePeriodStorage();
     const { exportFile } = useExportFile();
     const { importFile } = useImportFile();
+    const notificationService = useNotificationService();
 
     const handlePrintButton = () => {
         window.print();
@@ -30,7 +31,12 @@ export const HeaderButtons = (): JSX.Element => {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         fileReader.onload = function (_event: ProgressEvent<FileReader>) {
             const content = fileReader.result as string;
-            importFile(content);
+            try {
+                importFile(content);
+            } catch (e) {
+                const message = t('common.upload.error');
+                notificationService.notify(message);
+            }
         };
 
         fileReader.readAsText(file);

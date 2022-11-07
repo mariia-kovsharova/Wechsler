@@ -1,5 +1,5 @@
-import { IDtoService } from '../../domain/ports';
-import { IConclusionDto, TestConclusion } from '../../domain/types';
+import { IDtoService } from '@ports';
+import { IConclusionDto, TestConclusion } from '@types';
 
 export const useConclusionDtoService = (): IDtoService<TestConclusion, IConclusionDto> => {
     return {

@@ -1,14 +1,14 @@
-import { isNil } from '../../../lib/utils';
-import { PeriodType } from '../../ports';
+import { PeriodType } from '@ports';
 import {
     IPeriod, IPeriodSubtests, IResultIQPoints,
-    IResultPoints, ISubtest,
-} from '../../types';
+    IResultPoints, ISubtest, NonverbalSubtestGroup, VerbalSubtestGroup,
+} from '@types';
+import { isNil } from '@utils';
 import {
     ArithmeticSubtest, AwarenessSubtest, ComprehensibilitySubtest,
     CubesSubtest, DetailsSubtest, DigitsRepeatSubtest,
     EncryptionSubtest, FiguresSubtest, ImagesSubtest,
-    LabyrinthsSubtest, LexicalSubtest, SimilaritySubtest, Subtest,
+    LabyrinthsSubtest, LexicalSubtest, SimilaritySubtest,
 } from '../subtests';
 
 const MINIMAL_COUNT_OF_TESTS_IN_GROUP = 4;
@@ -244,7 +244,7 @@ export abstract class Period implements Readonly<IPeriod>, IPeriodSubtests {
         return { verbalIQ, nonverbalIQ, commonIQ };
     }
 
-    public get verbalSubtests(): ReadonlyArray<Subtest> {
+    public get verbalSubtests(): Readonly<VerbalSubtestGroup> {
         return [
             this.awareness,
             this.comprehensibility,
@@ -252,10 +252,10 @@ export abstract class Period implements Readonly<IPeriod>, IPeriodSubtests {
             this.similarity,
             this.lexical,
             this.digits,
-        ];
+        ] as const;
     }
 
-    public get nonverbalSubtests(): ReadonlyArray<Subtest> {
+    public get nonverbalSubtests(): Readonly<NonverbalSubtestGroup> {
         return [
             this.details,
             this.images,
@@ -263,7 +263,7 @@ export abstract class Period implements Readonly<IPeriod>, IPeriodSubtests {
             this.figures,
             this.encryption,
             this.labyrinths,
-        ];
+        ] as const;
     }
 
     public updateTestValue(name: keyof IPeriodSubtests, value: number | null): void {

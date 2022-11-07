@@ -11,6 +11,7 @@ import { format } from 'date-fns';
 import { ru } from 'date-fns/locale';
 import React, { ChangeEvent } from 'react';
 import { useTranslation } from 'react-i18next';
+import { StudentGender, StudentName } from '../../../domain/types';
 import { Masks } from '../../constants';
 import { PrintTemplate } from '../PrintTemplate';
 
@@ -30,8 +31,8 @@ export const StudentSection = (): JSX.Element => {
     const maleLabelShort = t('student.gender.male-short');
 
     const propertyHandler = (event: ChangeEvent<HTMLInputElement>) => {
-        const property = (event.target.id || event.target.name) as keyof Student;
-        const value = event.target.value;
+        const property = (event.target.id || event.target.name) as keyof Exclude<Student, 'name' | 'gender'>;
+        const value = event.target.value as StudentName | StudentGender ;
         updateStudent(property, value);
     };
 

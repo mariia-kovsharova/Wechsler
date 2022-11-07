@@ -1,4 +1,4 @@
-import { TestConclusion } from '../domain/types';
+import { TestConclusion } from '@types';
 import { updateConclusionUseCase } from '../domain/use-cases/UpdateConclusion';
 import { useMetadataStorage } from './storageAdapter';
 
