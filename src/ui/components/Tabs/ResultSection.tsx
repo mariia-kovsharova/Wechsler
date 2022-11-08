@@ -1,4 +1,4 @@
-import { usePeriodStorage } from '@repositories';
+import { usePeriodStorage } from '@adapters';
 import { isNil } from '@utils';
 import { useTranslation } from 'react-i18next';
 import { ResultPointsChart } from '../../components/Chart';

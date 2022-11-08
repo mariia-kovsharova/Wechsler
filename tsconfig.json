@@ -11,6 +11,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
+    "noImplicitAny": false,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
@@ -20,22 +21,22 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "experimentalDecorators": true,
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "paths": {
         "@adapters": [
-            "services/index.ts"
+            "src/services"
         ],
         "@entities": [
-            "domain/entities/index.ts"
+            "src/domain/entities"
         ],
         "@ports": [
-            "domain/ports"
+            "src/domain/ports"
         ],
         "@types": [
-            "domain/types"
+            "src/domain/types"
         ],
         "@utils": [
-            "lib/index.ts"
+            "src/lib"
         ]
     }
   },

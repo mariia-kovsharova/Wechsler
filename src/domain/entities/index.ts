@@ -1,3 +1,1 @@
-export * from './period';
-export * from './student';
-export * from './subtests';
+export * from './public-api';

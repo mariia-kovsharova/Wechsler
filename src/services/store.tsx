@@ -6,7 +6,7 @@ const StoreContext = React.createContext<unknown>({});
 
 export const useStore = () => useContext(StoreContext);
 
-export const Provider: React.FC = ({ children }) => {
+export const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [student, setStudent] = useState(new Student());
     const [date, setDate] = useState(getCurrentDate());
     const [period, setPeriod] = useState(null);

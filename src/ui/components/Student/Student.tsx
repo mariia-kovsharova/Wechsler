@@ -1,21 +1,21 @@
 import { useStudentStorage, useUpdateStudent, useUpdateStudentBirthdate } from '@adapters';
 import { Student } from '@entities';
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import DatePicker from '@mui/lab/DatePicker';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import {
     FormControl, FormControlLabel, FormLabel,
     Radio, RadioGroup, TextField
 } from '@mui/material';
+import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { StudentGender, StudentName } from '@types';
 import { format } from 'date-fns';
-import { ru } from 'date-fns/locale';
+import 'dayjs/locale/ru';
 import React, { ChangeEvent } from 'react';
 import { useTranslation } from 'react-i18next';
-import { StudentGender, StudentName } from '../../../domain/types';
 import { Masks } from '../../constants';
 import { PrintTemplate } from '../PrintTemplate';
 
 const FIELD_CSS_CLASS = 'student-container__field';
+const RU = 'ru';
 
 export const StudentSection = (): JSX.Element => {
     const { t } = useTranslation();
@@ -38,6 +38,8 @@ export const StudentSection = (): JSX.Element => {
 
     const { name, birthDate, gender } = student;
 
+    const birthLabel = t('student.birthdate');
+
     return (
         <React.Fragment>
             <section className="student-container">
@@ -55,14 +57,14 @@ export const StudentSection = (): JSX.Element => {
                 </div>
                 <div className="student-container__row">
                     <FormControl component="fieldset" className={FIELD_CSS_CLASS}>
-                        <LocalizationProvider dateAdapter={AdapterDateFns}
-                            locale={ru}>
+                        <LocalizationProvider dateAdapter={AdapterDayjs}
+                            adapterLocale={RU}>
                             <DatePicker
-                                label={t('student.birthdate')}
+                                label={birthLabel}
                                 value={birthDate}
                                 mask={Masks.Date}
                                 onChange={updateStudentBirthdate}
-                                renderInput={(params) => <TextField {...params} />}
+                                renderInput={(params: any) => <TextField {...params} />}
                             />
                         </LocalizationProvider>
                     </FormControl>
