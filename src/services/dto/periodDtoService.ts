@@ -1,5 +1,5 @@
-import { IDtoService, PeriodType } from '../../domain/ports';
-import { IPeriod, IPeriodDto } from '../../domain/types';
+import { IDtoService, PeriodType } from '@ports';
+import { IPeriod, IPeriodDto } from '@types';
 import { useSubtestDtoService } from './subtestDtoService';
 
 function getEnumKeyByEnumValue<T extends { [index: string]: string }>(myEnum: T, enumValue: string): keyof T | null {
@@ -25,15 +25,19 @@ export const usePeriodDtoService = (): IDtoService<IPeriod, IPeriodDto> => {
             return {
                 type: from.type as string,
                 verbalSubtests: from.verbalSubtests.map(x => subtestDtoService.toDto(x)),
-                inverbalSubtests: from.inverbalSubtests.map(x => subtestDtoService.toDto(x)),
+                nonverbalSubtests: from.nonverbalSubtests.map(x => subtestDtoService.toDto(x)),
             };
         },
 
         toEntity(from: IPeriodDto): IPeriod {
+            const verbalSubtests = from.verbalSubtests.map(x => subtestDtoService.toEntity(x));
+            const nonverbalSubtests = from.nonverbalSubtests
+                .map(x => subtestDtoService.toEntity(x));
+
             return {
                 type: typeMapper(from.type),
-                verbalSubtests: from.verbalSubtests.map(x => subtestDtoService.toEntity(x)),
-                inverbalSubtests: from.inverbalSubtests.map(x => subtestDtoService.toEntity(x)),
+                verbalSubtests,
+                nonverbalSubtests,
             };
         },
     };

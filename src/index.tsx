@@ -1,29 +1,22 @@
+import { Provider } from '@adapters';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.scss';
-import { Provider } from './repository/store';
 
-// ReactDOM.render(
-//     <React.StrictMode>
-//         <HashRouter basename='/'>
-//             <div>
-//                 Welcome to Wexler Calculate!
-//                 <ul>
-//                     <a href='/#/'><li>Home</li></a>
-//                 </ul>
-//                 <Route path='/' element={<PlainApp/>} />
-//             </div>
-//         </HashRouter>
-//     </React.StrictMode>,
-//     document.getElementById('root'),
-// );
+const domRootNode = document.getElementById('root');
 
-ReactDOM.render(
+if (!domRootNode) {
+    throw new Error('You need to place the root node with id "root" first!');
+}
+
+const appNode: React.ReactNode = (
     <React.StrictMode>
         <Provider>
-            <App/>
+            <App />
         </Provider>
-    </React.StrictMode>,
-    document.getElementById('root'),
+    </React.StrictMode>
 );
+
+const rootNode = ReactDOM.createRoot(domRootNode);
+rootNode.render(appNode);

@@ -1,5 +1,5 @@
-import { IDtoService } from '../../domain/ports';
-import { ISubtest, ISubtestDto, SubtestName } from '../../domain/types';
+import { IDtoService } from '@ports';
+import { ISubtest, ISubtestDto, SubtestName } from '@types';
 
 export const useSubtestDtoService = (): IDtoService<ISubtest, ISubtestDto> => {
     return {

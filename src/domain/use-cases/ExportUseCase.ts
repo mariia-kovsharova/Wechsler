@@ -1,13 +1,14 @@
+import { Student } from '@entities';
 import {
-    IStudentStorageService, IMetadataStorageService,
-    IPeriodStorageService, IFileService,
-    ISerializationService, INotificationService, IDateTransformService,
-    IDtoService,
+    IDateTransformService,
+    IDtoService, IFileService,
+    IMetadataStorageService, INotificationService,
+    IPeriodStorageService, ISerializationService, IStudentStorageService
 } from '../ports';
 import {
     FileContent, FileName, IConclusionDto,
-    IDateDto, IPeriod, IPeriodDto, IStudent,
-    IStudentDto, TestConclusion, TestDate,
+    IDateDto, IPeriod, IPeriodDto,
+    IStudentDto, TestConclusion, TestDate
 } from '../types';
 
 export interface IExportUseCaseDependencies {
@@ -18,7 +19,7 @@ export interface IExportUseCaseDependencies {
     fileService: IFileService;
     notificationService: INotificationService;
     dateTransformService: IDateTransformService;
-    studentDtoService: IDtoService<IStudent, IStudentDto>,
+    studentDtoService: IDtoService<Student, IStudentDto>,
     periodDtoService: IDtoService<IPeriod, IPeriodDto>,
     dateDtoService: IDtoService<TestDate, IDateDto>,
     conclusionDtoService: IDtoService<TestConclusion, IConclusionDto>,

@@ -1,6 +1,6 @@
-import { StudentName, StudentDate, StudentGender, IStudent } from '../../types';
+import { StudentDate, StudentGender, StudentName } from '../../types';
 
-export class Student implements IStudent {
+export class Student {
     private _name: StudentName | null;
 
     private _birthDate: StudentDate | null;
@@ -41,7 +41,7 @@ export class Student implements IStudent {
         this._gender = value;
     }
 
-    get isMale(): boolean {
+    public isMale(): boolean {
         return this._gender === 'male';
     }
 }

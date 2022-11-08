@@ -24,7 +24,7 @@ export class SixYearsFromZeroToThreeMonths extends Period {
         this.digits = new DigitsRepeatSubtest([2, 3, 4, 5, 7, 8, 10, 11, 13, 15, 17, 19, 20, 20, 20, 20, 20, 20]);
     }
 
-    protected initInverbalSubtests(): void {
+    protected initNonverbalSubtests(): void {
         this.details = new DetailsSubtest([2, 4, 5, 6, 7, 8, 9, 11, 13, 14, 15, 16, 17, 18, 19, 20, 20, 20, 20, 20, 20]);
         this.images = new ImagesSubtest([2, 4, 6, 7, 8, 9, 10, 11, 11, 11, 12, 12, 12, 13, 13, 13, 13, 14, 14, 14, 15, 15, 16, 16, 17, 18, 18, 19, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]);
         this.cubes = new CubesSubtest([4, 6, 7, 8, 9, 11, 12, 13, 13, 13, 14, 14, 14, 15, 15, 15, 15, 16, 16, 16, 17, 17, 17, 17, 18, 18, 18, 19, 19, 19, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]);

@@ -1,0 +1,24 @@
+{
+    "table": {
+        "header": {
+            "name": "Наименование",
+            "points": "Баллы",
+            "verbal": "Вербальные субтесты",
+            "nonverbal": "Невербальные субтесты",
+            "scaledPoints": "Шк. баллы"
+        }
+    },
+    "awareness": "Осведомленность",
+    "comprehensibility": "Понятливость",
+    "arithmetic": "Арифметический",
+    "lexical": "Словарный",
+    "similarity": "Сходство",
+    "digits": "Повторение цифр",
+    "details": "Недостающие детали",
+    "images": "Последовательные картинки",
+    "cubes": "Кубики Коса",
+    "figures": "Складывание фигур",
+    "encryption": "Шифровка",
+    "labyrinths": "Лабиринты",
+    "maxPointsOverflow": "Максимальное значение по субтесту: {{maxValue}}"
+}

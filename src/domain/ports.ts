@@ -1,8 +1,8 @@
+import { Student } from './entities';
 import { Period } from './entities/period';
 import {
     FileContent, FileName, FileType,
-    IConclusionDto, IDateDto, IPeriodDto,
-    IStudent, IStudentDto, StringifiedDateType,
+    IConclusionDto, IDateDto, IPeriodDto, IStudentDto, StringifiedDateType,
     TestConclusion, TestDate,
 } from './types';
 
@@ -53,8 +53,8 @@ export enum PeriodType {
 }
 
 export interface IStudentStorageService {
-    student: IStudent;
-    updateStudent: (student: IStudent) => void;
+    student: Student;
+    updateStudent: (student: Student) => void;
 }
 
 export interface IMetadataStorageService {

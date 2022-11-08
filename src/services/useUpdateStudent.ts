@@ -1,11 +1,11 @@
-import { Student } from '../domain/entities/student/student';
-import { StudentKey, updateStudentUseCase } from '../domain/use-cases';
+import { Student } from '@entities';
+import { updateStudentUseCase } from '../domain/use-cases';
 import { updateStudentBirthdateUseCase } from '../domain/use-cases/UpdateStudentBirthdate';
-import { useMetadataStorage, usePeriodStorage, useStudentStorage } from '../repository/storageAdapter';
+import { useMetadataStorage, usePeriodStorage, useStudentStorage } from './storageAdapter';
 
 export function useUpdateStudent() {
     const studentStorage = useStudentStorage();
-    return <T extends StudentKey>(property: T, value: Student[T]) =>
+    return <T extends keyof Student>(property: T, value: Student[T]) =>
         updateStudentUseCase(property, value, { studentStorage });
 }
 

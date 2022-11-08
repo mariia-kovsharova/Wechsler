@@ -1,22 +1,21 @@
+import { Student } from '@entities';
 import {
-    IStudentStorageService, IMetadataStorageService,
+    IDtoService, IMetadataStorageService, IPeriodDispatchingService,
     IPeriodStorageService, ISerializationService,
-    INotificationService, IDtoService,
-    IPeriodDispatchingService,
-} from '../ports';
+    IStudentStorageService,
+} from '@ports';
 import {
     IConclusionDto,
-    IDateDto, IPeriod, IPeriodDto, IStudent,
+    IDateDto, IPeriod, IPeriodDto,
     IStudentDto, TestConclusion, TestDate,
-} from '../types';
+} from '@types';
 
 export interface IImportUseCaseDependencies {
     studentStorage: IStudentStorageService;
     metadataStorage: IMetadataStorageService;
     periodStorage: IPeriodStorageService;
     serializationService: ISerializationService;
-    notificationService: INotificationService;
-    studentDtoService: IDtoService<IStudent, IStudentDto>,
+    studentDtoService: IDtoService<Student, IStudentDto>,
     periodDtoService: IDtoService<IPeriod, IPeriodDto>,
     dateDtoService: IDtoService<TestDate, IDateDto>,
     conclusionDtoService: IDtoService<TestConclusion, IConclusionDto>,
@@ -26,45 +25,39 @@ export interface IImportUseCaseDependencies {
 export const importUseCase = (fileContent: string, {
     studentStorage, metadataStorage,
     periodStorage, serializationService,
-    notificationService, studentDtoService,
-    periodDtoService, dateDtoService,
+    studentDtoService, periodDtoService, dateDtoService,
     conclusionDtoService, periodDispatchingService,
 }: IImportUseCaseDependencies): void => {
     const { updateStudent } = studentStorage;
     const { updateDate, updateConclusion } = metadataStorage;
     const { updatePeriod } = periodStorage;
 
-    try {
-        const {
-            student: studentDto,
-            period: periodDto,
-            date: dateDto,
-            conclusion: conclusionDto,
-        } = serializationService.deserialize(fileContent);
+    const {
+        student: studentDto,
+        period: periodDto,
+        date: dateDto,
+        conclusion: conclusionDto,
+    } = serializationService.deserialize(fileContent);
 
-        const student = studentDtoService.toEntity(studentDto);
+    const student = studentDtoService.toEntity(studentDto);
 
-        const date = dateDtoService.toEntity(dateDto);
-        const conclusion = conclusionDtoService.toEntity(conclusionDto);
+    const date = dateDtoService.toEntity(dateDto);
+    const conclusion = conclusionDtoService.toEntity(conclusionDto);
 
-        const period = periodDto ? periodDtoService.toEntity(periodDto) : null;
-        const mappedPeriod = periodDispatchingService.dispatch(period);
+    const period = periodDto ? periodDtoService.toEntity(periodDto) : null;
+    const mappedPeriod = periodDispatchingService.dispatch(period);
 
-        period?.verbalSubtests.map(subtest => {
-            mappedPeriod?.updateTestValue(subtest.name, subtest.rawPoints);
-        });
+    period?.verbalSubtests.map(subtest => {
+        mappedPeriod?.updateTestValue(subtest.name, subtest.rawPoints);
+    });
 
-        period?.inverbalSubtests.map(subtest => {
-            mappedPeriod?.updateTestValue(subtest.name, subtest.rawPoints);
-        });
+    period?.nonverbalSubtests.map(subtest => {
+        mappedPeriod?.updateTestValue(subtest.name, subtest.rawPoints);
+    });
 
-        updateStudent(student);
-        updateDate(date);
-        updateConclusion(conclusion);
-        updatePeriod(mappedPeriod);
-    } catch (e) {
-        // TODO: translate 
-        notificationService.notify('Something went wrong...');
-        throw e;
-    }
+    updateStudent(student);
+    updateDate(date);
+    updateConclusion(conclusion);
+    updatePeriod(mappedPeriod);
+
 };

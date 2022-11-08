@@ -1,6 +1,6 @@
-import { SubtestName } from '../domain/types';
+import { SubtestName } from '@types';
 import { updatePeriodSubtestUseCase } from '../domain/use-cases/UpdatePeriodSubtest';
-import { usePeriodStorage } from '../repository/storageAdapter';
+import { usePeriodStorage } from './storageAdapter';
 
 export function useUpdatePeriod() {
     const periodStorage = usePeriodStorage();

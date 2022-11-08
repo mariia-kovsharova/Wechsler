@@ -24,7 +24,7 @@ export class FiveYearsFromFourToSevenMonths extends Period {
         this.digits = new DigitsRepeatSubtest([3, 4, 5, 6, 8, 10, 11, 12, 14, 16, 18, 20, 20, 20, 20, 20, 20, 20]);
     }
 
-    protected initInverbalSubtests(): void {
+    protected initNonverbalSubtests(): void {
         this.details = new DetailsSubtest([3, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16, 17, 18, 19, 20, 20, 20, 20, 20, 20, 20]);
         this.images = new ImagesSubtest([3, 5, 7, 8, 10, 11, 12, 12, 13, 13, 13, 14, 14, 14, 15, 15, 16, 16, 17, 17, 18, 18, 19, 19, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]);
         this.cubes = new CubesSubtest([5, 7, 8, 9, 10, 12, 13, 14, 14, 14, 15, 15, 15, 16, 16, 16, 16, 17, 17, 18, 18, 18, 19, 19, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]);

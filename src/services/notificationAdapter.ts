@@ -1,4 +1,4 @@
-import { INotificationService } from '../domain/ports';
+import { INotificationService } from '@ports';
 
 export const useNotificationService = (): INotificationService => {
     return {

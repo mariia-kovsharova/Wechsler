@@ -1,4 +1,4 @@
-import { ISerializationService, ISerializeParams, SerializeParams } from '../domain/ports';
+import { ISerializationService, ISerializeParams, SerializeParams } from '@ports';
 import { instanceToPlain, plainToClass } from 'class-transformer';
 
 export const useSerializationService = (): ISerializationService => {
