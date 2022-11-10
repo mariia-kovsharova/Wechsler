@@ -1,4 +1,4 @@
-import { useStudentStorage, useUpdateStudent, useUpdateStudentBirthdate } from '@adapters';
+import { useDateTransformService, useStudentStorage, useUpdateStudent, useUpdateStudentBirthdate } from '@adapters';
 import { Student } from '@entities';
 import {
     FormControl, FormControlLabel, FormLabel,
@@ -7,8 +7,7 @@ import {
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { StudentGender, StudentName } from '@types';
-import { format } from 'date-fns';
-import dayjs, { Dayjs } from 'dayjs';
+import { Dayjs } from 'dayjs';
 import 'dayjs/locale/ru';
 import React, { ChangeEvent } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -21,6 +20,7 @@ const RU = 'ru';
 export const StudentSection = (): JSX.Element => {
     const { t } = useTranslation();
     const { student } = useStudentStorage();
+    const dateService = useDateTransformService();
 
     const updateStudent = useUpdateStudent();
     const updateStudentBirthdate = useUpdateStudentBirthdate();
@@ -31,14 +31,18 @@ export const StudentSection = (): JSX.Element => {
     const femaleLabelShort = t('student.gender.female-short');
     const maleLabelShort = t('student.gender.male-short');
 
-    const propertyHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    const propertyHandler = (event: ChangeEvent<HTMLInputElement>): void => {
         const property = (event.target.id || event.target.name) as keyof Exclude<Student, 'name' | 'gender'>;
         const value = event.target.value as StudentName | StudentGender ;
         updateStudent(property, value);
     };
     
-    const birthdayHandler = (newValue: Dayjs | null) => {
-        updateStudentBirthdate(newValue?.toDate());
+    const birthdayHandler = (newValue: Dayjs | null): void => {
+        if (!newValue) {
+            return;
+        }
+
+        updateStudentBirthdate(dateService.toDate(newValue));
     };
 
     const { name, birthDate, gender } = student;
@@ -104,7 +108,7 @@ export const StudentSection = (): JSX.Element => {
                 <React.Fragment>
                     {
                         birthDate 
-                        && <div>{ t('student.birthdate') }: { format(birthDate, Masks.FormatDate) }</div>
+                        && <div>{ t('student.birthdate') }: { dateService.toLocaleString(birthDate) }</div>
                     }
                 </React.Fragment> 
             </PrintTemplate>

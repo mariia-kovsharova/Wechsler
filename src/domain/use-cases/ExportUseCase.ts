@@ -1,15 +1,25 @@
 import { Student } from '@entities';
 import {
     IDateTransformService,
-    IDtoService, IFileService,
-    IMetadataStorageService, INotificationService,
-    IPeriodStorageService, ISerializationService, IStudentStorageService
-} from '../ports';
+    IDtoService,
+    IFileService,
+    IMetadataStorageService,
+    INotificationService,
+    IPeriodStorageService,
+    ISerializationService,
+    IStudentStorageService,
+} from '@ports';
 import {
-    FileContent, FileName, IConclusionDto,
-    IDateDto, IPeriod, IPeriodDto,
-    IStudentDto, TestConclusion, TestDate
-} from '../types';
+    FileContent,
+    FileName,
+    IConclusionDto,
+    IDateDto,
+    IPeriod,
+    IPeriodDto,
+    IStudentDto,
+    TestConclusion,
+    TestDate,
+} from '@types';
 
 export interface IExportUseCaseDependencies {
     studentStorage: IStudentStorageService;
@@ -19,18 +29,23 @@ export interface IExportUseCaseDependencies {
     fileService: IFileService;
     notificationService: INotificationService;
     dateTransformService: IDateTransformService;
-    studentDtoService: IDtoService<Student, IStudentDto>,
-    periodDtoService: IDtoService<IPeriod, IPeriodDto>,
-    dateDtoService: IDtoService<TestDate, IDateDto>,
-    conclusionDtoService: IDtoService<TestConclusion, IConclusionDto>,
+    studentDtoService: IDtoService<Student, IStudentDto>;
+    periodDtoService: IDtoService<IPeriod, IPeriodDto>;
+    dateDtoService: IDtoService<TestDate, IDateDto>;
+    conclusionDtoService: IDtoService<TestConclusion, IConclusionDto>;
 }
 
 export const exportUseCase = ({
-    studentStorage, metadataStorage,
-    periodStorage, serializationService,
-    fileService, notificationService,
-    dateTransformService, studentDtoService,
-    periodDtoService, dateDtoService,
+    studentStorage,
+    metadataStorage,
+    periodStorage,
+    serializationService,
+    fileService,
+    notificationService,
+    dateTransformService,
+    studentDtoService,
+    periodDtoService,
+    dateDtoService,
     conclusionDtoService,
 }: IExportUseCaseDependencies): void => {
     const { student } = studentStorage;
@@ -52,9 +67,12 @@ export const exportUseCase = ({
     try {
         const stringifiedDate = dateTransformService.toLocaleString(date);
         const fileName = `${stringifiedDate}_${student.name ?? ''}`;
-        fileService.exportFile(fileName as FileName, serializedData as FileContent);
+        fileService.exportFile(
+            fileName as FileName,
+            serializedData as FileContent,
+        );
     } catch (e) {
-        // TODO: translate 
+        // TODO: translate
         notificationService.notify('Something went wrong...');
         throw e;
     }

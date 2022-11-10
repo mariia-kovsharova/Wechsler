@@ -1,9 +1,16 @@
 import { Student } from './entities';
 import { Period } from './entities/period';
 import {
-    FileContent, FileName, FileType,
-    IConclusionDto, IDateDto, IPeriodDto, IStudentDto, StringifiedDateType,
-    TestConclusion, TestDate,
+    FileContent,
+    FileName,
+    FileType,
+    IConclusionDto,
+    IDateDto,
+    IPeriodDto,
+    IStudentDto,
+    StringifiedDateType,
+    TestConclusion,
+    TestDate,
 } from './types';
 
 export enum PeriodType {
@@ -82,7 +89,7 @@ export class SerializeParams implements ISerializeParams {
         public readonly student: IStudentDto,
         public readonly period: IPeriodDto | null,
         public readonly conclusion: IConclusionDto,
-    ) { }
+    ) {}
 }
 
 export interface ISerializationService {
@@ -99,8 +106,11 @@ export interface INotificationService {
 }
 
 export interface IDateTransformService {
-    toLocaleString: (date: Date) => string;
-    fromLocaleString: (from: StringifiedDateType) => Date;
+    toLocaleString: (date: Date, format?: string) => string;
+    fromLocaleString: (from: StringifiedDateType, format?: string) => Date;
+    toDate: (from: any) => Date;
+    isSameDate: (first: Date, second: Date) => boolean;
+    getDiffInMonths: (first: Date, second: Date) => number;
 }
 
 export interface IDtoService<FromType, ToType> {

@@ -1,4 +1,3 @@
-import { cloneDeep } from 'lodash-es';
 import { coerceToNumber, isNil } from '../../lib/utils';
 import { IPeriodStorageService } from '../ports';
 import { IPeriodSubtests } from '../types';
@@ -18,7 +17,6 @@ export const updatePeriodSubtestUseCase = (
         return;
     }
 
-    const periodCopy = cloneDeep(period);
-    periodCopy.updateTestValue(name, coerceToNumber(value));
-    updatePeriod(periodCopy);
+    period.updateTestValue(name, coerceToNumber(value));
+    updatePeriod(period);
 };
