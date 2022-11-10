@@ -8,6 +8,7 @@ import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { StudentGender, StudentName } from '@types';
 import { format } from 'date-fns';
+import dayjs, { Dayjs } from 'dayjs';
 import 'dayjs/locale/ru';
 import React, { ChangeEvent } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -34,6 +35,10 @@ export const StudentSection = (): JSX.Element => {
         const property = (event.target.id || event.target.name) as keyof Exclude<Student, 'name' | 'gender'>;
         const value = event.target.value as StudentName | StudentGender ;
         updateStudent(property, value);
+    };
+    
+    const birthdayHandler = (newValue: Dayjs | null) => {
+        updateStudentBirthdate(newValue?.toDate());
     };
 
     const { name, birthDate, gender } = student;
@@ -63,7 +68,7 @@ export const StudentSection = (): JSX.Element => {
                                 label={birthLabel}
                                 value={birthDate}
                                 mask={Masks.Date}
-                                onChange={updateStudentBirthdate}
+                                onChange={birthdayHandler}
                                 renderInput={(params: any) => <TextField {...params} />}
                             />
                         </LocalizationProvider>
