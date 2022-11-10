@@ -3,6 +3,7 @@ import { FormControl, TextField } from '@mui/material';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import 'dayjs/locale/ru';
+import dayjs, { Dayjs } from 'dayjs';
 import { useTranslation } from 'react-i18next';
 import { Masks } from '../../constants';
 
@@ -14,6 +15,10 @@ export const DateComponent = (): JSX.Element => {
     const update = useUpdateDate();
     
     const label = t('common.date');
+    
+    const dateHandler = (newValue: Dayjs | null) => {
+        update(newValue?.toDate());
+    };
 
     return (
         <FormControl component="fieldset">
@@ -22,7 +27,7 @@ export const DateComponent = (): JSX.Element => {
                 <DatePicker
                     label={label}
                     value={date}
-                    onChange={update}
+                    onChange={dateHandler}
                     mask={Masks.Date}
                     renderInput={(params) => <TextField {...params} />}
                 />
