@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/wexler/static/css/main.cb60df5c.css",
-    "main.js": "/wexler/static/js/main.883ac219.js",
+    "main.css": "/wexler/static/css/main.0cb0d3f6.css",
+    "main.js": "/wexler/static/js/main.80c60c66.js",
     "static/media/roboto-v29-latin_cyrillic-ext_cyrillic-500italic.ttf": "/wexler/static/media/roboto-v29-latin_cyrillic-ext_cyrillic-500italic.9bb60499a93b648c6252.ttf",
     "static/media/roboto-v29-latin_cyrillic-ext_cyrillic-italic.ttf": "/wexler/static/media/roboto-v29-latin_cyrillic-ext_cyrillic-italic.73ee203aa531e9fefe5f.ttf",
     "static/media/roboto-v29-latin_cyrillic-ext_cyrillic-700italic.ttf": "/wexler/static/media/roboto-v29-latin_cyrillic-ext_cyrillic-700italic.cb946d96b33248a1d118.ttf",
     "static/media/roboto-v29-latin_cyrillic-ext_cyrillic-500.ttf": "/wexler/static/media/roboto-v29-latin_cyrillic-ext_cyrillic-500.bb37868ffd1a3371a7fa.ttf",
     "static/media/roboto-v29-latin_cyrillic-ext_cyrillic-regular.ttf": "/wexler/static/media/roboto-v29-latin_cyrillic-ext_cyrillic-regular.ed7bedee0c2ea3d10800.ttf",
     "static/media/roboto-v29-latin_cyrillic-ext_cyrillic-700.ttf": "/wexler/static/media/roboto-v29-latin_cyrillic-ext_cyrillic-700.e65eef426f673ca9a7cb.ttf",
-    "static/media/roboto-v29-latin_cyrillic-ext_cyrillic-italic.svg": "/wexler/static/media/roboto-v29-latin_cyrillic-ext_cyrillic-italic.6580d590ceb1d8eb9f14.svg",
-    "static/media/roboto-v29-latin_cyrillic-ext_cyrillic-500italic.svg": "/wexler/static/media/roboto-v29-latin_cyrillic-ext_cyrillic-500italic.6cb3e236ae47976bfdff.svg",
-    "static/media/roboto-v29-latin_cyrillic-ext_cyrillic-700italic.svg": "/wexler/static/media/roboto-v29-latin_cyrillic-ext_cyrillic-700italic.363b8fe51753db81fe70.svg",
-    "static/media/roboto-v29-latin_cyrillic-ext_cyrillic-700.svg": "/wexler/static/media/roboto-v29-latin_cyrillic-ext_cyrillic-700.32f463535c0a507946f7.svg",
-    "static/media/roboto-v29-latin_cyrillic-ext_cyrillic-regular.svg": "/wexler/static/media/roboto-v29-latin_cyrillic-ext_cyrillic-regular.1b1af1e4b3a278058097.svg",
-    "static/media/roboto-v29-latin_cyrillic-ext_cyrillic-500.svg": "/wexler/static/media/roboto-v29-latin_cyrillic-ext_cyrillic-500.29ec91e5b4e3ec4c3200.svg",
+    "static/media/roboto-v29-latin_cyrillic-ext_cyrillic-italic.svg": "/wexler/static/media/roboto-v29-latin_cyrillic-ext_cyrillic-italic.5b35ce29664d4b37d611.svg",
+    "static/media/roboto-v29-latin_cyrillic-ext_cyrillic-500italic.svg": "/wexler/static/media/roboto-v29-latin_cyrillic-ext_cyrillic-500italic.8dc5508832c2cd3a24a5.svg",
+    "static/media/roboto-v29-latin_cyrillic-ext_cyrillic-700italic.svg": "/wexler/static/media/roboto-v29-latin_cyrillic-ext_cyrillic-700italic.ea7a3036ad9539366729.svg",
+    "static/media/roboto-v29-latin_cyrillic-ext_cyrillic-700.svg": "/wexler/static/media/roboto-v29-latin_cyrillic-ext_cyrillic-700.9cc0e6124996a8989420.svg",
+    "static/media/roboto-v29-latin_cyrillic-ext_cyrillic-regular.svg": "/wexler/static/media/roboto-v29-latin_cyrillic-ext_cyrillic-regular.4f862c8ba4ed785461ee.svg",
+    "static/media/roboto-v29-latin_cyrillic-ext_cyrillic-500.svg": "/wexler/static/media/roboto-v29-latin_cyrillic-ext_cyrillic-500.9024e4c16d0f988f4848.svg",
     "static/media/roboto-v29-latin_cyrillic-ext_cyrillic-500italic.woff": "/wexler/static/media/roboto-v29-latin_cyrillic-ext_cyrillic-500italic.ab4a754cb3c6739f6b4f.woff",
     "static/media/roboto-v29-latin_cyrillic-ext_cyrillic-700italic.woff": "/wexler/static/media/roboto-v29-latin_cyrillic-ext_cyrillic-700italic.2f65ff6fc8c2755748f2.woff",
     "static/media/roboto-v29-latin_cyrillic-ext_cyrillic-italic.woff": "/wexler/static/media/roboto-v29-latin_cyrillic-ext_cyrillic-italic.0de4b0c0fac109268af8.woff",
@@ -33,11 +33,11 @@
     "static/media/roboto-v29-latin_cyrillic-ext_cyrillic-700.woff2": "/wexler/static/media/roboto-v29-latin_cyrillic-ext_cyrillic-700.e2621c6da5251a34a338.woff2",
     "static/media/roboto-v29-latin_cyrillic-ext_cyrillic-regular.woff2": "/wexler/static/media/roboto-v29-latin_cyrillic-ext_cyrillic-regular.c7302514f88d5197f341.woff2",
     "index.html": "/wexler/index.html",
-    "main.cb60df5c.css.map": "/wexler/static/css/main.cb60df5c.css.map",
-    "main.883ac219.js.map": "/wexler/static/js/main.883ac219.js.map"
+    "main.0cb0d3f6.css.map": "/wexler/static/css/main.0cb0d3f6.css.map",
+    "main.80c60c66.js.map": "/wexler/static/js/main.80c60c66.js.map"
   },
   "entrypoints": [
-    "static/css/main.cb60df5c.css",
-    "static/js/main.883ac219.js"
+    "static/css/main.0cb0d3f6.css",
+    "static/js/main.80c60c66.js"
   ]
 }
