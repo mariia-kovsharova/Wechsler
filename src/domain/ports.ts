@@ -108,7 +108,7 @@ export interface INotificationService {
 export interface IDateTransformService {
     toLocaleString: (date: Date, format?: string) => string;
     fromLocaleString: (from: StringifiedDateType, format?: string) => Date;
-    toDate: (from: any) => Date;
+    toDate: (from: any | null) => Date | null;
     isSameDate: (first: Date, second: Date) => boolean;
     getDiffInMonths: (first: Date, second: Date) => number;
 }

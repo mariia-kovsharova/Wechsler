@@ -1,6 +1,6 @@
-import { coerceToNumber, isNil } from '../../lib/utils';
-import { IPeriodStorageService } from '../ports';
-import { IPeriodSubtests } from '../types';
+import { IPeriodStorageService } from '@ports';
+import { IPeriodSubtests } from '@types';
+import { coerceToNumber, deepCopy, isNil } from '../../lib/utils';
 
 export interface IUpdatePeriodUseCaseDependencies {
     periodStorage: IPeriodStorageService;
@@ -17,6 +17,8 @@ export const updatePeriodSubtestUseCase = (
         return;
     }
 
-    period.updateTestValue(name, coerceToNumber(value));
-    updatePeriod(period);
+    const updatedPeriod = deepCopy(period);
+    updatedPeriod.updateTestValue(name, coerceToNumber(value));
+
+    updatePeriod(updatedPeriod);
 };

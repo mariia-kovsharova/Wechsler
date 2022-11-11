@@ -1,11 +1,12 @@
-import { periodFactory } from '../../lib/periodFactory';
 import {
     IDateTransformService,
     IMetadataStorageService,
     IPeriodStorageService,
     IStudentStorageService,
-} from '../ports';
-import { StudentDate } from '../types';
+} from '@ports';
+import { StudentDate } from '@types';
+import { deepCopy } from '../../lib';
+import { periodFactory } from '../../lib/periodFactory';
 
 export interface IUpdateStudentBirhtdateUseCaseDependencies {
     studentStorage: IStudentStorageService;
@@ -32,9 +33,10 @@ export const updateStudentBirthdateUseCase = (
         return;
     }
 
-    student.birthDate = birthdate ? (birthdate as StudentDate) : null;
+    const updatedStudent = deepCopy(student);
+    updatedStudent.birthDate = birthdate ? (birthdate as StudentDate) : null;
 
-    updateStudent(student);
+    updateStudent(updatedStudent);
 
     if (birthdate && date) {
         const period = periodFactory(

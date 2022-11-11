@@ -1,5 +1,6 @@
-import { Student } from '../entities/student/student';
-import { IStudentStorageService } from '../ports';
+import { Student } from '@entities';
+import { IStudentStorageService } from '@ports';
+import { deepCopy } from '../../lib';
 
 export interface IUpdateStudentUseCaseDependencies {
     studentStorage: IStudentStorageService;
@@ -11,7 +12,9 @@ export const updateStudentUseCase = <T extends keyof Student>(
     deps: IUpdateStudentUseCaseDependencies,
 ): void => {
     const { student, updateStudent } = deps.studentStorage;
-    student[property] = value;
 
-    updateStudent(student);
+    const updatedStudent = deepCopy(student);
+    updatedStudent[property] = value;
+
+    updateStudent(updatedStudent);
 };

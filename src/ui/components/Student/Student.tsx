@@ -5,10 +5,9 @@ import {
     Radio, RadioGroup, TextField
 } from '@mui/material';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { AdapterLuxon } from '@mui/x-date-pickers/AdapterLuxon';
 import { StudentGender, StudentName } from '@types';
-import { Dayjs } from 'dayjs';
-import 'dayjs/locale/ru';
+import { DateTime } from 'luxon';
 import React, { ChangeEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Masks } from '../../constants';
@@ -32,16 +31,15 @@ export const StudentSection = (): JSX.Element => {
     const maleLabelShort = t('student.gender.male-short');
 
     const propertyHandler = (event: ChangeEvent<HTMLInputElement>): void => {
+        console.log(event);
+        
         const property = (event.target.id || event.target.name) as keyof Exclude<Student, 'name' | 'gender'>;
         const value = event.target.value as StudentName | StudentGender ;
         updateStudent(property, value);
     };
     
-    const birthdayHandler = (newValue: Dayjs | null): void => {
-        if (!newValue) {
-            return;
-        }
-
+    const birthdayHandler = (newValue: DateTime | null): void => {
+        console.log(newValue);        
         updateStudentBirthdate(dateService.toDate(newValue));
     };
 
@@ -66,7 +64,7 @@ export const StudentSection = (): JSX.Element => {
                 </div>
                 <div className="student-container__row">
                     <FormControl component="fieldset" className={FIELD_CSS_CLASS}>
-                        <LocalizationProvider dateAdapter={AdapterDayjs}
+                        <LocalizationProvider dateAdapter={AdapterLuxon}
                             adapterLocale={RU}>
                             <DatePicker
                                 label={birthLabel}

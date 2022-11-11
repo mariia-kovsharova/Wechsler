@@ -1,9 +1,8 @@
 import { useDateTransformService, useMetadataStorage, useUpdateDate } from '@adapters';
 import { FormControl, TextField } from '@mui/material';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { Dayjs } from 'dayjs';
-import 'dayjs/locale/ru';
+import { AdapterLuxon } from '@mui/x-date-pickers/AdapterLuxon';
+import { DateTime } from 'luxon';
 import { useTranslation } from 'react-i18next';
 import { Masks } from '../../constants';
 
@@ -17,13 +16,13 @@ export const DateComponent = (): JSX.Element => {
     
     const label = t('common.date');
     
-    const dateHandler = (newValue: Dayjs | null): void => {
+    const dateHandler = (newValue: DateTime | null): void => {
         update(newValue ? dateService.toDate(newValue) : null);
     };
 
     return (
         <FormControl component="fieldset">
-            <LocalizationProvider dateAdapter={AdapterDayjs}
+            <LocalizationProvider dateAdapter={AdapterLuxon}
                 adapterLocale={RU}>
                 <DatePicker
                     label={label}

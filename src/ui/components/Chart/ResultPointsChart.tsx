@@ -4,6 +4,7 @@ import {
     Line, LineChart, ResponsiveContainer,
     XAxis, YAxis
 } from 'recharts';
+import { AxisDomain } from 'recharts/types/util/types';
 import { IChartData } from './contracts';
 
 type ResultPointsChartProps = {
@@ -29,7 +30,7 @@ export const ResultPointsChart = (props: ResultPointsChartProps): JSX.Element =>
     const scale = t('chart.scalePoints');
     const normal = t('chart.normalPoints');
 
-    const domain = [MIN_Y_AXIS_VALUE, MAX_Y_AXIS_VALUE];
+    const domain = [MIN_Y_AXIS_VALUE, MAX_Y_AXIS_VALUE] as AxisDomain;
 
     return (     
         <ResponsiveContainer width="99%" height="99%">
