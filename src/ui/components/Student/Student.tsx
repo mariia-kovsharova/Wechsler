@@ -30,16 +30,13 @@ export const StudentSection = (): JSX.Element => {
     const femaleLabelShort = t('student.gender.female-short');
     const maleLabelShort = t('student.gender.male-short');
 
-    const propertyHandler = (event: ChangeEvent<HTMLInputElement>): void => {
-        console.log(event);
-        
+    const propertyHandler = (event: ChangeEvent<HTMLInputElement>): void => {        
         const property = (event.target.id || event.target.name) as keyof Exclude<Student, 'name' | 'gender'>;
         const value = event.target.value as StudentName | StudentGender ;
         updateStudent(property, value);
     };
     
-    const birthdayHandler = (newValue: DateTime | null): void => {
-        console.log(newValue);        
+    const birthdayHandler = (newValue: DateTime | null): void => {      
         updateStudentBirthdate(dateService.toDate(newValue));
     };
 
