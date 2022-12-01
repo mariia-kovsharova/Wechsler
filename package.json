@@ -1,8 +1,8 @@
 {
-  "name": "wexler",
+  "name": "Wechsler",
   "version": "0.1.2",
   "private": false,
-  "homepage": "https://fiorsaoirse.github.io/wexler/",
+  "homepage": "https://fiorsaoirse.github.io/Wechsler/",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
