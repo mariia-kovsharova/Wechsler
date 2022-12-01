@@ -1,14 +1,14 @@
 import { PeriodType } from '@ports';
 import {
     IPeriod, IPeriodSubtests, IResultIQPoints,
-    IResultPoints, ISubtest, NonverbalSubtestGroup, VerbalSubtestGroup,
+    IResultPoints, ISubtest, NonverbalSubtestGroup, VerbalSubtestGroup
 } from '@types';
 import { isNil } from '@utils';
 import {
     ArithmeticSubtest, AwarenessSubtest, ComprehensibilitySubtest,
     CubesSubtest, DetailsSubtest, DigitsRepeatSubtest,
     EncryptionSubtest, FiguresSubtest, ImagesSubtest,
-    LabyrinthsSubtest, LexicalSubtest, SimilaritySubtest,
+    LabyrinthsSubtest, LexicalSubtest, SimilaritySubtest
 } from '../subtests';
 
 const MINIMAL_COUNT_OF_TESTS_IN_GROUP = 4;
@@ -68,7 +68,7 @@ const ALL_IQ_POINTS = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 46, 47, 48, 48, 49, 50, 51,
     51, 52, 53, 54, 54, 55, 56, 56, 57, 58, 59, 59, 60,
-    61, 62, 62, 63, 64, 64, 65, 66, 67, 67, 58, 69, 70,
+    61, 62, 62, 63, 64, 64, 65, 66, 67, 67, 68, 69, 70,
     70, 71, 71, 72, 73, 74, 75, 75, 76, 77, 77, 78, 79,
     80, 80, 81, 82, 83, 83, 84, 85, 85, 86, 87, 88, 88,
     89, 90, 91, 91, 92, 93, 93, 94, 95, 96, 96, 97, 98,
