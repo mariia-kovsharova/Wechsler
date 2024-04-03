@@ -4,20 +4,23 @@ import { HeaderButtons } from './ui/components/HeaderButtons';
 import { HeaderDetails } from './ui/components/HeaderDetails';
 import { StudentSection } from './ui/components/Student';
 import { TabsSection } from './ui/components/Tabs';
+import { LocaleProvider, LocaleToggle } from './ui/components/Locale';
 
 function App(): JSX.Element {
-
     return (
-        <Container maxWidth="md">
-            <header>
-                <HeaderButtons/>
-                <HeaderDetails/>
-            </header>
-            <main>
-                <StudentSection></StudentSection>
-                <TabsSection></TabsSection>
-            </main>
-        </Container>
+        <LocaleProvider>
+            <Container maxWidth="md">
+                <header>
+                    <LocaleToggle />
+                    <HeaderButtons />
+                    <HeaderDetails />
+                </header>
+                <main>
+                    <StudentSection></StudentSection>
+                    <TabsSection></TabsSection>
+                </main>
+            </Container>
+        </LocaleProvider>
     );
 }
 
