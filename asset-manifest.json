@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Wechsler/static/css/main.fc7e66f2.css",
-    "main.js": "/Wechsler/static/js/main.8399ab49.js",
+    "main.js": "/Wechsler/static/js/main.8b7bcd09.js",
     "static/media/roboto-v29-latin_cyrillic-ext_cyrillic-500italic.ttf": "/Wechsler/static/media/roboto-v29-latin_cyrillic-ext_cyrillic-500italic.9bb60499a93b648c6252.ttf",
     "static/media/roboto-v29-latin_cyrillic-ext_cyrillic-italic.ttf": "/Wechsler/static/media/roboto-v29-latin_cyrillic-ext_cyrillic-italic.73ee203aa531e9fefe5f.ttf",
     "static/media/roboto-v29-latin_cyrillic-ext_cyrillic-700italic.ttf": "/Wechsler/static/media/roboto-v29-latin_cyrillic-ext_cyrillic-700italic.cb946d96b33248a1d118.ttf",
@@ -34,10 +34,10 @@
     "static/media/roboto-v29-latin_cyrillic-ext_cyrillic-regular.woff2": "/Wechsler/static/media/roboto-v29-latin_cyrillic-ext_cyrillic-regular.c7302514f88d5197f341.woff2",
     "index.html": "/Wechsler/index.html",
     "main.fc7e66f2.css.map": "/Wechsler/static/css/main.fc7e66f2.css.map",
-    "main.8399ab49.js.map": "/Wechsler/static/js/main.8399ab49.js.map"
+    "main.8b7bcd09.js.map": "/Wechsler/static/js/main.8b7bcd09.js.map"
   },
   "entrypoints": [
     "static/css/main.fc7e66f2.css",
-    "static/js/main.8399ab49.js"
+    "static/js/main.8b7bcd09.js"
   ]
 }
