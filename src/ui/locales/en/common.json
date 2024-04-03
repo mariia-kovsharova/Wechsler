@@ -1,0 +1,39 @@
+{
+    "title": "Wechsler test (child version)",
+    "date": "Date of the test",
+    "tabs": {
+        "points": {
+            "title": "Points"
+        },
+        "results": {
+            "title": "Results",
+            "formTitle": "RESULTS FORM",
+            "scalePoints": "Scale Points",
+            "profile": "Intellectual profile",
+            "subtests": {
+                "verbal": "Verbal points summary",
+                "nonverbal": "Non verbal points summary",
+                "common": "Commom points",
+                "iq-verbal": "Verbal IQ points",
+                "iq-nonverbal": "Non verbal IQ points",
+                "iq-common": "Common IQ points"
+            },
+            "conclusion": "Conclusion",
+            "doc": "Psychologist _________________________"
+        }
+    },
+    "warning": "Age category not selected or not suitable!",
+    "buttons": {
+        "save": "Save",
+        "upload": "Upload",
+        "calculate": "Calculate",
+        "print": "Print"
+    },
+    "upload": {
+        "error": "There was an error during uploading file"
+    },
+    "locales": {
+        "RU": "Рус",
+        "EN": "Eng"
+    }
+}

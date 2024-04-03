@@ -1,0 +1,24 @@
+{
+    "table": {
+        "header": {
+            "name": "Test name",
+            "points": "Points",
+            "verbal": "Verbal subtests",
+            "nonverbal": "Nonverbal subtests",
+            "scaledPoints": "Sc. points"
+        }
+    },
+    "awareness": "Awareness",
+    "comprehensibility": "Comprehensibility",
+    "arithmetic": "Arithmetic",
+    "lexical": "Lexical",
+    "similarity": "Similarity",
+    "digits": "Numbers repetition",
+    "details": "Missing parts",
+    "images": "Sequential pictures",
+    "cubes": "Kohs Block Design",
+    "figures": "Folding figures",
+    "encryption": "Encryption",
+    "labyrinths": "Labyrinths",
+    "maxPointsOverflow": "The max value for the subtests: {{maxValue}}"
+}

@@ -1,0 +1,57 @@
+{
+    "five-years": {
+        "from-zero-to-three": "5 years 0 months - 5 years 3 months",
+        "from-four-to-seven": "5 years 4 months - 5 years 7 months",
+        "from-eight-to-eleven": "5 years 8 months - 5 years 11 months"
+    },
+    "six-years": {
+        "from-zero-to-three": "6 years 0 months - 6 years 3 months",
+        "from-four-to-seven": "6 years 4 months - 6 years 7 months",
+        "from-eight-to-eleven": "6 years 8 months - 6 years 11 months"
+    },
+    "seven-years": {
+        "from-zero-to-three": "7 years 0 months - 7 years 3 months",
+        "from-four-to-seven": "7 years 4 months - 7 years 7 months",
+        "from-eight-to-eleven": "7 years 8 months - 7 years 11 months"
+    },
+    "eight-years": {
+        "from-zero-to-three": "8 years 0 months - 8 years 3 months",
+        "from-four-to-seven": "8 years 4 months - 8 years 7 months",
+        "from-eight-to-eleven": "8 years 8 months - 8 years 11 months"
+    },
+    "nine-years": {
+        "from-zero-to-three": "9 years 0 months - 9 years 3 months",
+        "from-four-to-seven": "9 years 4 months - 9 years 7 months",
+        "from-eight-to-eleven": "9 years 8 months - 9 years 11 months"
+    },
+    "ten-years": {
+        "from-zero-to-three": "10 years 0 months - 10 years 3 months",
+        "from-four-to-seven": "10 years 4 months - 10 years 7 months",
+        "from-eight-to-eleven": "10 years 8 months - 10 years 11 months"
+    },
+    "eleven-years": {
+        "from-zero-to-three": "11 years 0 months - 11 years 3 months",
+        "from-four-to-seven": "11 years 4 months - 11 years 7 months",
+        "from-eight-to-eleven": "11 years 8 months - 11 years 11 months"
+    },
+    "twelve-years": {
+        "from-zero-to-three": "12 years 0 months - 12 years 3 months",
+        "from-four-to-seven": "12 years 4 months - 12 years 7 months",
+        "from-eight-to-eleven": "12 years 8 months - 12 years 11 months"
+    },
+    "thirteen-years": {
+        "from-zero-to-three": "13 years 0 months - 13 years 3 months",
+        "from-four-to-seven": "13 years 4 months - 13 years 7 months",
+        "from-eight-to-eleven": "13 years 8 months - 13 years 11 months"
+    },
+    "fourteen-years": {
+        "from-zero-to-three": "14 years 0 months - 14 years 3 months",
+        "from-four-to-seven": "14 years 4 months - 14 years 7 months",
+        "from-eight-to-eleven": "14 years 8 months - 14 years 11 months"
+    },
+    "fifteen-years": {
+        "from-zero-to-three": "15 years 0 months - 15 years 3 months",
+        "from-four-to-seven": "15 years 4 months - 15 years 7 months",
+        "from-eight-to-eleven": "15 years 8 months - 15 years 11 months"
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "fio": "Student name",
+    "birthdate": "Student birthdate",
+    "gender": {
+        "title": "Gender",
+        "male": "Male",
+        "female": "Female",
+        "male-short": "m",
+        "female-short": "f"
+    },
+    "period": "Age category"
+}
