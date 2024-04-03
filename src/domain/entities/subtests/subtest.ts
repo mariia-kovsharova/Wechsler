@@ -51,7 +51,7 @@ export abstract class Subtest implements ISubtest {
     }
 
     public get isInvalid(): boolean {
-        return !isNil(this.rawPoints) && isNil(this.values[this.rawPoints]);
+        return !isNil(this.rawPoints) && isNil(this.values[this.rawPoints - 1]);
     }
 
     public get isEmpty(): boolean {
