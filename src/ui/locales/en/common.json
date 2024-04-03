@@ -13,7 +13,7 @@
             "subtests": {
                 "verbal": "Verbal points summary",
                 "nonverbal": "Non verbal points summary",
-                "common": "Commom points",
+                "common": "Common points",
                 "iq-verbal": "Verbal IQ points",
                 "iq-nonverbal": "Non verbal IQ points",
                 "iq-common": "Common IQ points"
