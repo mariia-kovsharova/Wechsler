@@ -40,7 +40,7 @@ export abstract class Subtest implements ISubtest {
         if (isNil(this.rawPoints)) {
             return null;
         }
-        return this.values[this.rawPoints] ?? null;
+        return this.values[this.rawPoints - 1] ?? null;
     }
 
     public get normalPoints(): number | null {
